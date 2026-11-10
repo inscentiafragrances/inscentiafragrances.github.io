@@ -6,6 +6,7 @@
 <title>Inscentia Fragrances</title>
 <meta name="description" content="Inscentia Fragrances : les parfums Ibraheem Al Qurashi à Casablanca. Collections Diamond et Tobacco, maison fondée à La Mecque en 1929.">
 <meta name="author" content="Rayane Gourja">
+<meta name="color-scheme" content="only light">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F2EFF3">
@@ -37,16 +38,16 @@ img{max-width:100%}
   --line:#DCD5DE;
   --accent:#86643F;
   --on-ink:#FBFAFB;
-  --smoke:72,56,84;
+  --smoke:186,148,98;
   --studio:#FFFFFF;
-  color-scheme:light;
+  color-scheme:only light;
   --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
   --f-arabic:"Amiri","Geeza Pro","Times New Roman",serif;
   --wrap:1240px;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1100px 620px at 88% -8%,rgba(214,176,118,.18),rgba(214,176,118,0) 62%),radial-gradient(900px 560px at -12% 34%,rgba(176,152,204,.12),rgba(176,152,204,0) 60%),linear-gradient(180deg,#F7F4F8 0%,var(--bg) 46%,#F4EFEC 100%);background-color:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -704,7 +705,7 @@ renderSel();
   function draw(){
     ctx.clearRect(0,0,w,h);
     for (const p of parts){
-      const a = Math.sin(Math.PI * (p.life/p.max)) * .075;
+      const a = Math.sin(Math.PI * (p.life/p.max)) * .05;
       const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
       g.addColorStop(0, `rgba(${rgb},${a})`); g.addColorStop(1, `rgba(${rgb},0)`);
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill();
@@ -720,7 +721,6 @@ renderSel();
   if ("IntersectionObserver" in window) new IntersectionObserver(es => { inView = es[0].isIntersecting; inView ? start() : stop(); }).observe(cv);
   document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
   const recolor = () => { readColor(); draw(); };
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", recolor);
   new MutationObserver(recolor).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
   reduce.addEventListener?.("change", () => reduce.matches ? stop() : start());
 })();
