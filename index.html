@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -7,9 +7,10 @@
 <meta name="description" content="Inscentia Fragrances : les parfums Ibraheem Al Qurashi à Casablanca. Collections Diamond et Tobacco, maison fondée à La Mecque en 1929.">
 <meta name="author" content="Rayane Gourja">
 <meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#F2EFF3">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#F2EFF3">
+<link rel="alternate" hreflang="fr" href="https://inscentiafragrances.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Inscentia Fragrances">
 <meta property="og:title" content="Inscentia Fragrances">
@@ -27,9 +28,9 @@ img{max-width:100%}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300..600&family=Amiri&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300..600&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap">
 <style>
-/* Layout: incense-smoke hero with the wordmark → a colour spectrum of the 15 fragrances → Diamond as a jewel-case grid of cut gems → Tobacco as origin rows → the house since 1929 → selection & order */
+/* Layout: incense-smoke hero with the wordmark → a colour spectrum of the 15 fragrances → Diamond grid → Tobacco origin rows → the house since 1929 → selection & order. Light by default; dark and FR/EN/AR are the visitor's choice. */
 :root{
   --bg:#F2EFF3;
   --surface:#FBFAFB;
@@ -40,14 +41,29 @@ img{max-width:100%}
   --on-ink:#FBFAFB;
   --smoke:186,148,98;
   --studio:#FFFFFF;
+  --bg-top:#F7F4F8;
+  --bg-bot:#F4EFEC;
+  --halo1:rgba(214,176,118,.18);
+  --halo2:rgba(176,152,204,.12);
   color-scheme:only light;
+  --f-brand:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
   --f-arabic:"Amiri","Geeza Pro","Times New Roman",serif;
   --wrap:1240px;
 }
+:root[data-mode="dark"]{
+  --bg:#131015; --surface:#1C181F; --ink:#EEE8F0; --muted:#A99FAD; --line:#342D38; --accent:#D2AE7A; --on-ink:#131015;
+  --smoke:214,186,140; --studio:#DAD4DD; --bg-top:#18141B; --bg-bot:#100D13;
+  --halo1:rgba(210,174,122,.10); --halo2:rgba(130,108,170,.10);
+  color-scheme:dark;
+}
+html[lang="ar"]{
+  --f-display:"Amiri","Geeza Pro","Times New Roman",serif;
+  --f-body:"IBM Plex Sans Arabic","Geeza Pro","Segoe UI",Tahoma,sans-serif;
+}
 *{box-sizing:border-box}
-body{background:radial-gradient(1100px 620px at 88% -8%,rgba(214,176,118,.18),rgba(214,176,118,0) 62%),radial-gradient(900px 560px at -12% 34%,rgba(176,152,204,.12),rgba(176,152,204,0) 60%),linear-gradient(180deg,#F7F4F8 0%,var(--bg) 46%,#F4EFEC 100%);background-color:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1100px 620px at 88% -8%,var(--halo1),transparent 62%),radial-gradient(900px 560px at -12% 34%,var(--halo2),transparent 60%),linear-gradient(180deg,var(--bg-top) 0%,var(--bg) 46%,var(--bg-bot) 100%);background-color:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
 a{color:inherit}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -68,16 +84,33 @@ p{margin:0}
 
 /* Header */
 .top-in{display:flex;align-items:center;gap:14px;padding-block:20px}
-.brand{display:inline-flex;align-items:baseline;gap:10px;font-family:var(--f-display);font-style:italic;font-size:1.55rem;text-decoration:none;line-height:1}
-.brand-sub{font-family:var(--f-body);font-style:normal;font-size:.6rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.brand{display:inline-flex;align-items:baseline;gap:10px;font-family:var(--f-brand);font-style:italic;font-size:1.55rem;text-decoration:none;line-height:1}
+.brand-sub{font-family:"Jost","Futura","Helvetica Neue",Arial,sans-serif;font-style:normal;font-size:.6rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
 @media (max-width:479px){ .brand-sub{display:none} }
-.beta{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line);color:var(--muted);padding:3px 8px 2px}
-.nav{margin-left:auto;display:flex;align-items:center;gap:28px}
+.beta{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line);color:var(--muted);padding:3px 8px 2px;white-space:nowrap}
+@media (max-width:389px){ .beta{display:none} }
+.nav{margin-inline-start:auto;display:flex;align-items:center;gap:28px}
 .nav a{font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
 .nav a:hover{color:var(--ink)}
 .nav .sel-link{color:var(--ink);display:inline-flex;align-items:center;gap:8px}
 .badge{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--ink);color:var(--on-ink);font-size:.68rem;letter-spacing:0;font-variant-numeric:tabular-nums}
-@media (max-width:699px){ .nav a:not(.sel-link){display:none} }
+.tools{display:inline-flex;align-items:center;gap:10px}
+.langs{display:inline-flex;border:1px solid var(--line)}
+.langs button{border:0;background:transparent;min-width:30px;height:30px;padding:0 7px;font-size:.66rem;font-weight:500;letter-spacing:.1em;color:var(--muted);cursor:pointer;transition:background .2s,color .2s}
+.langs button:hover{color:var(--ink)}
+.langs button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.langs button[lang="ar"]{font-family:var(--f-arabic);font-size:1rem;letter-spacing:0;line-height:1}
+.mode{display:inline-grid;place-items:center;width:32px;height:32px;padding:0;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:border-color .2s}
+.mode:hover{border-color:var(--ink)}
+.mode svg{width:16px;height:16px;display:block}
+.mode .i-sun{display:none}
+:root[data-mode="dark"] .mode .i-sun{display:block}
+:root[data-mode="dark"] .mode .i-moon{display:none}
+@media (max-width:699px){
+  .nav{gap:10px}
+  .nav > a:not(.sel-link){display:none}
+}
+@media (max-width:479px){ .sel-txt{display:none} }
 
 /* Hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -88,8 +121,8 @@ p{margin:0}
 .hero-fig img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1000/975;object-fit:cover;border:1px solid var(--line)}
 .hero-fig figcaption,.maison-fig figcaption{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .ar{font-family:var(--f-arabic);font-size:1.35rem;color:var(--muted);line-height:1.4}
-.word{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(4.25rem,17vw,12.5rem);line-height:.9;letter-spacing:-.025em;margin-left:-.04em}
-.word-sub{display:block;margin-top:.55em;margin-left:.3em;font-family:var(--f-body);font-style:normal;font-weight:400;font-size:clamp(.85rem,1.5vw,1.15rem);letter-spacing:.62em;text-transform:uppercase;color:var(--accent);line-height:1}
+.word{font-family:var(--f-brand);font-style:italic;font-weight:400;font-size:clamp(4.25rem,17vw,12.5rem);line-height:.9;letter-spacing:-.025em;margin-inline-start:-.04em}
+.word-sub{display:block;margin-top:.55em;margin-inline-start:.3em;font-family:"Jost","Futura","Helvetica Neue",Arial,sans-serif;font-style:normal;font-weight:400;font-size:clamp(.85rem,1.5vw,1.15rem);letter-spacing:.62em;text-transform:uppercase;color:var(--accent);line-height:1}
 .lead{max-width:38ch;font-size:clamp(1.05rem,1.6vw,1.22rem);font-weight:300;line-height:1.65}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
 @media (min-width:900px){
@@ -103,7 +136,7 @@ p{margin:0}
 .spec-bar button{flex:1 1 0;min-width:0;border:0;padding:0;cursor:pointer;background:var(--c);box-shadow:inset 0 0 0 1px rgba(127,127,127,.18);transition:flex-grow .45s cubic-bezier(.2,.7,.2,1)}
 .spec-bar button:hover,.spec-bar button:focus-visible{flex-grow:2.6}
 .spec-cap{display:flex;justify-content:space-between;gap:16px;margin-top:12px;font-size:.78rem;color:var(--muted);letter-spacing:.06em}
-.spec-cap #specName{font-family:var(--f-display);font-style:italic;font-size:1.05rem;color:var(--ink);letter-spacing:0}
+.spec-cap #specName{font-family:var(--f-brand);font-style:italic;font-size:1.05rem;color:var(--ink);letter-spacing:0}
 
 /* Collection */
 .collection .wrap{padding-block:clamp(56px,8vw,104px)}
@@ -118,34 +151,30 @@ p{margin:0}
 .group + .group{margin-top:clamp(64px,9vw,112px)}
 .group-head{display:grid;grid-template-columns:1fr;gap:8px 40px;align-items:end;padding-bottom:22px;margin-bottom:24px;border-bottom:1px solid var(--line)}
 @media (min-width:820px){ .group-head{grid-template-columns:auto minmax(0,1fr) auto} }
-.group-head h3{font-style:italic;font-size:clamp(2.2rem,4.5vw,3.4rem)}
+.group-head h3{font-family:var(--f-brand);font-style:italic;font-size:clamp(2.2rem,4.5vw,3.4rem)}
 .group-head .desc{color:var(--muted);max-width:52ch}
 .group-head .count{font-family:var(--f-display);font-size:1rem;color:var(--muted);font-variant-numeric:tabular-nums}
 
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (min-width:1080px){ .grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px} }
-.card{display:flex;flex-direction:column;text-align:left;padding:0;border:1px solid var(--line);background:var(--surface);cursor:pointer;min-width:0;transition:border-color .3s}
+.card{display:flex;flex-direction:column;text-align:start;padding:0;border:1px solid var(--line);background:var(--surface);cursor:pointer;min-width:0;transition:border-color .3s}
 .card:hover{border-color:var(--c)}
 .stage{position:relative;overflow:hidden;display:grid;place-items:center;aspect-ratio:4/5;max-width:100%;background:var(--surface);background:color-mix(in oklab, var(--c) 16%, var(--surface))}
 .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .card:hover .stage img{transform:scale(1.045)}
-.soon{position:absolute;left:12px;bottom:10px;font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.art{display:block;width:62%;height:auto;color:var(--ink);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.card:hover .art{transform:translateY(-6px) rotate(-3deg)}
+.soon{position:absolute;inset-inline-start:12px;bottom:10px;font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .c-body{display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px;flex:1}
 .c-meta{font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.c-name{font-family:var(--f-display);font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.12;text-wrap:balance}
+.c-name{font-family:var(--f-brand);font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.12;text-wrap:balance}
 .c-name i{display:block;font-size:.85em;color:var(--muted)}
 .c-notes{font-size:.82rem;color:var(--muted);line-height:1.45}
 .c-price{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
 .rows{list-style:none;margin:0;padding:0}
-.row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:6px 18px;align-items:center;width:100%;padding:18px 12px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;cursor:pointer;transition:background .3s}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:6px 18px;align-items:center;width:100%;padding:18px 12px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:start;cursor:pointer;transition:background .3s}
 .row:hover{background:color-mix(in oklab, var(--c) 12%, var(--bg))}
-.row .art{width:100%}
-.row:hover .art{transform:rotate(-8deg)}
 .r-title{display:flex;flex-direction:column;gap:2px;min-width:0}
-.r-origin{font-family:var(--f-display);font-style:italic;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.05}
+.r-origin{font-family:var(--f-brand);font-style:italic;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.05}
 .r-origin[dir="rtl"]{font-family:var(--f-arabic);font-style:normal}
 .r-name{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .r-notes{grid-column:2 / -1;color:var(--muted);font-size:.9rem;line-height:1.5;min-width:0}
@@ -162,14 +191,14 @@ p{margin:0}
 .maison-in{display:grid;grid-template-columns:1fr;gap:24px 72px;align-items:center;padding-block:clamp(56px,8vw,104px)}
 @media (min-width:820px){ .maison-in{grid-template-columns:auto minmax(0,1fr)} }
 .year{display:flex;flex-direction:column;gap:6px}
-.year b{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(5rem,15vw,10.5rem);line-height:.85;color:var(--accent);font-variant-numeric:lining-nums}
-.year span{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.year span i{font-family:var(--f-arabic);font-style:normal;font-size:1.15rem;letter-spacing:0;text-transform:none;margin-left:6px}
+.year b{font-family:var(--f-brand);font-style:italic;font-weight:400;font-size:clamp(5rem,15vw,10.5rem);line-height:.85;color:var(--accent);font-variant-numeric:lining-nums}
+.year > span{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.year i{font-family:var(--f-arabic);font-style:normal;font-size:1.15rem;letter-spacing:0;text-transform:none;margin-inline-start:6px}
 .maison-txt{display:flex;flex-direction:column;gap:16px;max-width:60ch}
 .maison-txt h2{font-size:clamp(2rem,4.2vw,3.1rem)}
 .maison-txt p:not(.eyebrow){font-weight:300;font-size:1.06rem;line-height:1.75}
 .signature{display:flex;flex-direction:column;gap:6px;margin-top:10px;padding-top:20px;border-top:1px solid var(--line);max-width:340px}
-.sig-name{font-family:var(--f-display);font-style:italic;font-size:clamp(1.9rem,3.2vw,2.4rem);line-height:1.05;color:var(--accent)}
+.sig-name{font-family:var(--f-brand);font-style:italic;font-size:clamp(1.9rem,3.2vw,2.4rem);line-height:1.05;color:var(--accent)}
 .sig-role{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .maison-fig{grid-column:1 / -1;margin:8px 0 0;display:flex;flex-direction:column;gap:12px;min-width:0}
 .maison-fig img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:2400/1250;object-fit:cover;border:1px solid var(--line)}
@@ -187,17 +216,18 @@ p{margin:0}
 .contact dd{margin:0;font-family:var(--f-display);font-size:1.15rem;min-width:0;overflow-wrap:anywhere}
 .contact dd a{text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .2s,color .2s}
 .contact dd a:hover{border-color:var(--accent);color:var(--accent)}
+.contact dd.ltr{font-family:var(--f-brand);direction:ltr;text-align:end}
 .f-ig{text-decoration:none;color:var(--ink)}
 .f-ig:hover{color:var(--accent)}
 .todo{color:var(--muted);font-style:italic}
-.todo::after{content:"à compléter";margin-left:10px;font-family:var(--f-body);font-style:normal;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;border:1px dashed var(--muted);padding:2px 6px;vertical-align:middle}
+.todo::after{content:attr(data-todo);margin-inline-start:10px;font-family:var(--f-body);font-style:normal;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;border:1px dashed var(--muted);padding:2px 6px;vertical-align:middle}
 
 .sel-box{border:1px solid var(--line);background:var(--surface);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:16px;min-width:0}
 .sel-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .sel-list li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
 .sel-list .dot{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(127,127,127,.25)}
-.sel-list .nm{font-family:var(--f-display);font-size:1.1rem}
-.sel-list .nm small{font-family:var(--f-body);font-size:.75rem;color:var(--muted);margin-left:8px}
+.sel-list .nm{font-family:var(--f-brand);font-size:1.1rem}
+.sel-list .nm small{font-family:var(--f-body);font-size:.75rem;color:var(--muted);margin-inline-start:8px}
 .rm{border:0;background:none;cursor:pointer;color:var(--muted);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:6px}
 .rm:hover{color:var(--ink)}
 .sel-empty{color:var(--muted);font-style:italic}
@@ -207,17 +237,16 @@ p{margin:0}
 #copyNote{font-size:.85rem;color:var(--muted)}
 
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px;border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);letter-spacing:.06em}
-footer .f-brand{font-family:var(--f-display);font-style:italic;font-size:1.1rem;color:var(--ink);letter-spacing:0}
+footer .f-brand{font-family:var(--f-brand);font-style:italic;font-size:1.1rem;color:var(--ink);letter-spacing:0}
 
 /* Product sheet */
 dialog{padding:0;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:min(940px, calc(100% - 32px));max-height:calc(100% - 48px);overflow:auto}
 dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
 .dlg-in{position:relative;display:grid;grid-template-columns:1fr}
 @media (min-width:760px){ .dlg-in{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)} }
-.close{position:absolute;top:10px;right:10px;z-index:2;width:40px;height:40px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:1.3rem;line-height:1}
+.close{position:absolute;top:10px;inset-inline-end:10px;z-index:2;width:40px;height:40px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:1.3rem;line-height:1}
 .close:hover{border-color:var(--ink)}
 .d-stage{display:grid;place-items:center;min-height:240px;padding:32px;background:var(--surface);background:color-mix(in oklab, var(--c) 18%, var(--surface))}
-.d-stage .art{width:min(70%,280px)}
 .d-stage.photo{display:block;padding:0;min-height:0}
 .d-stage.photo img{display:block;width:100%;height:100%;max-height:46vh;object-fit:cover;object-position:50% 35%}
 @media (min-width:760px){
@@ -225,7 +254,7 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
   .d-stage.photo img{position:absolute;inset:0;max-height:none}
 }
 .d-info{display:flex;flex-direction:column;gap:14px;padding:clamp(24px,4vw,40px)}
-.d-info h3{font-size:clamp(2rem,4vw,2.8rem);padding-right:40px}
+.d-info h3{font-family:var(--f-brand);font-size:clamp(2rem,4vw,2.8rem);padding-inline-end:40px}
 .d-info h3 i{display:block;color:var(--muted);font-size:.7em}
 .d-origin{font-family:var(--f-display);font-style:italic;font-size:1.25rem;color:var(--muted)}
 .d-origin[hidden]{display:none}
@@ -246,6 +275,15 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
 .studio img{mix-blend-mode:multiply}
 .d-stage.studio img{object-fit:contain}
 
+/* Arabic: right-to-left, Arabic faces, no letter-spacing (it breaks the joined script) */
+html[lang="ar"] body{line-height:1.85}
+html[lang="ar"] body *:not(.ls){letter-spacing:normal!important}
+html[lang="ar"] :is(h2,.empty,.sel-empty,.todo,.d-origin){font-style:normal}
+html[lang="ar"] :is(.eyebrow,.nav a,.btn,.chip,.c-meta,.c-price,.r-name,.r-go,.sig-role,.contact dt,.t-lab,.price,.sel-box label,.rm,.soon,figcaption,.spec-cap,.year > span,.beta){font-size:.86rem}
+html[lang="ar"] footer .wrap{font-size:.86rem}
+html[lang="ar"] .ar, html[lang="ar"] .year i{display:none}
+html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .order-txt h2{line-height:1.35}
+
 @media (prefers-reduced-motion: reduce){
   *{transition:none!important}
 }
@@ -255,13 +293,24 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
 
 <header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="#top">Inscentia<span class="brand-sub">Fragrances</span></a>
-    <span class="beta">Bêta</span>
+    <a class="brand" href="#top">Inscentia<span class="brand-sub ls">Fragrances</span></a>
+    <span class="beta" data-i18n="beta">Bêta</span>
     <nav class="nav" aria-label="Navigation">
       <a href="#diamond">Diamond</a>
       <a href="#tobacco">Tobacco</a>
-      <a href="#maison">La maison</a>
-      <a class="sel-link" href="#commande">Sélection <span class="badge" id="selCount">0</span></a>
+      <a href="#maison" data-i18n="nav.maison">La maison</a>
+      <div class="tools">
+        <div class="langs" role="group" aria-label="Langue" data-i18n-aria="lang.aria">
+          <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang="ar" lang="ar" aria-pressed="false" aria-label="العربية">ع</button>
+        </div>
+        <button class="mode" id="mode" type="button" aria-pressed="false" aria-label="Passer en mode sombre">
+          <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        </button>
+      </div>
+      <a class="sel-link" href="#commande"><span class="sel-txt" data-i18n="nav.sel">Sélection</span> <span class="badge" id="selCount">0</span></a>
     </nav>
   </div>
 </header>
@@ -271,25 +320,25 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
   <div class="wrap hero-in">
     <div class="hero-txt">
       <p class="ar" lang="ar" dir="rtl">عطور إبراهيم القرشي</p>
-      <p class="eyebrow">Parfums Ibraheem Al Qurashi · Casablanca</p>
-      <h1 class="word">Inscentia<span class="word-sub">Fragrances</span></h1>
-      <p class="lead">Quinze parfums de la maison Ibraheem Al Qurashi, née à La Mecque en 1929. Neuf Diamond taillés comme des pierres précieuses, un Black Carbon, et cinq tabacs venus de cinq terres.</p>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Parfums Ibraheem Al Qurashi · Casablanca</p>
+      <h1 class="word ls">Inscentia<span class="word-sub ls">Fragrances</span></h1>
+      <p class="lead" data-i18n="hero.lead">Quinze parfums de la maison Ibraheem Al Qurashi, née à La Mecque en 1929. Neuf Diamond taillés comme des pierres précieuses, un Black Carbon, et cinq tabacs venus de cinq terres.</p>
       <div class="cta">
-        <a class="btn" href="#collection">Voir la collection</a>
-        <a class="btn ghost" href="#maison">La maison</a>
+        <a class="btn" href="#collection" data-i18n="hero.cta1">Voir la collection</a>
+        <a class="btn ghost" href="#maison" data-i18n="hero.cta2">La maison</a>
       </div>
     </div>
     <figure class="hero-fig">
-      <img src="img/hero.jpg" width="1000" height="975" fetchpriority="high" alt="Les flacons Emerald Soul, Nude Coral, Purple Heart et White Regent posés dans le sable devant un feu">
+      <img src="img/hero.jpg" width="1000" height="975" fetchpriority="high" data-i18n-alt="hero.alt" alt="Les flacons Emerald Soul, Nude Coral, Purple Heart et White Regent posés dans le sable devant un feu">
       <figcaption>Emerald Soul · Nude Coral · Purple Heart · White Regent</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="spectrum" aria-label="Les quinze parfums par couleur">
+<section class="spectrum" aria-label="Les quinze parfums par couleur" data-i18n-aria="spec.aria">
   <div class="wrap">
     <div class="spec-bar" id="spec"></div>
-    <div class="spec-cap"><span id="specName">Quinze parfums, quinze couleurs</span><span>Touchez une couleur</span></div>
+    <div class="spec-cap"><span id="specName">Quinze parfums, quinze couleurs</span><span data-i18n="spec.hint">Touchez une couleur</span></div>
   </div>
 </section>
 
@@ -297,16 +346,16 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
   <div class="wrap">
     <div class="coll-head">
       <div>
-        <p class="eyebrow">Catalogue</p>
-        <h2>La collection</h2>
+        <p class="eyebrow" data-i18n="coll.eyebrow">Catalogue</p>
+        <h2 data-i18n="coll.title">La collection</h2>
       </div>
-      <div class="chips" id="chips" role="group" aria-label="Filtrer par famille olfactive"></div>
+      <div class="chips" id="chips" role="group" aria-label="Filtrer par famille olfactive" data-i18n-aria="fam.aria"></div>
     </div>
 
     <div class="group" id="diamond">
       <div class="group-head">
         <h3>Diamond</h3>
-        <p class="desc">Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml.</p>
+        <p class="desc" data-i18n="coll.d.desc">Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml.</p>
         <span class="count" id="dCount"></span>
       </div>
       <div class="grid" id="dGrid"></div>
@@ -315,32 +364,32 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
     <div class="group" id="tobacco">
       <div class="group-head">
         <h3>Tobacco</h3>
-        <p class="desc">Cinq tabacs, cinq origines. Des compositions chaudes et ambrées, en flacon de 100 ml.</p>
+        <p class="desc" data-i18n="coll.t.desc">Cinq tabacs, cinq origines. Des compositions chaudes et ambrées, en flacon de 100 ml.</p>
         <span class="count" id="tCount"></span>
       </div>
       <ul class="rows" id="tRows"></ul>
     </div>
 
-    <p class="empty" id="empty" hidden>Aucun parfum dans cette famille pour le moment.</p>
+    <p class="empty" id="empty" hidden data-i18n="coll.empty">Aucun parfum dans cette famille pour le moment.</p>
   </div>
 </section>
 
 <section class="maison" id="maison">
   <div class="wrap maison-in">
-    <div class="year"><b>1929</b><span>La Mecque <i lang="ar">مكة</i></span></div>
+    <div class="year"><b>1929</b><span><span data-i18n="maison.city">La Mecque</span><i lang="ar">مكة</i></span></div>
     <div class="maison-txt">
-      <p class="eyebrow">La maison</p>
-      <h2>De La Mecque à Casablanca</h2>
-      <p>Ibraheem Al Qurashi ouvre sa première boutique en 1929 à La Mecque, face à la Grande Mosquée. On y vend de l'oud, de l'ambre et des mélanges composés sur mesure. La maison s'installe ensuite à Djeddah et grandit autour de ce savoir-faire.</p>
-      <p>Inscentia Fragrances présente à Casablanca une sélection de ses créations, des pierres de la collection Diamond aux tabacs d'origine.</p>
+      <p class="eyebrow" data-i18n="maison.eyebrow">La maison</p>
+      <h2 data-i18n="maison.title">De La Mecque à Casablanca</h2>
+      <p data-i18n="maison.p1">Ibraheem Al Qurashi ouvre sa première boutique en 1929 à La Mecque, face à la Grande Mosquée. On y vend de l'oud, de l'ambre et des mélanges composés sur mesure. La maison s'installe ensuite à Djeddah et grandit autour de ce savoir-faire.</p>
+      <p data-i18n="maison.p2">Inscentia Fragrances présente à Casablanca une sélection de ses créations, des pierres de la collection Diamond aux tabacs d'origine.</p>
       <div class="signature">
         <span class="sig-name">Amal Chaidoub</span>
-        <span class="sig-role">Fondatrice · Inscentia Fragrances</span>
+        <span class="sig-role" data-i18n="maison.sigrole">Fondatrice · Inscentia Fragrances</span>
       </div>
     </div>
     <figure class="maison-fig">
-      <img src="img/maison.jpg" width="2400" height="1250" loading="lazy" alt="Les parfums Inscentia Fragrances alignés sous une arche marocaine lumineuse : les dix Diamond en une rangée, les cinq Tobacco devant">
-      <figcaption>La collection réunie · Diamond, Black Carbon et Tobacco</figcaption>
+      <img src="img/maison.jpg" width="2400" height="1250" loading="lazy" data-i18n-alt="maison.alt" alt="Les parfums Inscentia Fragrances alignés sous une arche marocaine lumineuse : les dix Diamond en une rangée, les cinq Tobacco devant">
+      <figcaption data-i18n="maison.cap">La collection réunie · Diamond, Black Carbon et Tobacco</figcaption>
     </figure>
   </div>
 </section>
@@ -348,23 +397,23 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
 <section class="order" id="commande">
   <div class="wrap order-in">
     <div class="order-txt">
-      <p class="eyebrow">Commande</p>
-      <h2>Votre sélection</h2>
-      <p>Les prix arrivent bientôt. Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram.</p>
+      <p class="eyebrow" data-i18n="order.eyebrow">Commande</p>
+      <h2 data-i18n="order.title">Votre sélection</h2>
+      <p data-i18n="order.text">Les prix arrivent bientôt. Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram.</p>
       <dl class="contact">
-        <div><dt>WhatsApp</dt><dd class="todo">+212</dd></div>
-        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener">@inscentia_fragrances</a></dd></div>
-        <div><dt>Ville</dt><dd>Casablanca, Maroc</dd></div>
+        <div><dt>WhatsApp</dt><dd class="todo ltr" data-todo="à compléter" data-i18n-todo="order.todo">+212</dd></div>
+        <div><dt data-i18n="order.ig.label">Instagram</dt><dd class="ltr"><a href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener">@inscentia_fragrances</a></dd></div>
+        <div><dt data-i18n="order.city">Ville</dt><dd data-i18n="order.cityval">Casablanca, Maroc</dd></div>
       </dl>
     </div>
     <div class="sel-box">
       <ul class="sel-list" id="selList"></ul>
-      <p class="sel-empty" id="selEmpty">Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».</p>
-      <label for="msg">Message à envoyer</label>
+      <p class="sel-empty" id="selEmpty" data-i18n="order.empty">Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».</p>
+      <label for="msg" data-i18n="order.msglabel">Message à envoyer</label>
       <textarea id="msg" readonly></textarea>
       <div class="copy-row">
-        <button class="btn" id="copy" type="button">Copier le message</button>
-        <a class="btn ghost" href="https://ig.me/m/inscentia_fragrances" target="_blank" rel="noopener">Écrire sur Instagram</a>
+        <button class="btn" id="copy" type="button" data-i18n="order.copy">Copier le message</button>
+        <a class="btn ghost" href="https://ig.me/m/inscentia_fragrances" target="_blank" rel="noopener" data-i18n="order.ig">Écrire sur Instagram</a>
         <span id="copyNote" role="status"></span>
       </div>
     </div>
@@ -374,15 +423,15 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
 <footer>
   <div class="wrap">
     <span class="f-brand">Inscentia Fragrances</span>
-    <span>Parfums Ibraheem Al Qurashi · Casablanca</span>
-    <a class="f-ig" href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener">Instagram · @inscentia_fragrances</a>
-    <span>Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026</span>
+    <span data-i18n="foot.line">Parfums Ibraheem Al Qurashi · Casablanca</span>
+    <a class="f-ig" href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener"><span data-i18n="foot.ig">Instagram</span> · <bdi>@inscentia_fragrances</bdi></a>
+    <span data-i18n="foot.credit">Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026</span>
   </div>
 </footer>
 
 <dialog id="dlg" aria-labelledby="dName">
   <div class="dlg-in">
-    <button class="close" id="dClose" type="button" aria-label="Fermer">×</button>
+    <button class="close" id="dClose" type="button" aria-label="Fermer" data-i18n-aria="dlg.close">×</button>
     <div class="d-stage" id="dStage"></div>
     <div class="d-info">
       <p class="eyebrow" id="dMeta"></p>
@@ -391,7 +440,7 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
       <p class="d-line" id="dLine"></p>
       <div class="pyr" id="dPyr"></div>
       <div class="d-foot">
-        <span class="price">Prix · bientôt</span>
+        <span class="price" data-i18n="dlg.price">Prix · bientôt</span>
         <button class="btn" id="dAdd" type="button">Ajouter à ma sélection</button>
       </div>
     </div>
@@ -399,210 +448,302 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
 </dialog>
 
 <script>
+/* ---------- catalogue ---------- */
 const P = [
-  {id:"nude-coral", coll:"Diamond", name:"Nude Coral", sub:"Diamond", ml:150, color:"#E2A38C", tags:["gourmand","floral"], photo:"img/nude-coral.jpg",
-   line:"Un coucher de soleil tiède. La bergamote et le safran s'ouvrent sur la fleur d'oranger et la noix de coco, puis sur la vanille.",
+  {id:"nude-coral", coll:"Diamond", name:"Nude Coral", sub:"Diamond", ml:150, color:"#D8692F", tags:["gourmand","floral"], photo:"img/nude-coral.jpg",
+   line:{fr:"Un coucher de soleil tiède. La bergamote et le safran s'ouvrent sur la fleur d'oranger et la noix de coco, puis sur la vanille.",
+         en:"A warm sunset. Bergamot and saffron open onto orange blossom and coconut, then vanilla.",
+         ar:"غروب دافئ. يتفتح البرغموت والزعفران على زهر البرتقال وجوز الهند، ثم على الفانيليا."},
    top:["Bergamote","Pomme","Safran"], heart:["Fleur d'oranger","Noix de coco","Bois de gaïac"], base:["Vanille","Ambre","Cashmeran"]},
-  {id:"black-diamond", coll:"Diamond", name:"Black Diamond", sub:"Incense", ml:150, color:"#3A3340", tags:["boise"],
-   line:"Un oud fumé, entre Orient et Occident. Le cuir et l'encens rencontrent une fraîcheur marine.",
+  {id:"black-diamond", coll:"Diamond", name:"Black Diamond", sub:"Incense", ml:150, color:"#34433A", tags:["boise"], photo:"img/black-diamond.jpg", studio:true,
+   line:{fr:"Un oud fumé, entre Orient et Occident. Le cuir et l'encens rencontrent une fraîcheur marine.",
+         en:"A smoky oud between East and West. Leather and incense meet a marine freshness.",
+         ar:"عود مدخّن بين الشرق والغرب. يلتقي الجلد والبخور بانتعاش بحري."},
    top:["Notes marines","Bouleau","Cassis"], heart:["Encens","Santal","Vanille"], base:["Ambre","Cuir","Fumée","Oud"]},
-  {id:"blue-diamond", coll:"Diamond", name:"Blue Diamond", sub:"Aqua", ml:150, color:"#3C86C2", tags:["frais"],
-   line:"Une brise d'île. Bergamote et embruns en tête, un musc légèrement fumé en fond.",
+  {id:"blue-diamond", coll:"Diamond", name:"Blue Diamond", sub:"Aqua", ml:150, color:"#A9C3E6", tags:["frais"], photo:"img/blue-diamond.jpg", studio:true,
+   line:{fr:"Une brise d'île. Bergamote et embruns en tête, un musc légèrement fumé en fond.",
+         en:"An island breeze. Bergamot and sea spray up top, a softly smoky musk below.",
+         ar:"نسيم جزيرة. برغموت ورذاذ البحر في المقدمة، ومسك مدخّن برفق في القاعدة."},
    top:["Bergamote","Notes marines","Safran"], heart:["Romarin","Ylang-ylang","Agrumes"], base:["Encens","Musc","Patchouli"]},
-  {id:"pink-diamond", coll:"Diamond", name:"Pink Diamond", sub:"Sakura", ml:150, color:"#EBA3BD", tags:["floral"],
-   line:"Un bouquet de rose, de lys et de fleur de cerisier, posé sur le bois de santal.",
+  {id:"pink-diamond", coll:"Diamond", name:"Pink Diamond", sub:"Sakura", ml:150, color:"#E9B3C6", tags:["floral"], photo:"img/pink-diamond.jpg", studio:true,
+   line:{fr:"Un bouquet de rose, de lys et de fleur de cerisier, posé sur le bois de santal.",
+         en:"A bouquet of rose, lily and cherry blossom, resting on sandalwood.",
+         ar:"باقة من الورد والزنبق وزهر الكرز، على قاعدة من خشب الصندل."},
    top:["Pivoine","Fleur d'oranger","Mandarine"], heart:["Rose","Lys","Fleur de cerisier"], base:["Santal","Musc blanc","Ambre"]},
-  {id:"cullinan-diamond", coll:"Diamond", name:"Cullinan Diamond", sub:"Iris", ml:150, color:"#C7C3DD", tags:["frais","boise"],
-   line:"Ananas et pamplemousse lumineux, puis le cèdre et l'iris pour une signature assurée.",
+  {id:"cullinan-diamond", coll:"Diamond", name:"Cullinan Diamond", sub:"Iris", ml:150, color:"#D8CCB4", tags:["frais","boise"], photo:"img/cullinan-diamond.jpg", studio:true,
+   line:{fr:"Ananas et pamplemousse lumineux, puis le cèdre et l'iris pour une signature assurée.",
+         en:"Bright pineapple and grapefruit, then cedar and iris for a confident signature.",
+         ar:"أناناس وجريب فروت مشرقان، ثم الأرز والسوسن لبصمة واثقة."},
    top:["Pamplemousse","Ananas"], heart:["Bergamote","Jasmin","Patchouli"], base:["Cèdre","Mousse de chêne","Pin","Iris"]},
-  {id:"emerald-soul", coll:"Diamond", name:"Emerald Soul", sub:"Diamond", ml:150, color:"#2F8466", tags:["frais","gourmand"], photo:"img/emerald-soul.jpg",
-   line:"Une lumière de crépuscule. Les agrumes s'éteignent doucement dans l'ambre et la vanille.",
+  {id:"emerald-soul", coll:"Diamond", name:"Emerald Soul", sub:"Diamond", ml:150, color:"#1F6B55", tags:["frais","gourmand"], photo:"img/emerald-soul.jpg",
+   line:{fr:"Une lumière de crépuscule. Les agrumes s'éteignent doucement dans l'ambre et la vanille.",
+         en:"Twilight light. Citrus fades gently into amber and vanilla.",
+         ar:"ضوء الغسق. تخفت الحمضيات بهدوء في العنبر والفانيليا."},
    top:["Bergamote","Mandarine","Musc blanc"], heart:["Épices fraîches","Citron"], base:["Vanille","Ambre"]},
-  {id:"purple-heart", coll:"Diamond", name:"Purple Heart", sub:"Diamond", ml:150, color:"#7D4A9E", tags:["floral","gourmand"], photo:"img/purple-heart.jpg",
-   line:"Fleur d'oranger et jasmin, sensuels et affirmés, sur un lit de bois chauds.",
+  {id:"purple-heart", coll:"Diamond", name:"Purple Heart", sub:"Diamond", ml:150, color:"#6E2238", tags:["floral","gourmand"], photo:"img/purple-heart.jpg",
+   line:{fr:"Fleur d'oranger et jasmin, sensuels et affirmés, sur un lit de bois chauds.",
+         en:"Orange blossom and jasmine, sensual and bold, on a bed of warm woods.",
+         ar:"زهر البرتقال والياسمين، حسّيان وجريئان، على فراش من الأخشاب الدافئة."},
    top:["Fleur d'oranger","Poire","Vanille"], heart:["Poivre rose","Jasmin","Amande"], base:["Bois de cachemire","Cèdre","Patchouli"]},
   {id:"white-regent", coll:"Diamond", name:"White Regent", sub:"Diamond", ml:150, color:"#ECE8F1", tags:["boise","gourmand"], photo:"img/white-regent.jpg",
-   line:"Un éclat discret. Le thé et la figue s'ouvrent sur un fond royal de tonka et de vanille.",
+   line:{fr:"Un éclat discret. Le thé et la figue s'ouvrent sur un fond royal de tonka et de vanille.",
+         en:"A quiet sparkle. Tea and fig open onto a regal base of tonka and vanilla.",
+         ar:"بريق هادئ. يتفتح الشاي والتين على قاعدة ملكية من التونكا والفانيليا."},
    top:["Figue","Cardamome","Thé","Santal"], heart:["Iris","Vétiver"], base:["Fève tonka","Patchouli","Vanille"]},
-  {id:"grey-pearl", coll:"Diamond", name:"Grey Pearl", sub:"Diamond", ml:150, color:"#A9AAB2", tags:["frais","floral"],
-   line:"Canneberge et notes marines, adossées à un fond d'encens épicé.",
+  {id:"grey-pearl", coll:"Diamond", name:"Grey Pearl", sub:"Diamond", ml:150, color:"#A88B72", tags:["frais","floral"], photo:"img/grey-pearl.jpg", studio:true,
+   line:{fr:"Canneberge et notes marines, adossées à un fond d'encens épicé.",
+         en:"Cranberry and marine notes, set against a base of spiced incense.",
+         ar:"توت بري ونفحات بحرية، تستند إلى قاعدة من البخور المتبّل."},
    top:["Notes marines","Canneberge","Résine"], heart:["Jasmin","Patchouli","Rose"], base:["Encens","Épices"]},
-  {id:"black-carbon", coll:"Diamond", name:"Black Carbon", sub:"", ml:150, color:"#1E1E22", tags:["boise","floral"],
-   line:"Un oriental chaud. La rose et la pomme se fondent dans le santal, l'oliban et l'oud.",
+  {id:"black-carbon", coll:"Diamond", name:"Black Carbon", sub:"", ml:150, color:"#1E1E22", tags:["boise","floral"], photo:"img/black-carbon.jpg", studio:true,
+   line:{fr:"Un oriental chaud. La rose et la pomme se fondent dans le santal, l'oliban et l'oud.",
+         en:"A warm oriental. Rose and apple melt into sandalwood, frankincense and oud.",
+         ar:"عطر شرقي دافئ. يذوب الورد والتفاح في الصندل واللبان والعود."},
    top:["Bergamote"], heart:["Rose","Pomme","Patchouli"], base:["Santal","Musc","Oliban","Oud"]},
 
-  {id:"brazilian", coll:"Tobacco", name:"Brazilian", sub:"Tobacco", ml:100, color:"#8A4E2C", origin:"Brasil", originFr:"Brésil", tags:["boise"],
-   line:"Bergamote et lavande en ouverture, puis un tabac boisé qui se pose sur le cuir.",
+  {id:"brazilian", coll:"Tobacco", name:"Brazilian", sub:"Tobacco", ml:100, color:"#2E9AD6", origin:"Brasil", where:{fr:"Brésil", en:"Brazil", ar:"البرازيل"}, tags:["boise"], photo:"img/brazilian.jpg", studio:true,
+   line:{fr:"Bergamote et lavande en ouverture, puis un tabac boisé qui se pose sur le cuir.",
+         en:"Bergamot and lavender to open, then a woody tobacco settling on leather.",
+         ar:"برغموت وخزامى في الافتتاح، ثم تبغ خشبي يستقر على الجلد."},
    top:["Bergamote","Lavande","Baies roses","Piment"], heart:["Tabac brésilien","Bois d'oud","Cerise","Cèdre"], base:["Cuir","Patchouli","Vétiver"]},
-  {id:"spanish", coll:"Tobacco", name:"Spanish", sub:"Tobacco", ml:100, color:"#A86A3D", origin:"España", originFr:"Espagne", tags:["gourmand"],
-   line:"Le safran et la tonka s'ouvrent sur un cœur de cacao et de tabac ambré.",
+  {id:"spanish", coll:"Tobacco", name:"Spanish", sub:"Tobacco", ml:100, color:"#1F7A9C", origin:"España", where:{fr:"Espagne", en:"Spain", ar:"إسبانيا"}, tags:["gourmand"], photo:"img/spanish.jpg", studio:true,
+   line:{fr:"Le safran et la tonka s'ouvrent sur un cœur de cacao et de tabac ambré.",
+         en:"Saffron and tonka open onto a heart of cocoa and amber tobacco.",
+         ar:"يتفتح الزعفران والتونكا على قلب من الكاكاو والتبغ العنبري."},
    top:["Notes marines","Safran","Fève tonka"], heart:["Cacao","Ambre","Tabac espagnol"], base:["Iris","Notes boisées"]},
-  {id:"mexican", coll:"Tobacco", name:"Mexican", sub:"Tobacco", ml:100, color:"#4E3022", origin:"México", originFr:"Mexique", tags:["gourmand"],
-   line:"Chocolat noir et cèdre, adoucis de lilas, avant un fond d'ambre et de tabac.",
+  {id:"mexican", coll:"Tobacco", name:"Mexican", sub:"Tobacco", ml:100, color:"#B3242A", origin:"México", where:{fr:"Mexique", en:"Mexico", ar:"المكسيك"}, tags:["gourmand"], photo:"img/mexican.jpg", studio:true,
+   line:{fr:"Chocolat noir et cèdre, adoucis de lilas, avant un fond d'ambre et de tabac.",
+         en:"Dark chocolate and cedar, softened with lilac, before a base of amber and tobacco.",
+         ar:"شوكولاتة داكنة وأرز، يلطّفهما الليلك، قبل قاعدة من العنبر والتبغ."},
    top:["Cèdre","Chocolat noir"], heart:["Lilas","Cannelle"], base:["Ambre","Tabac mexicain","Rose"]},
-  {id:"greek", coll:"Tobacco", name:"Greek", sub:"Tobacco", ml:100, color:"#C49A5C", origin:"Ελλάδα", originFr:"Grèce", tags:["floral"],
-   line:"Un tabac floral et fruité. Litchi, abricot et narcisse sur un musc chaud.",
+  {id:"greek", coll:"Tobacco", name:"Greek", sub:"Tobacco", ml:100, color:"#8CC9E2", origin:"Ελλάδα", where:{fr:"Grèce", en:"Greece", ar:"اليونان"}, tags:["floral"], photo:"img/greek.jpg", studio:true,
+   line:{fr:"Un tabac floral et fruité. Litchi, abricot et narcisse sur un musc chaud.",
+         en:"A floral, fruity tobacco. Lychee, apricot and narcissus on a warm musk.",
+         ar:"تبغ زهري وفاكهي. ليتشي ومشمش ونرجس على مسك دافئ."},
    top:["Narcisse","Litchi","Rose"], heart:["Abricot","Fleur d'oranger","Iris"], base:["Tabac grec","Musc","Pivoine"]},
-  {id:"arabian", coll:"Tobacco", name:"Arabian", sub:"Tobacco", ml:100, color:"#6E4329", origin:"جزيرة العرب", originFr:"Arabie", rtl:true, tags:["gourmand"],
-   line:"Safran et caramel salé, puis un fond de café fumé, d'ambre et de patchouli.",
+  {id:"arabian", coll:"Tobacco", name:"Arabian", sub:"Tobacco", ml:100, color:"#BFA88A", origin:"جزيرة العرب", rtl:true, where:{fr:"Arabie", en:"Arabia", ar:"الجزيرة العربية"}, tags:["gourmand"], photo:"img/arabian.jpg", studio:true,
+   line:{fr:"Safran et caramel salé, puis un fond de café fumé, d'ambre et de patchouli.",
+         en:"Saffron and salted caramel, then a base of smoked coffee, amber and patchouli.",
+         ar:"زعفران وكراميل مملح، ثم قاعدة من القهوة المدخنة والعنبر والباتشولي."},
    top:["Tabac arabe","Iris","Safran"], heart:["Caramel salé","Rose","Fève tonka"], base:["Musc","Ambre","Patchouli","Café fumé"]}
 ];
-/* Photos and bottle colours (colours match the real bottles) */
-const MEDIA = {
-  "pink-diamond":     {photo:"img/pink-diamond.jpg",     studio:true, color:"#E9B3C6"},
-  "blue-diamond":     {photo:"img/blue-diamond.jpg",     studio:true, color:"#A9C3E6"},
-  "cullinan-diamond": {photo:"img/cullinan-diamond.jpg", studio:true, color:"#D8CCB4"},
-  "grey-pearl":       {photo:"img/grey-pearl.jpg",       studio:true, color:"#A88B72"},
-  "black-carbon":     {photo:"img/black-carbon.jpg",     studio:true, color:"#1E1E22"},
-  "black-diamond":    {photo:"img/black-diamond.jpg",    studio:true, color:"#34433A"},
-  "emerald-soul":     {color:"#1F6B55"},
-  "nude-coral":       {color:"#D8692F"},
-  "purple-heart":     {color:"#6E2238"},
-  "white-regent":     {color:"#ECE8F1"},
-  "greek":            {photo:"img/greek.jpg",     studio:true, color:"#8CC9E2"},
-  "brazilian":        {photo:"img/brazilian.jpg", studio:true, color:"#2E9AD6"},
-  "spanish":          {photo:"img/spanish.jpg",   studio:true, color:"#1F7A9C"},
-  "arabian":          {photo:"img/arabian.jpg",   studio:true, color:"#BFA88A"},
-  "mexican":          {photo:"img/mexican.jpg",   studio:true, color:"#B3242A"}
-};
-P.forEach(p => Object.assign(p, MEDIA[p.id] || {}));
-const DIAMOND_ORDER = ["pink-diamond","blue-diamond","cullinan-diamond","grey-pearl","black-carbon","emerald-soul","nude-coral","purple-heart","white-regent","black-diamond"];
 const byId = Object.fromEntries(P.map(p => [p.id, p]));
 const fullName = p => [p.name, p.sub].filter(Boolean).join(" ");
+const DIAMOND_ORDER = ["pink-diamond","blue-diamond","cullinan-diamond","grey-pearl","black-carbon","emerald-soul","nude-coral","purple-heart","white-regent","black-diamond"];
 const SPECTRUM = ["white-regent","cullinan-diamond","arabian","grey-pearl","pink-diamond","nude-coral","mexican","purple-heart","greek","blue-diamond","brazilian","spanish","emerald-soul","black-diamond","black-carbon"];
-const FAMILIES = [["all","Tout"],["frais","Frais"],["floral","Floral"],["boise","Boisé & oud"],["gourmand","Gourmand & ambré"]];
+const FAMILIES = ["all","frais","floral","boise","gourmand"];
 
-/* ---------- colour helpers ---------- */
-const W = [255,255,255], K = [0,0,0];
-function rgbOf(h){ h = h.replace("#",""); return [0,2,4].map(i => parseInt(h.substr(i,2),16)); }
-function mix(h, t, a){ const c = rgbOf(h); return "rgb(" + c.map((v,i) => Math.round(v + (t[i]-v)*a)).join(",") + ")"; }
-function lum(h){ const [r,g,b] = rgbOf(h); return (0.299*r + 0.587*g + 0.114*b)/255; }
-let uid = 0;
+/* ---------- notes: French name → [English, Arabic] ---------- */
+const NOTES = {
+  "Bergamote":["Bergamot","برغموت"], "Pomme":["Apple","تفاح"], "Safran":["Saffron","زعفران"], "Fleur d'oranger":["Orange blossom","زهر البرتقال"],
+  "Noix de coco":["Coconut","جوز الهند"], "Bois de gaïac":["Guaiac wood","خشب الغاياك"], "Vanille":["Vanilla","فانيليا"], "Ambre":["Amber","عنبر"],
+  "Cashmeran":["Cashmeran","كشميران"], "Notes marines":["Marine notes","نفحات بحرية"], "Bouleau":["Birch","خشب البتولا"], "Cassis":["Blackcurrant","الكشمش الأسود"],
+  "Encens":["Incense","بخور"], "Santal":["Sandalwood","خشب الصندل"], "Cuir":["Leather","جلد"], "Fumée":["Smoke","دخان"], "Oud":["Oud","عود"],
+  "Romarin":["Rosemary","إكليل الجبل"], "Ylang-ylang":["Ylang-ylang","يلانغ يلانغ"], "Agrumes":["Citrus","حمضيات"], "Musc":["Musk","مسك"],
+  "Patchouli":["Patchouli","باتشولي"], "Pivoine":["Peony","فاوانيا"], "Mandarine":["Mandarin","يوسفي"], "Rose":["Rose","ورد"], "Lys":["Lily","زنبق"],
+  "Fleur de cerisier":["Cherry blossom","زهر الكرز"], "Musc blanc":["White musk","مسك أبيض"], "Pamplemousse":["Grapefruit","جريب فروت"],
+  "Ananas":["Pineapple","أناناس"], "Jasmin":["Jasmine","ياسمين"], "Cèdre":["Cedarwood","خشب الأرز"], "Mousse de chêne":["Oakmoss","طحلب البلوط"],
+  "Pin":["Pine","صنوبر"], "Iris":["Iris","سوسن"], "Épices fraîches":["Fresh spices","توابل منعشة"], "Citron":["Lemon","ليمون"], "Poire":["Pear","إجاص"],
+  "Poivre rose":["Pink pepper","فلفل وردي"], "Amande":["Almond","لوز"], "Bois de cachemire":["Cashmere wood","خشب الكشمير"], "Figue":["Fig","تين"],
+  "Cardamome":["Cardamom","هيل"], "Thé":["Tea","شاي"], "Vétiver":["Vetiver","فيتيفر"], "Fève tonka":["Tonka bean","حبوب التونكا"],
+  "Canneberge":["Cranberry","توت بري"], "Résine":["Resin","راتنج"], "Épices":["Spices","توابل"], "Oliban":["Frankincense","لبان"],
+  "Lavande":["Lavender","خزامى"], "Baies roses":["Pink peppercorn","حبات الفلفل الوردي"], "Piment":["Chili","فلفل حار"],
+  "Tabac brésilien":["Brazilian tobacco","تبغ برازيلي"], "Bois d'oud":["Oud wood","خشب العود"], "Cerise":["Cherry","كرز"], "Cacao":["Cocoa","كاكاو"],
+  "Tabac espagnol":["Spanish tobacco","تبغ إسباني"], "Notes boisées":["Woody notes","نفحات خشبية"], "Chocolat noir":["Dark chocolate","شوكولاتة داكنة"],
+  "Lilas":["Lilac","ليلك"], "Cannelle":["Cinnamon","قرفة"], "Tabac mexicain":["Mexican tobacco","تبغ مكسيكي"], "Narcisse":["Narcissus","نرجس"],
+  "Litchi":["Lychee","ليتشي"], "Abricot":["Apricot","مشمش"], "Tabac grec":["Greek tobacco","تبغ يوناني"], "Tabac arabe":["Arabian tobacco","تبغ عربي"],
+  "Caramel salé":["Salted caramel","كراميل مملح"], "Café fumé":["Smoked coffee","قهوة مدخنة"]
+};
 
-/* ---------- artwork: a brilliant-cut gem for Diamond, a tobacco leaf for Tobacco ---------- */
-function gem(c){
-  const L = lum(c);
-  const stroke = L > 0.75 ? mix(c,K,.32) : (L < 0.16 ? "rgba(255,255,255,.26)" : "rgba(255,255,255,.4)");
-  const f = [
-    ["10,40 38,18 35,40", mix(c,W,.22)],
-    ["38,18 60,40 35,40", mix(c,W,.42)],
-    ["38,18 82,18 60,40", mix(c,W,.6)],
-    ["82,18 85,40 60,40", mix(c,W,.32)],
-    ["82,18 110,40 85,40", mix(c,K,.06)],
-    ["10,40 35,40 60,94", mix(c,K,.26)],
-    ["35,40 60,40 60,94", mix(c,W,.12)],
-    ["60,40 85,40 60,94", mix(c,K,.12)],
-    ["85,40 110,40 60,94", mix(c,K,.42)]
-  ];
-  const facets = f.map(([pts,fill]) => `<polygon points="${pts}" fill="${fill}" stroke="${stroke}" stroke-width=".7" stroke-linejoin="round"/>`).join("");
-  const spark = L < 0.75 ? `<path transform="translate(90 17)" d="M0 -7 L1.3 -1.3 L7 0 L1.3 1.3 L0 7 L-1.3 1.3 L-7 0 L-1.3 -1.3 Z" fill="#fff" opacity=".9"/>` : "";
-  return `<svg class="art" viewBox="0 0 120 104" aria-hidden="true"><ellipse cx="60" cy="99" rx="28" ry="3.2" fill="currentColor" opacity=".1"/>${facets}${spark}</svg>`;
+/* ---------- interface text ---------- */
+const T = {
+  fr:{
+    "lang.aria":"Langue", "mode.toDark":"Passer en mode sombre", "mode.toLight":"Passer en mode clair",
+    "beta":"Bêta", "nav.maison":"La maison", "nav.sel":"Sélection",
+    "hero.eyebrow":"Parfums Ibraheem Al Qurashi · Casablanca",
+    "hero.lead":"Quinze parfums de la maison Ibraheem Al Qurashi, née à La Mecque en 1929. Neuf Diamond taillés comme des pierres précieuses, un Black Carbon, et cinq tabacs venus de cinq terres.",
+    "hero.cta1":"Voir la collection", "hero.cta2":"La maison",
+    "hero.alt":"Les flacons Emerald Soul, Nude Coral, Purple Heart et White Regent posés dans le sable devant un feu",
+    "spec.aria":"Les quinze parfums par couleur", "spec.default":"Quinze parfums, quinze couleurs", "spec.hint":"Touchez une couleur",
+    "coll.eyebrow":"Catalogue", "coll.title":"La collection", "fam.aria":"Filtrer par famille olfactive",
+    "fam.all":"Tout", "fam.frais":"Frais", "fam.floral":"Floral", "fam.boise":"Boisé & oud", "fam.gourmand":"Gourmand & ambré",
+    "coll.d.desc":"Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml.",
+    "coll.t.desc":"Cinq tabacs, cinq origines. Des compositions chaudes et ambrées, en flacon de 100 ml.",
+    "coll.empty":"Aucun parfum dans cette famille pour le moment.",
+    "maison.city":"La Mecque", "maison.eyebrow":"La maison", "maison.title":"De La Mecque à Casablanca",
+    "maison.p1":"Ibraheem Al Qurashi ouvre sa première boutique en 1929 à La Mecque, face à la Grande Mosquée. On y vend de l'oud, de l'ambre et des mélanges composés sur mesure. La maison s'installe ensuite à Djeddah et grandit autour de ce savoir-faire.",
+    "maison.p2":"Inscentia Fragrances présente à Casablanca une sélection de ses créations, des pierres de la collection Diamond aux tabacs d'origine.",
+    "maison.sigrole":"Fondatrice · Inscentia Fragrances", "maison.cap":"La collection réunie · Diamond, Black Carbon et Tobacco",
+    "maison.alt":"Les parfums Inscentia Fragrances alignés sous une arche marocaine lumineuse : les dix Diamond en une rangée, les cinq Tobacco devant",
+    "order.eyebrow":"Commande", "order.title":"Votre sélection",
+    "order.text":"Les prix arrivent bientôt. Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram.",
+    "order.todo":"à compléter", "order.ig.label":"Instagram", "order.city":"Ville", "order.cityval":"Casablanca, Maroc",
+    "order.empty":"Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».",
+    "order.msglabel":"Message à envoyer", "order.copy":"Copier le message", "order.ig":"Écrire sur Instagram",
+    "foot.line":"Parfums Ibraheem Al Qurashi · Casablanca", "foot.ig":"Instagram",
+    "foot.credit":"Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026",
+    "dlg.close":"Fermer", "dlg.price":"Prix · bientôt", "dlg.add":"Ajouter à ma sélection", "dlg.remove":"Retirer de ma sélection",
+    "dlg.top":"Tête", "dlg.heart":"Cœur", "dlg.base":"Fond", "dlg.origin":"Origine : ",
+    "card.price":"Prix à venir", "card.soon":"Photo à venir", "row.go":"Découvrir", "sel.remove":"Retirer", "ml":"ml",
+    "msg.hello":"Bonjour Inscentia Fragrances,", "msg.ask":"Je souhaiterais connaître les prix et la disponibilité de :",
+    "msg.empty":"(ajoutez un parfum à votre sélection)", "msg.thanks":"Merci !",
+    "copy.ok":"Message copié. Collez-le sur WhatsApp ou Instagram.", "copy.fb":"Texte sélectionné, copiez-le avec Ctrl+C ou un appui long."
+  },
+  en:{
+    "lang.aria":"Language", "mode.toDark":"Switch to dark mode", "mode.toLight":"Switch to light mode",
+    "beta":"Beta", "nav.maison":"The house", "nav.sel":"Selection",
+    "hero.eyebrow":"Ibraheem Al Qurashi perfumes · Casablanca",
+    "hero.lead":"Fifteen fragrances from the house of Ibraheem Al Qurashi, founded in Mecca in 1929. Nine Diamonds cut like precious stones, a Black Carbon, and five tobaccos from five lands.",
+    "hero.cta1":"View the collection", "hero.cta2":"The house",
+    "hero.alt":"Emerald Soul, Nude Coral, Purple Heart and White Regent bottles standing in the sand in front of a fire",
+    "spec.aria":"The fifteen fragrances by colour", "spec.default":"Fifteen fragrances, fifteen colours", "spec.hint":"Tap a colour",
+    "coll.eyebrow":"Catalogue", "coll.title":"The collection", "fam.aria":"Filter by fragrance family",
+    "fam.all":"All", "fam.frais":"Fresh", "fam.floral":"Floral", "fam.boise":"Woody & oud", "fam.gourmand":"Gourmand & amber",
+    "coll.d.desc":"Nine Diamonds and Black Carbon, the material diamonds are born from. Each fragrance bears the name of a stone and comes in a 150 ml bottle.",
+    "coll.t.desc":"Five tobaccos, five origins. Warm, amber compositions in 100 ml bottles.",
+    "coll.empty":"No fragrance in this family yet.",
+    "maison.city":"Mecca", "maison.eyebrow":"The house", "maison.title":"From Mecca to Casablanca",
+    "maison.p1":"Ibraheem Al Qurashi opened his first shop in Mecca in 1929, facing the Grand Mosque. It sold oud, amber and made-to-measure blends. The house then moved to Jeddah and grew around this craft.",
+    "maison.p2":"Inscentia Fragrances brings a selection of its creations to Casablanca, from the stones of the Diamond collection to the origin tobaccos.",
+    "maison.sigrole":"Founder · Inscentia Fragrances", "maison.cap":"The collection together · Diamond, Black Carbon and Tobacco",
+    "maison.alt":"Inscentia Fragrances perfumes lined up under a glowing Moroccan arch: the ten Diamonds in a row, the five Tobaccos in front",
+    "order.eyebrow":"Order", "order.title":"Your selection",
+    "order.text":"Prices coming soon. Open a fragrance, add it to your selection, then send us the message on Instagram.",
+    "order.todo":"coming soon", "order.ig.label":"Instagram", "order.city":"City", "order.cityval":"Casablanca, Morocco",
+    "order.empty":"Your selection is empty. Open a fragrance and choose “Add to my selection”.",
+    "order.msglabel":"Message to send", "order.copy":"Copy the message", "order.ig":"Message us on Instagram",
+    "foot.line":"Ibraheem Al Qurashi perfumes · Casablanca", "foot.ig":"Instagram",
+    "foot.credit":"House founded by Amal Chaidoub · Website by Rayane Gourja · © 2026",
+    "dlg.close":"Close", "dlg.price":"Price · soon", "dlg.add":"Add to my selection", "dlg.remove":"Remove from my selection",
+    "dlg.top":"Top", "dlg.heart":"Heart", "dlg.base":"Base", "dlg.origin":"Origin: ",
+    "card.price":"Price coming soon", "card.soon":"Photo coming soon", "row.go":"Discover", "sel.remove":"Remove", "ml":"ml",
+    "msg.hello":"Hello Inscentia Fragrances,", "msg.ask":"I would like to know the prices and availability of:",
+    "msg.empty":"(add a fragrance to your selection)", "msg.thanks":"Thank you!",
+    "copy.ok":"Message copied. Paste it into WhatsApp or Instagram.", "copy.fb":"Text selected. Copy it with Ctrl+C or a long press."
+  },
+  ar:{
+    "lang.aria":"اللغة", "mode.toDark":"التبديل إلى الوضع الداكن", "mode.toLight":"التبديل إلى الوضع الفاتح",
+    "beta":"تجريبي", "nav.maison":"الدار", "nav.sel":"اختياري",
+    "hero.eyebrow":"عطور إبراهيم القرشي · الدار البيضاء",
+    "hero.lead":"خمسة عشر عطرًا من دار إبراهيم القرشي، التي تأسست في مكة سنة 1929. تسعة عطور Diamond مصقولة كالأحجار الكريمة، وعطر Black Carbon، وخمسة أنواع من التبغ من خمس أراضٍ.",
+    "hero.cta1":"اكتشف المجموعة", "hero.cta2":"الدار",
+    "hero.alt":"قوارير Emerald Soul وNude Coral وPurple Heart وWhite Regent على الرمال أمام نار",
+    "spec.aria":"العطور الخمسة عشر حسب اللون", "spec.default":"خمسة عشر عطرًا، خمسة عشر لونًا", "spec.hint":"المس لونًا",
+    "coll.eyebrow":"الكتالوج", "coll.title":"المجموعة", "fam.aria":"التصفية حسب العائلة العطرية",
+    "fam.all":"الكل", "fam.frais":"منعش", "fam.floral":"زهري", "fam.boise":"خشبي وعود", "fam.gourmand":"حلو وعنبري",
+    "coll.d.desc":"تسعة عطور Diamond وعطر Black Carbon، المادة التي يولد منها الألماس. يحمل كل عطر اسم حجر كريم ويأتي في قارورة سعتها 150 مل.",
+    "coll.t.desc":"خمسة أنواع من التبغ، خمسة أصول. تركيبات دافئة وعنبرية في قوارير سعتها 100 مل.",
+    "coll.empty":"لا يوجد عطر في هذه العائلة حاليًا.",
+    "maison.city":"مكة المكرمة", "maison.eyebrow":"الدار", "maison.title":"من مكة إلى الدار البيضاء",
+    "maison.p1":"افتتح إبراهيم القرشي أول متجر له في مكة سنة 1929، مقابل المسجد الحرام. كان يبيع العود والعنبر وخلطات تُركَّب حسب الطلب. ثم انتقلت الدار إلى جدة ونمت حول هذه الحرفة.",
+    "maison.p2":"تقدّم Inscentia Fragrances في الدار البيضاء مختارات من إبداعاتها، من أحجار مجموعة Diamond إلى أنواع التبغ الأصيلة.",
+    "maison.sigrole":"المؤسِّسة · Inscentia Fragrances", "maison.cap":"المجموعة كاملة · Diamond وBlack Carbon وTobacco",
+    "maison.alt":"عطور Inscentia Fragrances مصطفة تحت قوس مغربي مضيء: عطور Diamond العشرة في صف واحد، وعطور Tobacco الخمسة في الأمام",
+    "order.eyebrow":"الطلب", "order.title":"اختيارك",
+    "order.text":"الأسعار قريبًا. افتح عطرًا وأضفه إلى اختيارك، ثم أرسل إلينا الرسالة عبر إنستغرام.",
+    "order.todo":"قريبًا", "order.ig.label":"إنستغرام", "order.city":"المدينة", "order.cityval":"الدار البيضاء، المغرب",
+    "order.empty":"اختيارك فارغ. افتح عطرًا واختر «أضف إلى اختياري».",
+    "order.msglabel":"الرسالة المراد إرسالها", "order.copy":"انسخ الرسالة", "order.ig":"راسلنا على إنستغرام",
+    "foot.line":"عطور إبراهيم القرشي · الدار البيضاء", "foot.ig":"إنستغرام",
+    "foot.credit":"دار أسستها Amal Chaidoub · الموقع من إنشاء Rayane Gourja · © 2026",
+    "dlg.close":"إغلاق", "dlg.price":"السعر · قريبًا", "dlg.add":"أضف إلى اختياري", "dlg.remove":"أزل من اختياري",
+    "dlg.top":"المقدمة", "dlg.heart":"القلب", "dlg.base":"القاعدة", "dlg.origin":"الأصل: ",
+    "card.price":"السعر قريبًا", "card.soon":"الصورة قريبًا", "row.go":"اكتشف", "sel.remove":"إزالة", "ml":"مل",
+    "msg.hello":"مرحبًا Inscentia Fragrances،", "msg.ask":"أود معرفة أسعار وتوفّر:",
+    "msg.empty":"(أضف عطرًا إلى اختيارك)", "msg.thanks":"شكرًا!",
+    "copy.ok":"تم نسخ الرسالة. الصقها في واتساب أو إنستغرام.", "copy.fb":"تم تحديد النص. انسخه بـ Ctrl+C أو بضغطة مطولة."
+  }
+};
+
+/* ---------- small helpers ---------- */
+const KEY_SEL = "incsentia-selection", KEY_LANG = "inscentia-lang", KEY_MODE = "inscentia-mode";
+const load = k => { try { return localStorage.getItem(k); } catch(e){ return null; } };
+const store = (k, v) => { try { localStorage.setItem(k, v); } catch(e){} };
+let LANG = ["fr","en","ar"].includes(load(KEY_LANG)) ? load(KEY_LANG) : "fr";
+let MODE = load(KEY_MODE) === "dark" ? "dark" : "light";
+const t = k => (T[LANG] && T[LANG][k] != null) ? T[LANG][k] : (T.fr[k] != null ? T.fr[k] : k);
+const note = n => LANG === "fr" ? n : ((NOTES[n] || [n, n])[LANG === "en" ? 0 : 1]);
+const ml = p => `${p.ml} ${t("ml")}`;
+function count(n){
+  if (LANG === "en") return `${n} ${n === 1 ? "fragrance" : "fragrances"}`;
+  if (LANG === "ar") return n === 1 ? "عطر واحد" : n === 2 ? "عطران" : (n <= 10 ? `${n} عطور` : `${n} عطرًا`);
+  return `${n} ${n > 1 ? "parfums" : "parfum"}`;
 }
-function leaf(c){
-  const id = "lg" + (uid++);
-  const vein = mix(c,W,.38);
-  let veins = "";
-  [30,44,58,72].forEach(y => {
-    veins += `<path d="M60 ${y} Q 70 ${y-4} 82 ${y-12}" /><path d="M60 ${y} Q 50 ${y-4} 38 ${y-12}" />`;
-  });
-  return `<svg class="art" viewBox="0 0 120 104" aria-hidden="true">
-    <defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${mix(c,W,.28)}"/><stop offset="1" stop-color="${mix(c,K,.32)}"/></linearGradient></defs>
-    <g transform="rotate(-14 60 52)">
-      <path d="M60 6 C 97 26, 101 68, 60 98 C 19 68, 23 26, 60 6 Z" fill="url(#${id})"/>
-      <g fill="none" stroke="${vein}" stroke-width="1" stroke-linecap="round" opacity=".75">
-        <path d="M60 12 L60 100" stroke-width="1.4"/>${veins}
-      </g>
-    </g></svg>`;
-}
-const art = p => p.coll === "Diamond" ? gem(p.color) : leaf(p.color);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-/* ---------- render ---------- */
+/* ---------- collection ---------- */
 const dGrid = document.getElementById("dGrid");
 const tRows = document.getElementById("tRows");
-DIAMOND_ORDER.map(id => byId[id]).forEach(p => {
-  const b = document.createElement("button");
-  b.className = "card"; b.type = "button"; b.dataset.id = p.id; b.style.setProperty("--c", p.color);
-  const pic = p.photo
-    ? `<img src="${p.photo}" alt="Flacon ${fullName(p)}" width="640" height="800" loading="lazy">`
-    : art(p) + `<span class="soon">Photo à venir</span>`;
-  b.innerHTML = `<span class="stage${p.studio ? " studio" : ""}">${pic}</span>
-    <span class="c-body">
-      <span class="c-meta">${p.coll} · ${p.ml} ml</span>
-      <span class="c-name">${p.name}${p.sub ? `<i>${p.sub}</i>` : ""}</span>
-      <span class="c-notes">${[p.top[0], p.heart[0], p.base[0]].join(" · ")}</span>
-      <span class="c-price">Prix à venir</span>
-    </span>`;
-  dGrid.appendChild(b);
-});
-P.filter(p => p.coll === "Tobacco").forEach(p => {
-  const li = document.createElement("li");
-  li.innerHTML = `<button class="row" type="button" data-id="${p.id}" style="--c:${p.color}">
-      <span class="r-thumb${p.studio ? " studio" : ""}">${p.photo ? `<img src="${p.photo}" alt="Flacon ${fullName(p)}" width="640" height="800" loading="lazy">` : art(p)}</span>
-      <span class="r-title"><span class="r-origin"${p.rtl ? ' dir="rtl" lang="ar"' : ""}>${p.origin}</span><span class="r-name">${fullName(p)} · ${p.originFr} · ${p.ml} ml</span></span>
-      <span class="r-notes">${p.line}</span>
-      <span class="r-go">Découvrir</span>
-    </button>`;
-  tRows.appendChild(li);
-});
-
-const spec = document.getElementById("spec");
-const specName = document.getElementById("specName");
-const specDefault = specName.textContent;
-SPECTRUM.forEach(id => {
-  const p = byId[id];
-  const b = document.createElement("button");
-  b.type = "button"; b.dataset.id = id; b.style.setProperty("--c", p.color);
-  b.setAttribute("aria-label", fullName(p));
-  const show = () => { specName.textContent = fullName(p) + " · " + p.ml + " ml"; };
-  b.addEventListener("mouseenter", show); b.addEventListener("focus", show);
-  b.addEventListener("mouseleave", () => { specName.textContent = specDefault; });
-  b.addEventListener("blur", () => { specName.textContent = specDefault; });
-  spec.appendChild(b);
-});
-
-/* ---------- filters ---------- */
 const chips = document.getElementById("chips");
 let current = "all";
-FAMILIES.forEach(([key,label]) => {
-  const n = key === "all" ? P.length : P.filter(p => p.tags.includes(key)).length;
-  const b = document.createElement("button");
-  b.className = "chip"; b.type = "button"; b.dataset.f = key;
-  b.setAttribute("aria-pressed", key === "all" ? "true" : "false");
-  b.innerHTML = `${label} <span>${n}</span>`;
-  b.addEventListener("click", () => applyFilter(key));
-  chips.appendChild(b);
-});
+function cardHTML(p){
+  const pic = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}" width="640" height="800" loading="lazy">` : `<span class="soon">${esc(t("card.soon"))}</span>`;
+  return `<button class="card" type="button" data-id="${p.id}" style="--c:${p.color}">
+    <span class="stage${p.studio ? " studio" : ""}">${pic}</span>
+    <span class="c-body">
+      <span class="c-meta"><bdi>${p.coll}</bdi> · <bdi>${esc(ml(p))}</bdi></span>
+      <span class="c-name">${esc(p.name)}${p.sub ? `<i>${esc(p.sub)}</i>` : ""}</span>
+      <span class="c-notes">${[p.top[0], p.heart[0], p.base[0]].map(n => esc(note(n))).join(" · ")}</span>
+      <span class="c-price">${esc(t("card.price"))}</span>
+    </span>
+  </button>`;
+}
+function rowHTML(p){
+  const pic = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}" width="640" height="800" loading="lazy">` : "";
+  return `<li><button class="row" type="button" data-id="${p.id}" style="--c:${p.color}">
+    <span class="r-thumb${p.studio ? " studio" : ""}">${pic}</span>
+    <span class="r-title"><span class="r-origin"${p.rtl ? ' dir="rtl" lang="ar"' : ' dir="ltr"'}>${esc(p.origin)}</span><span class="r-name">${esc(fullName(p))} · ${esc(p.where[LANG])} · ${esc(ml(p))}</span></span>
+    <span class="r-notes">${esc(p.line[LANG])}</span>
+    <span class="r-go">${esc(t("row.go"))}</span>
+  </button></li>`;
+}
+function renderChips(){
+  chips.innerHTML = FAMILIES.map(f => {
+    const n = f === "all" ? P.length : P.filter(p => p.tags.includes(f)).length;
+    return `<button class="chip" type="button" data-f="${f}" aria-pressed="${f === current}">${esc(t("fam." + f))} <span>${n}</span></button>`;
+  }).join("");
+}
+function renderCollection(){
+  dGrid.innerHTML = DIAMOND_ORDER.map(id => cardHTML(byId[id])).join("");
+  tRows.innerHTML = P.filter(p => p.coll === "Tobacco").map(rowHTML).join("");
+  applyFilter(current);
+}
 function applyFilter(f){
   current = f;
   chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.f === f ? "true" : "false"));
   let dn = 0, tn = 0;
-  dGrid.querySelectorAll(".card").forEach(el => {
-    const ok = f === "all" || byId[el.dataset.id].tags.includes(f);
-    el.hidden = !ok; if (ok) dn++;
-  });
-  tRows.querySelectorAll("li").forEach(li => {
-    const id = li.querySelector(".row").dataset.id;
-    const ok = f === "all" || byId[id].tags.includes(f);
-    li.hidden = !ok; if (ok) tn++;
-  });
+  dGrid.querySelectorAll(".card").forEach(el => { const ok = f === "all" || byId[el.dataset.id].tags.includes(f); el.hidden = !ok; if (ok) dn++; });
+  tRows.querySelectorAll("li").forEach(li => { const ok = f === "all" || byId[li.querySelector(".row").dataset.id].tags.includes(f); li.hidden = !ok; if (ok) tn++; });
   document.getElementById("diamond").hidden = dn === 0;
   document.getElementById("tobacco").hidden = tn === 0;
-  document.getElementById("dCount").textContent = dn + (dn > 1 ? " parfums" : " parfum");
-  document.getElementById("tCount").textContent = tn + (tn > 1 ? " parfums" : " parfum");
+  document.getElementById("dCount").textContent = count(dn);
+  document.getElementById("tCount").textContent = count(tn);
   document.getElementById("empty").hidden = dn + tn > 0;
 }
-applyFilter("all");
+chips.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) applyFilter(c.dataset.f); });
+
+/* ---------- colour spectrum ---------- */
+const spec = document.getElementById("spec");
+const specName = document.getElementById("specName");
+SPECTRUM.forEach(id => {
+  const p = byId[id];
+  const b = document.createElement("button");
+  b.type = "button"; b.dataset.id = id; b.style.setProperty("--c", p.color); b.setAttribute("aria-label", fullName(p));
+  const show = () => { specName.textContent = `${fullName(p)} · ${ml(p)}`; };
+  const hide = () => { specName.textContent = t("spec.default"); };
+  b.addEventListener("mouseenter", show); b.addEventListener("focus", show);
+  b.addEventListener("mouseleave", hide); b.addEventListener("blur", hide);
+  spec.appendChild(b);
+});
 
 /* ---------- selection ---------- */
-const KEY = "incsentia-selection";
 let sel = [];
-try { sel = JSON.parse(localStorage.getItem(KEY) || "[]").filter(id => byId[id]); } catch(e){ sel = []; }
-function save(){ try { localStorage.setItem(KEY, JSON.stringify(sel)); } catch(e){} }
+try { sel = JSON.parse(load(KEY_SEL) || "[]").filter(id => byId[id]); } catch(e){ sel = []; }
+const msg = document.getElementById("msg");
 function toggleSel(id){
   sel = sel.includes(id) ? sel.filter(x => x !== id) : sel.concat(id);
-  save(); renderSel();
+  store(KEY_SEL, JSON.stringify(sel)); renderSel();
 }
-const msg = document.getElementById("msg");
 function renderSel(){
   document.getElementById("selCount").textContent = sel.length;
   const list = document.getElementById("selList");
@@ -611,15 +752,14 @@ function renderSel(){
     const p = byId[id];
     const li = document.createElement("li");
     li.style.setProperty("--c", p.color);
-    li.innerHTML = `<span class="dot"></span><span class="nm">${fullName(p)}<small>${p.ml} ml</small></span><button class="rm" type="button">Retirer</button>`;
+    li.innerHTML = `<span class="dot"></span><span class="nm">${esc(fullName(p))}<small>${esc(ml(p))}</small></span><button class="rm" type="button">${esc(t("sel.remove"))}</button>`;
     li.querySelector(".rm").addEventListener("click", () => toggleSel(id));
     list.appendChild(li);
   });
   document.getElementById("selEmpty").hidden = sel.length > 0;
-  const lines = sel.length
-    ? sel.map(id => "• " + fullName(byId[id]) + " (" + byId[id].ml + " ml)").join("\n")
-    : "• (ajoutez un parfum à votre sélection)";
-  msg.value = "Bonjour Inscentia Fragrances,\nJe souhaiterais connaître les prix et la disponibilité de :\n" + lines + "\nMerci !";
+  const lines = sel.length ? sel.map(id => `• ${fullName(byId[id])} (${ml(byId[id])})`).join("\n") : `• ${t("msg.empty")}`;
+  msg.value = `${t("msg.hello")}\n${t("msg.ask")}\n${lines}\n${t("msg.thanks")}`;
+  msg.dir = LANG === "ar" ? "rtl" : "ltr";
   if (dlg.open && openId) syncAdd();
 }
 
@@ -629,51 +769,85 @@ const dAdd = document.getElementById("dAdd");
 let openId = null;
 function tierIcon(level){
   const bands = ["12,1 16,7 8,7", "8,7 16,7 20,14 4,14", "4,14 20,14 25,21 -1,21"];
-  return `<svg viewBox="-1 0 26 22" aria-hidden="true">${bands.map((pts,i) =>
+  return `<svg viewBox="-1 0 26 22" aria-hidden="true">${bands.map((pts, i) =>
     `<polygon points="${pts}" fill="${i === level ? "var(--c)" : "none"}" stroke="var(--muted)" stroke-width=".8" stroke-linejoin="round"/>`).join("")}</svg>`;
 }
 function syncAdd(){
   const inSel = sel.includes(openId);
-  dAdd.textContent = inSel ? "Retirer de ma sélection" : "Ajouter à ma sélection";
+  dAdd.textContent = inSel ? t("dlg.remove") : t("dlg.add");
   dAdd.classList.toggle("ghost", inSel);
 }
-function openSheet(id){
+function fillSheet(id){
   const p = byId[id]; openId = id;
   dlg.style.setProperty("--c", p.color);
   const st = document.getElementById("dStage");
   st.classList.toggle("photo", !!p.photo);
   st.classList.toggle("studio", !!p.studio);
-  st.innerHTML = p.photo ? `<img src="${p.photo}" alt="Flacon ${fullName(p)}">` : art(p);
-  document.getElementById("dMeta").textContent = p.coll + " · " + p.ml + " ml";
-  document.getElementById("dName").innerHTML = p.coll === "Tobacco" ? `${fullName(p)}` : `${p.name}${p.sub ? `<i>${p.sub}</i>` : ""}`;
+  st.innerHTML = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}">` : "";
+  document.getElementById("dMeta").innerHTML = `<bdi>${p.coll}</bdi> · <bdi>${esc(ml(p))}</bdi>`;
+  document.getElementById("dName").innerHTML = p.coll === "Tobacco" ? esc(fullName(p)) : `${esc(p.name)}${p.sub ? `<i>${esc(p.sub)}</i>` : ""}`;
   const o = document.getElementById("dOrigin");
-  if (p.origin){ o.hidden = false; o.textContent = "Origine : " + p.originFr; } else { o.hidden = true; }
-  document.getElementById("dLine").textContent = p.line;
-  document.getElementById("dPyr").innerHTML = [["Tête",p.top],["Cœur",p.heart],["Fond",p.base]].map(([lab,notes],i) =>
-    `<div class="tier">${tierIcon(i)}<span class="t-lab">${lab}</span><span class="t-notes">${notes.join(", ")}</span></div>`).join("");
+  if (p.where){ o.hidden = false; o.textContent = t("dlg.origin") + p.where[LANG]; } else { o.hidden = true; }
+  document.getElementById("dLine").textContent = p.line[LANG];
+  document.getElementById("dPyr").innerHTML = [["dlg.top", p.top], ["dlg.heart", p.heart], ["dlg.base", p.base]].map(([lab, notes], i) =>
+    `<div class="tier">${tierIcon(i)}<span class="t-lab">${esc(t(lab))}</span><span class="t-notes">${notes.map(n => esc(note(n))).join(LANG === "ar" ? "، " : ", ")}</span></div>`).join("");
   syncAdd();
-  if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open","");
+}
+function openSheet(id){
+  fillSheet(id);
+  if (typeof dlg.showModal === "function") { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
 }
 function closeSheet(){ if (typeof dlg.close === "function") dlg.close(); else dlg.removeAttribute("open"); }
 dAdd.addEventListener("click", () => { if (openId) toggleSel(openId); });
 document.getElementById("dClose").addEventListener("click", closeSheet);
 dlg.addEventListener("click", e => { if (e.target === dlg) closeSheet(); });
 document.addEventListener("click", e => {
-  const t = e.target.closest(".card, .row, .spec-bar button");
-  if (t && t.dataset.id) openSheet(t.dataset.id);
+  const el = e.target.closest(".card, .row, .spec-bar button");
+  if (el && el.dataset.id) openSheet(el.dataset.id);
 });
 
 /* ---------- copy ---------- */
-const note = document.getElementById("copyNote");
+const note2 = document.getElementById("copyNote");
 document.getElementById("copy").addEventListener("click", () => {
-  const done = () => { note.textContent = "Message copié. Collez-le sur WhatsApp ou Instagram."; };
-  const fallback = () => { msg.focus(); msg.select(); note.textContent = "Texte sélectionné, copiez-le avec Ctrl+C ou un appui long."; };
+  const done = () => { note2.textContent = t("copy.ok"); };
+  const fallback = () => { msg.focus(); msg.select(); note2.textContent = t("copy.fb"); };
   try {
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(msg.value).then(done, fallback);
     else fallback();
   } catch(e){ fallback(); }
 });
-renderSel();
+
+/* ---------- language & light/dark ---------- */
+const modeBtn = document.getElementById("mode");
+function applyMode(m){
+  MODE = m;
+  if (m === "dark") document.documentElement.setAttribute("data-mode", "dark");
+  else document.documentElement.removeAttribute("data-mode");
+  modeBtn.setAttribute("aria-pressed", m === "dark" ? "true" : "false");
+  modeBtn.setAttribute("aria-label", t(m === "dark" ? "mode.toLight" : "mode.toDark"));
+  const tc = document.querySelector('meta[name="theme-color"]'); if (tc) tc.setAttribute("content", m === "dark" ? "#131015" : "#F2EFF3");
+  store(KEY_MODE, m);
+}
+function applyLang(l){
+  LANG = l;
+  const root = document.documentElement;
+  root.lang = l; root.dir = l === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-alt]").forEach(el => { el.alt = t(el.dataset.i18nAlt); });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+  document.querySelectorAll("[data-i18n-todo]").forEach(el => { el.dataset.todo = t(el.dataset.i18nTodo); });
+  document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l ? "true" : "false"));
+  modeBtn.setAttribute("aria-label", t(MODE === "dark" ? "mode.toLight" : "mode.toDark"));
+  specName.textContent = t("spec.default");
+  note2.textContent = "";
+  renderChips(); renderCollection(); renderSel();
+  if (dlg.open && openId) fillSheet(openId);
+  store(KEY_LANG, l);
+}
+document.querySelector(".langs").addEventListener("click", e => { const b = e.target.closest("button[data-lang]"); if (b && b.dataset.lang !== LANG) applyLang(b.dataset.lang); });
+modeBtn.addEventListener("click", () => applyMode(MODE === "dark" ? "light" : "dark"));
+applyMode(MODE);
+applyLang(LANG);
 
 /* ---------- incense smoke ---------- */
 (function(){
@@ -681,34 +855,34 @@ renderSel();
   if (!cv || !cv.getContext) return;
   const ctx = cv.getContext("2d");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-  let w = 0, h = 0, parts = [], rgb = "72,56,84", raf = 0, running = false, inView = true;
+  let w = 0, h = 0, parts = [], rgb = "186,148,98", raf = 0, running = false, inView = true;
   const sources = [.14, .52, .86];
   function readColor(){ const v = getComputedStyle(document.documentElement).getPropertyValue("--smoke").trim(); if (v) rgb = v; }
   function size(){
     const r = cv.getBoundingClientRect(); const dpr = Math.min(2, window.devicePixelRatio || 1);
-    w = r.width; h = r.height; cv.width = Math.max(1, Math.round(w*dpr)); cv.height = Math.max(1, Math.round(h*dpr));
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+    w = r.width; h = r.height; cv.width = Math.max(1, Math.round(w * dpr)); cv.height = Math.max(1, Math.round(h * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   function spawn(){
-    const s = sources[Math.floor(Math.random()*sources.length)];
-    parts.push({x: w*s + (Math.random()-.5)*24, y: h + 12, r: 6 + Math.random()*10, vy: -(.35 + Math.random()*.5),
-      vx: (Math.random()-.5)*.22, life: 0, max: 420 + Math.random()*320, seed: Math.random()*6.283});
+    const s = sources[Math.floor(Math.random() * sources.length)];
+    parts.push({x: w * s + (Math.random() - .5) * 24, y: h + 12, r: 6 + Math.random() * 10, vy: -(.35 + Math.random() * .5),
+      vx: (Math.random() - .5) * .22, life: 0, max: 420 + Math.random() * 320, seed: Math.random() * 6.283});
   }
   function update(){
     if (parts.length < 110) spawn();
     for (let i = parts.length - 1; i >= 0; i--){
       const p = parts[i]; p.life++;
-      p.y += p.vy; p.x += p.vx + Math.sin(p.life*.013 + p.seed)*.38; p.r += .13;
-      if (p.life >= p.max || p.y < -p.r) parts.splice(i,1);
+      p.y += p.vy; p.x += p.vx + Math.sin(p.life * .013 + p.seed) * .38; p.r += .13;
+      if (p.life >= p.max || p.y < -p.r) parts.splice(i, 1);
     }
   }
   function draw(){
-    ctx.clearRect(0,0,w,h);
+    ctx.clearRect(0, 0, w, h);
     for (const p of parts){
-      const a = Math.sin(Math.PI * (p.life/p.max)) * .05;
-      const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
+      const a = Math.sin(Math.PI * (p.life / p.max)) * .05;
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
       g.addColorStop(0, `rgba(${rgb},${a})`); g.addColorStop(1, `rgba(${rgb},0)`);
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill();
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
     }
   }
   function loop(){ update(); draw(); raf = requestAnimationFrame(loop); }
@@ -720,8 +894,7 @@ renderSel();
   if ("ResizeObserver" in window) new ResizeObserver(() => { size(); draw(); }).observe(cv);
   if ("IntersectionObserver" in window) new IntersectionObserver(es => { inView = es[0].isIntersecting; inView ? start() : stop(); }).observe(cv);
   document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
-  const recolor = () => { readColor(); draw(); };
-  new MutationObserver(recolor).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+  new MutationObserver(() => { readColor(); draw(); }).observe(document.documentElement, {attributes: true, attributeFilter: ["data-mode"]});
   reduce.addEventListener?.("change", () => reduce.matches ? stop() : start());
 })();
 </script>
