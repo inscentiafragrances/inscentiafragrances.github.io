@@ -8,7 +8,7 @@
 <meta name="author" content="Rayane Gourja">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#131015">
+<meta name="theme-color" content="#F2EFF3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Inscentia Fragrances">
 <meta property="og:title" content="Inscentia Fragrances">
@@ -39,22 +39,12 @@ img{max-width:100%}
   --on-ink:#FBFAFB;
   --smoke:72,56,84;
   --studio:#FFFFFF;
+  color-scheme:light;
   --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --f-body:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
   --f-arabic:"Amiri","Geeza Pro","Times New Roman",serif;
   --wrap:1240px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#131015; --surface:#1C181F; --ink:#EEE8F0; --muted:#A99FAD; --line:#342D38; --accent:#D2AE7A; --on-ink:#131015; --smoke:226,212,236; --studio:#DAD4DD;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#131015; --surface:#1C181F; --ink:#EEE8F0; --muted:#A99FAD; --line:#342D38; --accent:#D2AE7A; --on-ink:#131015; --smoke:226,212,236; --studio:#DAD4DD;
-  color-scheme:dark;
-}
-
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
 a{color:inherit}
