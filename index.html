@@ -169,6 +169,7 @@ p{margin:0}
 .c-name i{display:block;font-size:.85em;color:var(--muted)}
 .c-notes{font-size:.82rem;color:var(--muted);line-height:1.45}
 .c-price{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.c-price b{font-family:var(--f-brand);font-weight:500;font-size:1.2rem;letter-spacing:0;text-transform:none;color:var(--ink);font-variant-numeric:lining-nums}
 
 .rows{list-style:none;margin:0;padding:0}
 .row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:6px 18px;align-items:center;width:100%;padding:18px 12px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:start;cursor:pointer;transition:background .3s}
@@ -180,6 +181,8 @@ p{margin:0}
 .r-notes{grid-column:2 / -1;color:var(--muted);font-size:.9rem;line-height:1.5;min-width:0}
 .r-go{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .row:hover .r-go{color:var(--ink)}
+.r-go{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.r-go b{font-family:var(--f-brand);font-weight:500;font-size:1.3rem;letter-spacing:0;text-transform:none;color:var(--ink);font-variant-numeric:lining-nums}
 @media (min-width:820px){
   .row{grid-template-columns:88px minmax(0,1fr) minmax(0,1.3fr) auto;gap:32px;padding:22px 16px}
   .r-notes{grid-column:auto}
@@ -231,6 +234,9 @@ p{margin:0}
 .rm{border:0;background:none;cursor:pointer;color:var(--muted);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:6px}
 .rm:hover{color:var(--ink)}
 .sel-empty{color:var(--muted);font-style:italic}
+.sel-total{display:flex;justify-content:space-between;align-items:baseline;margin:0;padding-top:4px}
+.sel-total span{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.sel-total b{font-family:var(--f-brand);font-weight:500;font-size:1.6rem;font-variant-numeric:lining-nums}
 .sel-box label{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .sel-box textarea{width:100%;min-height:150px;resize:vertical;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.9rem;line-height:1.55;padding:14px}
 .copy-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
@@ -265,7 +271,7 @@ dialog::backdrop{background:rgba(19,16,21,.55);backdrop-filter:blur(4px)}
 .tier .t-lab{font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .tier .t-notes{font-family:var(--f-display);font-size:1.05rem;line-height:1.4}
 .d-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:8px}
-.price{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.price{font-family:var(--f-brand);font-weight:500;font-size:1.7rem;color:var(--ink);font-variant-numeric:lining-nums}
 
 /* Product photos: white studio shots blend into a light tint of each fragrance's colour */
 .r-thumb{display:block;position:relative;overflow:hidden;aspect-ratio:4/5;max-width:100%}
@@ -399,7 +405,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     <div class="order-txt">
       <p class="eyebrow" data-i18n="order.eyebrow">Commande</p>
       <h2 data-i18n="order.title">Votre sélection</h2>
-      <p data-i18n="order.text">Les prix arrivent bientôt. Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram.</p>
+      <p data-i18n="order.text">Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram. Nous vous confirmons la disponibilité et la livraison.</p>
       <dl class="contact">
         <div><dt>WhatsApp</dt><dd class="todo ltr" data-todo="à compléter" data-i18n-todo="order.todo">+212</dd></div>
         <div><dt data-i18n="order.ig.label">Instagram</dt><dd class="ltr"><a href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener">@inscentia_fragrances</a></dd></div>
@@ -408,6 +414,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     </div>
     <div class="sel-box">
       <ul class="sel-list" id="selList"></ul>
+      <p class="sel-total" id="selTotal" hidden></p>
       <p class="sel-empty" id="selEmpty" data-i18n="order.empty">Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».</p>
       <label for="msg" data-i18n="order.msglabel">Message à envoyer</label>
       <textarea id="msg" readonly></textarea>
@@ -440,7 +447,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
       <p class="d-line" id="dLine"></p>
       <div class="pyr" id="dPyr"></div>
       <div class="d-foot">
-        <span class="price" data-i18n="dlg.price">Prix · bientôt</span>
+        <span class="price" id="dPrice"></span>
         <button class="btn" id="dAdd" type="button">Ajouter à ma sélection</button>
       </div>
     </div>
@@ -450,78 +457,78 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
 <script>
 /* ---------- catalogue ---------- */
 const P = [
-  {id:"nude-coral", coll:"Diamond", name:"Nude Coral", sub:"Diamond", ml:150, color:"#D8692F", tags:["gourmand","floral"], photo:"img/nude-coral.jpg",
+  {id:"nude-coral", coll:"Diamond", name:"Nude Coral", sub:"Diamond", ml:150, price:579, color:"#D8692F", tags:["gourmand","floral"], photo:"img/nude-coral.jpg",
    line:{fr:"Un coucher de soleil tiède. La bergamote et le safran s'ouvrent sur la fleur d'oranger et la noix de coco, puis sur la vanille.",
          en:"A warm sunset. Bergamot and saffron open onto orange blossom and coconut, then vanilla.",
          ar:"غروب دافئ. يتفتح البرغموت والزعفران على زهر البرتقال وجوز الهند، ثم على الفانيليا."},
    top:["Bergamote","Pomme","Safran"], heart:["Fleur d'oranger","Noix de coco","Bois de gaïac"], base:["Vanille","Ambre","Cashmeran"]},
-  {id:"black-diamond", coll:"Diamond", name:"Black Diamond", sub:"Incense", ml:150, color:"#34433A", tags:["boise"], photo:"img/black-diamond.jpg", studio:true,
+  {id:"black-diamond", coll:"Diamond", name:"Black Diamond", sub:"Incense", ml:150, price:579, color:"#34433A", tags:["boise"], photo:"img/black-diamond.jpg", studio:true,
    line:{fr:"Un oud fumé, entre Orient et Occident. Le cuir et l'encens rencontrent une fraîcheur marine.",
          en:"A smoky oud between East and West. Leather and incense meet a marine freshness.",
          ar:"عود مدخّن بين الشرق والغرب. يلتقي الجلد والبخور بانتعاش بحري."},
    top:["Notes marines","Bouleau","Cassis"], heart:["Encens","Santal","Vanille"], base:["Ambre","Cuir","Fumée","Oud"]},
-  {id:"blue-diamond", coll:"Diamond", name:"Blue Diamond", sub:"Aqua", ml:150, color:"#A9C3E6", tags:["frais"], photo:"img/blue-diamond.jpg", studio:true,
+  {id:"blue-diamond", coll:"Diamond", name:"Blue Diamond", sub:"Aqua", ml:150, price:579, color:"#A9C3E6", tags:["frais"], photo:"img/blue-diamond.jpg", studio:true,
    line:{fr:"Une brise d'île. Bergamote et embruns en tête, un musc légèrement fumé en fond.",
          en:"An island breeze. Bergamot and sea spray up top, a softly smoky musk below.",
          ar:"نسيم جزيرة. برغموت ورذاذ البحر في المقدمة، ومسك مدخّن برفق في القاعدة."},
    top:["Bergamote","Notes marines","Safran"], heart:["Romarin","Ylang-ylang","Agrumes"], base:["Encens","Musc","Patchouli"]},
-  {id:"pink-diamond", coll:"Diamond", name:"Pink Diamond", sub:"Sakura", ml:150, color:"#E9B3C6", tags:["floral"], photo:"img/pink-diamond.jpg", studio:true,
+  {id:"pink-diamond", coll:"Diamond", name:"Pink Diamond", sub:"Sakura", ml:150, price:579, color:"#E9B3C6", tags:["floral"], photo:"img/pink-diamond.jpg", studio:true,
    line:{fr:"Un bouquet de rose, de lys et de fleur de cerisier, posé sur le bois de santal.",
          en:"A bouquet of rose, lily and cherry blossom, resting on sandalwood.",
          ar:"باقة من الورد والزنبق وزهر الكرز، على قاعدة من خشب الصندل."},
    top:["Pivoine","Fleur d'oranger","Mandarine"], heart:["Rose","Lys","Fleur de cerisier"], base:["Santal","Musc blanc","Ambre"]},
-  {id:"cullinan-diamond", coll:"Diamond", name:"Cullinan Diamond", sub:"Iris", ml:150, color:"#D8CCB4", tags:["frais","boise"], photo:"img/cullinan-diamond.jpg", studio:true,
+  {id:"cullinan-diamond", coll:"Diamond", name:"Cullinan Diamond", sub:"Iris", ml:150, price:579, color:"#D8CCB4", tags:["frais","boise"], photo:"img/cullinan-diamond.jpg", studio:true,
    line:{fr:"Ananas et pamplemousse lumineux, puis le cèdre et l'iris pour une signature assurée.",
          en:"Bright pineapple and grapefruit, then cedar and iris for a confident signature.",
          ar:"أناناس وجريب فروت مشرقان، ثم الأرز والسوسن لبصمة واثقة."},
    top:["Pamplemousse","Ananas"], heart:["Bergamote","Jasmin","Patchouli"], base:["Cèdre","Mousse de chêne","Pin","Iris"]},
-  {id:"emerald-soul", coll:"Diamond", name:"Emerald Soul", sub:"Diamond", ml:150, color:"#1F6B55", tags:["frais","gourmand"], photo:"img/emerald-soul.jpg",
+  {id:"emerald-soul", coll:"Diamond", name:"Emerald Soul", sub:"Diamond", ml:150, price:579, color:"#1F6B55", tags:["frais","gourmand"], photo:"img/emerald-soul.jpg",
    line:{fr:"Une lumière de crépuscule. Les agrumes s'éteignent doucement dans l'ambre et la vanille.",
          en:"Twilight light. Citrus fades gently into amber and vanilla.",
          ar:"ضوء الغسق. تخفت الحمضيات بهدوء في العنبر والفانيليا."},
    top:["Bergamote","Mandarine","Musc blanc"], heart:["Épices fraîches","Citron"], base:["Vanille","Ambre"]},
-  {id:"purple-heart", coll:"Diamond", name:"Purple Heart", sub:"Diamond", ml:150, color:"#6E2238", tags:["floral","gourmand"], photo:"img/purple-heart.jpg",
+  {id:"purple-heart", coll:"Diamond", name:"Purple Heart", sub:"Diamond", ml:150, price:579, color:"#6E2238", tags:["floral","gourmand"], photo:"img/purple-heart.jpg",
    line:{fr:"Fleur d'oranger et jasmin, sensuels et affirmés, sur un lit de bois chauds.",
          en:"Orange blossom and jasmine, sensual and bold, on a bed of warm woods.",
          ar:"زهر البرتقال والياسمين، حسّيان وجريئان، على فراش من الأخشاب الدافئة."},
    top:["Fleur d'oranger","Poire","Vanille"], heart:["Poivre rose","Jasmin","Amande"], base:["Bois de cachemire","Cèdre","Patchouli"]},
-  {id:"white-regent", coll:"Diamond", name:"White Regent", sub:"Diamond", ml:150, color:"#ECE8F1", tags:["boise","gourmand"], photo:"img/white-regent.jpg",
+  {id:"white-regent", coll:"Diamond", name:"White Regent", sub:"Diamond", ml:150, price:579, color:"#ECE8F1", tags:["boise","gourmand"], photo:"img/white-regent.jpg",
    line:{fr:"Un éclat discret. Le thé et la figue s'ouvrent sur un fond royal de tonka et de vanille.",
          en:"A quiet sparkle. Tea and fig open onto a regal base of tonka and vanilla.",
          ar:"بريق هادئ. يتفتح الشاي والتين على قاعدة ملكية من التونكا والفانيليا."},
    top:["Figue","Cardamome","Thé","Santal"], heart:["Iris","Vétiver"], base:["Fève tonka","Patchouli","Vanille"]},
-  {id:"grey-pearl", coll:"Diamond", name:"Grey Pearl", sub:"Diamond", ml:150, color:"#A88B72", tags:["frais","floral"], photo:"img/grey-pearl.jpg", studio:true,
+  {id:"grey-pearl", coll:"Diamond", name:"Grey Pearl", sub:"Diamond", ml:150, price:579, color:"#A88B72", tags:["frais","floral"], photo:"img/grey-pearl.jpg", studio:true,
    line:{fr:"Canneberge et notes marines, adossées à un fond d'encens épicé.",
          en:"Cranberry and marine notes, set against a base of spiced incense.",
          ar:"توت بري ونفحات بحرية، تستند إلى قاعدة من البخور المتبّل."},
    top:["Notes marines","Canneberge","Résine"], heart:["Jasmin","Patchouli","Rose"], base:["Encens","Épices"]},
-  {id:"black-carbon", coll:"Diamond", name:"Black Carbon", sub:"", ml:150, color:"#1E1E22", tags:["boise","floral"], photo:"img/black-carbon.jpg", studio:true,
+  {id:"black-carbon", coll:"Diamond", name:"Black Carbon", sub:"", ml:150, price:579, color:"#1E1E22", tags:["boise","floral"], photo:"img/black-carbon.jpg", studio:true,
    line:{fr:"Un oriental chaud. La rose et la pomme se fondent dans le santal, l'oliban et l'oud.",
          en:"A warm oriental. Rose and apple melt into sandalwood, frankincense and oud.",
          ar:"عطر شرقي دافئ. يذوب الورد والتفاح في الصندل واللبان والعود."},
    top:["Bergamote"], heart:["Rose","Pomme","Patchouli"], base:["Santal","Musc","Oliban","Oud"]},
 
-  {id:"brazilian", coll:"Tobacco", name:"Brazilian", sub:"Tobacco", ml:100, color:"#2E9AD6", origin:"Brasil", where:{fr:"Brésil", en:"Brazil", ar:"البرازيل"}, tags:["boise"], photo:"img/brazilian.jpg", studio:true,
+  {id:"brazilian", coll:"Tobacco", name:"Brazilian", sub:"Tobacco", ml:100, price:559, color:"#2E9AD6", origin:"Brasil", where:{fr:"Brésil", en:"Brazil", ar:"البرازيل"}, tags:["boise"], photo:"img/brazilian.jpg", studio:true,
    line:{fr:"Bergamote et lavande en ouverture, puis un tabac boisé qui se pose sur le cuir.",
          en:"Bergamot and lavender to open, then a woody tobacco settling on leather.",
          ar:"برغموت وخزامى في الافتتاح، ثم تبغ خشبي يستقر على الجلد."},
    top:["Bergamote","Lavande","Baies roses","Piment"], heart:["Tabac brésilien","Bois d'oud","Cerise","Cèdre"], base:["Cuir","Patchouli","Vétiver"]},
-  {id:"spanish", coll:"Tobacco", name:"Spanish", sub:"Tobacco", ml:100, color:"#1F7A9C", origin:"España", where:{fr:"Espagne", en:"Spain", ar:"إسبانيا"}, tags:["gourmand"], photo:"img/spanish.jpg", studio:true,
+  {id:"spanish", coll:"Tobacco", name:"Spanish", sub:"Tobacco", ml:100, price:559, color:"#1F7A9C", origin:"España", where:{fr:"Espagne", en:"Spain", ar:"إسبانيا"}, tags:["gourmand"], photo:"img/spanish.jpg", studio:true,
    line:{fr:"Le safran et la tonka s'ouvrent sur un cœur de cacao et de tabac ambré.",
          en:"Saffron and tonka open onto a heart of cocoa and amber tobacco.",
          ar:"يتفتح الزعفران والتونكا على قلب من الكاكاو والتبغ العنبري."},
    top:["Notes marines","Safran","Fève tonka"], heart:["Cacao","Ambre","Tabac espagnol"], base:["Iris","Notes boisées"]},
-  {id:"mexican", coll:"Tobacco", name:"Mexican", sub:"Tobacco", ml:100, color:"#B3242A", origin:"México", where:{fr:"Mexique", en:"Mexico", ar:"المكسيك"}, tags:["gourmand"], photo:"img/mexican.jpg", studio:true,
+  {id:"mexican", coll:"Tobacco", name:"Mexican", sub:"Tobacco", ml:100, price:559, color:"#B3242A", origin:"México", where:{fr:"Mexique", en:"Mexico", ar:"المكسيك"}, tags:["gourmand"], photo:"img/mexican.jpg", studio:true,
    line:{fr:"Chocolat noir et cèdre, adoucis de lilas, avant un fond d'ambre et de tabac.",
          en:"Dark chocolate and cedar, softened with lilac, before a base of amber and tobacco.",
          ar:"شوكولاتة داكنة وأرز، يلطّفهما الليلك، قبل قاعدة من العنبر والتبغ."},
    top:["Cèdre","Chocolat noir"], heart:["Lilas","Cannelle"], base:["Ambre","Tabac mexicain","Rose"]},
-  {id:"greek", coll:"Tobacco", name:"Greek", sub:"Tobacco", ml:100, color:"#8CC9E2", origin:"Ελλάδα", where:{fr:"Grèce", en:"Greece", ar:"اليونان"}, tags:["floral"], photo:"img/greek.jpg", studio:true,
+  {id:"greek", coll:"Tobacco", name:"Greek", sub:"Tobacco", ml:100, price:559, color:"#8CC9E2", origin:"Ελλάδα", where:{fr:"Grèce", en:"Greece", ar:"اليونان"}, tags:["floral"], photo:"img/greek.jpg", studio:true,
    line:{fr:"Un tabac floral et fruité. Litchi, abricot et narcisse sur un musc chaud.",
          en:"A floral, fruity tobacco. Lychee, apricot and narcissus on a warm musk.",
          ar:"تبغ زهري وفاكهي. ليتشي ومشمش ونرجس على مسك دافئ."},
    top:["Narcisse","Litchi","Rose"], heart:["Abricot","Fleur d'oranger","Iris"], base:["Tabac grec","Musc","Pivoine"]},
-  {id:"arabian", coll:"Tobacco", name:"Arabian", sub:"Tobacco", ml:100, color:"#BFA88A", origin:"جزيرة العرب", rtl:true, where:{fr:"Arabie", en:"Arabia", ar:"الجزيرة العربية"}, tags:["gourmand"], photo:"img/arabian.jpg", studio:true,
+  {id:"arabian", coll:"Tobacco", name:"Arabian", sub:"Tobacco", ml:100, price:559, color:"#BFA88A", origin:"جزيرة العرب", rtl:true, where:{fr:"Arabie", en:"Arabia", ar:"الجزيرة العربية"}, tags:["gourmand"], photo:"img/arabian.jpg", studio:true,
    line:{fr:"Safran et caramel salé, puis un fond de café fumé, d'ambre et de patchouli.",
          en:"Saffron and salted caramel, then a base of smoked coffee, amber and patchouli.",
          ar:"زعفران وكراميل مملح، ثم قاعدة من القهوة المدخنة والعنبر والباتشولي."},
@@ -576,7 +583,7 @@ const T = {
     "maison.sigrole":"Fondatrice · Inscentia Fragrances", "maison.cap":"La collection réunie · Diamond, Black Carbon et Tobacco",
     "maison.alt":"Les parfums Inscentia Fragrances alignés sous une arche marocaine lumineuse : les dix Diamond en une rangée, les cinq Tobacco devant",
     "order.eyebrow":"Commande", "order.title":"Votre sélection",
-    "order.text":"Les prix arrivent bientôt. Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram.",
+    "order.text":"Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram. Nous vous confirmons la disponibilité et la livraison.",
     "order.todo":"à compléter", "order.ig.label":"Instagram", "order.city":"Ville", "order.cityval":"Casablanca, Maroc",
     "order.empty":"Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».",
     "order.msglabel":"Message à envoyer", "order.copy":"Copier le message", "order.ig":"Écrire sur Instagram",
@@ -585,7 +592,7 @@ const T = {
     "dlg.close":"Fermer", "dlg.price":"Prix · bientôt", "dlg.add":"Ajouter à ma sélection", "dlg.remove":"Retirer de ma sélection",
     "dlg.top":"Tête", "dlg.heart":"Cœur", "dlg.base":"Fond", "dlg.origin":"Origine : ",
     "card.price":"Prix à venir", "card.soon":"Photo à venir", "row.go":"Découvrir", "sel.remove":"Retirer", "ml":"ml",
-    "msg.hello":"Bonjour Inscentia Fragrances,", "msg.ask":"Je souhaiterais connaître les prix et la disponibilité de :",
+    "msg.hello":"Bonjour Inscentia Fragrances,", "msg.ask":"Je souhaiterais commander les parfums suivants :", "sel.total":"Total",
     "msg.empty":"(ajoutez un parfum à votre sélection)", "msg.thanks":"Merci !",
     "copy.ok":"Message copié. Collez-le sur WhatsApp ou Instagram.", "copy.fb":"Texte sélectionné, copiez-le avec Ctrl+C ou un appui long."
   },
@@ -608,7 +615,7 @@ const T = {
     "maison.sigrole":"Founder · Inscentia Fragrances", "maison.cap":"The collection together · Diamond, Black Carbon and Tobacco",
     "maison.alt":"Inscentia Fragrances perfumes lined up under a glowing Moroccan arch: the ten Diamonds in a row, the five Tobaccos in front",
     "order.eyebrow":"Order", "order.title":"Your selection",
-    "order.text":"Prices coming soon. Open a fragrance, add it to your selection, then send us the message on Instagram.",
+    "order.text":"Open a fragrance, add it to your selection, then send us the message on Instagram. We'll confirm availability and delivery.",
     "order.todo":"coming soon", "order.ig.label":"Instagram", "order.city":"City", "order.cityval":"Casablanca, Morocco",
     "order.empty":"Your selection is empty. Open a fragrance and choose “Add to my selection”.",
     "order.msglabel":"Message to send", "order.copy":"Copy the message", "order.ig":"Message us on Instagram",
@@ -617,7 +624,7 @@ const T = {
     "dlg.close":"Close", "dlg.price":"Price · soon", "dlg.add":"Add to my selection", "dlg.remove":"Remove from my selection",
     "dlg.top":"Top", "dlg.heart":"Heart", "dlg.base":"Base", "dlg.origin":"Origin: ",
     "card.price":"Price coming soon", "card.soon":"Photo coming soon", "row.go":"Discover", "sel.remove":"Remove", "ml":"ml",
-    "msg.hello":"Hello Inscentia Fragrances,", "msg.ask":"I would like to know the prices and availability of:",
+    "msg.hello":"Hello Inscentia Fragrances,", "msg.ask":"I would like to order the following fragrances:", "sel.total":"Total",
     "msg.empty":"(add a fragrance to your selection)", "msg.thanks":"Thank you!",
     "copy.ok":"Message copied. Paste it into WhatsApp or Instagram.", "copy.fb":"Text selected. Copy it with Ctrl+C or a long press."
   },
@@ -640,7 +647,7 @@ const T = {
     "maison.sigrole":"المؤسِّسة · Inscentia Fragrances", "maison.cap":"المجموعة كاملة · Diamond وBlack Carbon وTobacco",
     "maison.alt":"عطور Inscentia Fragrances مصطفة تحت قوس مغربي مضيء: عطور Diamond العشرة في صف واحد، وعطور Tobacco الخمسة في الأمام",
     "order.eyebrow":"الطلب", "order.title":"اختيارك",
-    "order.text":"الأسعار قريبًا. افتح عطرًا وأضفه إلى اختيارك، ثم أرسل إلينا الرسالة عبر إنستغرام.",
+    "order.text":"افتح عطرًا وأضفه إلى اختيارك، ثم أرسل إلينا الرسالة عبر إنستغرام. سنؤكد لك التوفّر والتوصيل.",
     "order.todo":"قريبًا", "order.ig.label":"إنستغرام", "order.city":"المدينة", "order.cityval":"الدار البيضاء، المغرب",
     "order.empty":"اختيارك فارغ. افتح عطرًا واختر «أضف إلى اختياري».",
     "order.msglabel":"الرسالة المراد إرسالها", "order.copy":"انسخ الرسالة", "order.ig":"راسلنا على إنستغرام",
@@ -649,7 +656,7 @@ const T = {
     "dlg.close":"إغلاق", "dlg.price":"السعر · قريبًا", "dlg.add":"أضف إلى اختياري", "dlg.remove":"أزل من اختياري",
     "dlg.top":"المقدمة", "dlg.heart":"القلب", "dlg.base":"القاعدة", "dlg.origin":"الأصل: ",
     "card.price":"السعر قريبًا", "card.soon":"الصورة قريبًا", "row.go":"اكتشف", "sel.remove":"إزالة", "ml":"مل",
-    "msg.hello":"مرحبًا Inscentia Fragrances،", "msg.ask":"أود معرفة أسعار وتوفّر:",
+    "msg.hello":"مرحبًا Inscentia Fragrances،", "msg.ask":"أود طلب العطور التالية:", "sel.total":"المجموع",
     "msg.empty":"(أضف عطرًا إلى اختيارك)", "msg.thanks":"شكرًا!",
     "copy.ok":"تم نسخ الرسالة. الصقها في واتساب أو إنستغرام.", "copy.fb":"تم تحديد النص. انسخه بـ Ctrl+C أو بضغطة مطولة."
   }
@@ -664,6 +671,8 @@ let MODE = load(KEY_MODE) === "dark" ? "dark" : "light";
 const t = k => (T[LANG] && T[LANG][k] != null) ? T[LANG][k] : (T.fr[k] != null ? T.fr[k] : k);
 const note = n => LANG === "fr" ? n : ((NOTES[n] || [n, n])[LANG === "en" ? 0 : 1]);
 const ml = p => `${p.ml} ${t("ml")}`;
+const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202F");
+const money = n => LANG === "ar" ? `${fmt(n)} درهم` : `${fmt(n)} DH`;
 function count(n){
   if (LANG === "en") return `${n} ${n === 1 ? "fragrance" : "fragrances"}`;
   if (LANG === "ar") return n === 1 ? "عطر واحد" : n === 2 ? "عطران" : (n <= 10 ? `${n} عطور` : `${n} عطرًا`);
@@ -684,7 +693,7 @@ function cardHTML(p){
       <span class="c-meta"><bdi>${p.coll}</bdi> · <bdi>${esc(ml(p))}</bdi></span>
       <span class="c-name">${esc(p.name)}${p.sub ? `<i>${esc(p.sub)}</i>` : ""}</span>
       <span class="c-notes">${[p.top[0], p.heart[0], p.base[0]].map(n => esc(note(n))).join(" · ")}</span>
-      <span class="c-price">${esc(t("card.price"))}</span>
+      <span class="c-price"><b>${esc(money(p.price))}</b></span>
     </span>
   </button>`;
 }
@@ -694,7 +703,7 @@ function rowHTML(p){
     <span class="r-thumb${p.studio ? " studio" : ""}">${pic}</span>
     <span class="r-title"><span class="r-origin"${p.rtl ? ' dir="rtl" lang="ar"' : ' dir="ltr"'}>${esc(p.origin)}</span><span class="r-name">${esc(fullName(p))} · ${esc(p.where[LANG])} · ${esc(ml(p))}</span></span>
     <span class="r-notes">${esc(p.line[LANG])}</span>
-    <span class="r-go">${esc(t("row.go"))}</span>
+    <span class="r-go"><b>${esc(money(p.price))}</b>${esc(t("row.go"))}</span>
   </button></li>`;
 }
 function renderChips(){
@@ -752,12 +761,15 @@ function renderSel(){
     const p = byId[id];
     const li = document.createElement("li");
     li.style.setProperty("--c", p.color);
-    li.innerHTML = `<span class="dot"></span><span class="nm">${esc(fullName(p))}<small>${esc(ml(p))}</small></span><button class="rm" type="button">${esc(t("sel.remove"))}</button>`;
+    li.innerHTML = `<span class="dot"></span><span class="nm">${esc(fullName(p))}<small>${esc(ml(p))} · ${esc(money(p.price))}</small></span><button class="rm" type="button">${esc(t("sel.remove"))}</button>`;
     li.querySelector(".rm").addEventListener("click", () => toggleSel(id));
     list.appendChild(li);
   });
   document.getElementById("selEmpty").hidden = sel.length > 0;
-  const lines = sel.length ? sel.map(id => `• ${fullName(byId[id])} (${ml(byId[id])})`).join("\n") : `• ${t("msg.empty")}`;
+  const total = sel.reduce((a, id) => a + byId[id].price, 0);
+  const tot = document.getElementById("selTotal"); tot.hidden = !sel.length;
+  tot.innerHTML = `<span>${esc(t("sel.total"))}</span><b>${esc(money(total))}</b>`;
+  const lines = sel.length ? sel.map(id => `• ${fullName(byId[id])} (${ml(byId[id])}) · ${money(byId[id].price)}`).join("\n") + `\n${t("sel.total")} : ${money(total)}` : `• ${t("msg.empty")}`;
   msg.value = `${t("msg.hello")}\n${t("msg.ask")}\n${lines}\n${t("msg.thanks")}`;
   msg.dir = LANG === "ar" ? "rtl" : "ltr";
   if (dlg.open && openId) syncAdd();
@@ -789,6 +801,7 @@ function fillSheet(id){
   const o = document.getElementById("dOrigin");
   if (p.where){ o.hidden = false; o.textContent = t("dlg.origin") + p.where[LANG]; } else { o.hidden = true; }
   document.getElementById("dLine").textContent = p.line[LANG];
+  document.getElementById("dPrice").textContent = money(p.price);
   document.getElementById("dPyr").innerHTML = [["dlg.top", p.top], ["dlg.heart", p.heart], ["dlg.base", p.base]].map(([lab, notes], i) =>
     `<div class="tier">${tierIcon(i)}<span class="t-lab">${esc(t(lab))}</span><span class="t-notes">${notes.map(n => esc(note(n))).join(LANG === "ar" ? "، " : ", ")}</span></div>`).join("");
   syncAdd();
