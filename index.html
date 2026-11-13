@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Inscentia Fragrances</title>
-<meta name="description" content="Inscentia Fragrances : les parfums Ibraheem Al Qurashi à Casablanca. Collections Diamond et Tobacco, maison fondée à La Mecque en 1929.">
+<meta name="description" content="Inscentia Fragrances : les parfums Ibraheem Al Qurashi et Assaf à Casablanca. Diamond, Tobacco, muscs, coffrets et bakhoor.">
 <meta name="author" content="Rayane Gourja">
 <meta name="color-scheme" content="only light">
 <meta name="theme-color" content="#F2EFF3">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Inscentia Fragrances">
 <meta property="og:title" content="Inscentia Fragrances">
-<meta property="og:description" content="Inscentia Fragrances : les parfums Ibraheem Al Qurashi à Casablanca. Collections Diamond et Tobacco, maison fondée à La Mecque en 1929.">
+<meta property="og:description" content="Inscentia Fragrances : les parfums Ibraheem Al Qurashi et Assaf à Casablanca. Diamond, Tobacco, muscs, coffrets et bakhoor.">
 <meta property="og:url" content="https://inscentiafragrances.github.io/">
 <meta property="og:image" content="https://inscentiafragrances.github.io/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -162,6 +162,21 @@ p{margin:0}
 .stage{position:relative;overflow:hidden;display:grid;place-items:center;aspect-ratio:4/5;max-width:100%;background:var(--surface);background:color-mix(in oklab, var(--c) 16%, var(--surface))}
 .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .card:hover .stage img{transform:scale(1.045)}
+[hidden]{display:none !important}
+.art{width:52%;max-height:76%;height:auto;display:block;overflow:visible;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.d-stage .art{width:min(170px,42%);max-height:none}
+.art .a-body{fill:var(--c);fill-opacity:.62;stroke:var(--ink);stroke-opacity:.28;stroke-width:1}
+.art .a-lid{fill:var(--c);fill-opacity:.9;stroke:var(--ink);stroke-opacity:.28;stroke-width:1}
+.art .a-cap{fill:var(--ink);fill-opacity:.78}
+.art .a-neck{fill:var(--ink);fill-opacity:.32}
+.art .a-label{fill:var(--surface);fill-opacity:.7}
+.art .a-band{fill:var(--ink);fill-opacity:.2}
+.art .a-hi{stroke:#fff;stroke-opacity:.55;stroke-width:3;stroke-linecap:round;fill:none}
+.art :is(.a-bow,.a-smoke){fill:none;stroke:var(--ink);stroke-opacity:.4;stroke-width:1.4;stroke-linecap:round}
+.card:hover .art{transform:translateY(-3px)}
+.c-meta bdi{white-space:nowrap}
+html[lang="ar"] .group-head h3[data-i18n]{font-style:normal}
+.pyr-soon{margin:0;padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted);font-style:italic}
 .soon{position:absolute;inset-inline-start:12px;bottom:10px;font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .c-body{display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px;flex:1}
 .c-meta{font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
@@ -325,10 +340,10 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
   <canvas id="smoke" aria-hidden="true"></canvas>
   <div class="wrap hero-in">
     <div class="hero-txt">
-      <p class="ar" lang="ar" dir="rtl">عطور إبراهيم القرشي</p>
-      <p class="eyebrow" data-i18n="hero.eyebrow">Parfums Ibraheem Al Qurashi · Casablanca</p>
+      <p class="ar" lang="ar" dir="rtl">عطور إبراهيم القرشي وعساف</p>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Parfums Ibraheem Al Qurashi &amp; Assaf · Casablanca</p>
       <h1 class="word ls">Inscentia<span class="word-sub ls">Fragrances</span></h1>
-      <p class="lead" data-i18n="hero.lead">Quinze parfums de la maison Ibraheem Al Qurashi, née à La Mecque en 1929. Neuf Diamond taillés comme des pierres précieuses, un Black Carbon, et cinq tabacs venus de cinq terres.</p>
+      <p class="lead" data-i18n="hero.lead">Les parfums de la maison Ibraheem Al Qurashi, née à La Mecque en 1929 : des Diamond taillés comme des pierres précieuses, cinq tabacs venus de cinq terres, des muscs, des coffrets et du bakhoor. Et une sélection de la maison saoudienne Assaf.</p>
       <div class="cta">
         <a class="btn" href="#collection" data-i18n="hero.cta1">Voir la collection</a>
         <a class="btn ghost" href="#maison" data-i18n="hero.cta2">La maison</a>
@@ -341,10 +356,10 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
   </div>
 </section>
 
-<section class="spectrum" aria-label="Les quinze parfums par couleur" data-i18n-aria="spec.aria">
+<section class="spectrum" aria-label="Les Diamond et les Tobacco par couleur" data-i18n-aria="spec.aria">
   <div class="wrap">
     <div class="spec-bar" id="spec"></div>
-    <div class="spec-cap"><span id="specName">Quinze parfums, quinze couleurs</span><span data-i18n="spec.hint">Touchez une couleur</span></div>
+    <div class="spec-cap"><span id="specName">Diamond et Tobacco, quinze couleurs</span><span data-i18n="spec.hint">Touchez une couleur</span></div>
   </div>
 </section>
 
@@ -361,7 +376,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     <div class="group" id="diamond">
       <div class="group-head">
         <h3>Diamond</h3>
-        <p class="desc" data-i18n="coll.d.desc">Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml.</p>
+        <p class="desc" data-i18n="coll.d.desc">Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml, Cullinan en 200 ml.</p>
         <span class="count" id="dCount"></span>
       </div>
       <div class="grid" id="dGrid"></div>
@@ -376,6 +391,33 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
       <ul class="rows" id="tRows"></ul>
     </div>
 
+    <div class="group" id="signatures">
+      <div class="group-head">
+        <h3 data-i18n="coll.s.title">Signatures</h3>
+        <p class="desc" data-i18n="coll.s.desc">Les muscs de la maison et une Dose de rose et de tabac. Des parfums de tous les jours, et un musc poudré pour les cheveux.</p>
+        <span class="count" id="sCount"></span>
+      </div>
+      <div class="grid" id="sGrid"></div>
+    </div>
+
+    <div class="group" id="coffrets">
+      <div class="group-head">
+        <h3 data-i18n="coll.c.title">Coffrets &amp; Bakhoor</h3>
+        <p class="desc" data-i18n="coll.c.desc">Des coffrets à offrir ou à partager, et le bakhoor de la maison pour parfumer l'intérieur.</p>
+        <span class="count" id="cCount"></span>
+      </div>
+      <div class="grid" id="cGrid"></div>
+    </div>
+
+    <div class="group" id="assaf">
+      <div class="group-head">
+        <h3>Assaf</h3>
+        <p class="desc" data-i18n="coll.a.desc">Une seconde maison saoudienne. Quatre floraux féminins et un frais masculin, en flacon de 100 ml.</p>
+        <span class="count" id="aCount"></span>
+      </div>
+      <div class="grid" id="aGrid"></div>
+    </div>
+
     <p class="empty" id="empty" hidden data-i18n="coll.empty">Aucun parfum dans cette famille pour le moment.</p>
   </div>
 </section>
@@ -387,7 +429,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
       <p class="eyebrow" data-i18n="maison.eyebrow">La maison</p>
       <h2 data-i18n="maison.title">De La Mecque à Casablanca</h2>
       <p data-i18n="maison.p1">Ibraheem Al Qurashi ouvre sa première boutique en 1929 à La Mecque, face à la Grande Mosquée. On y vend de l'oud, de l'ambre et des mélanges composés sur mesure. La maison s'installe ensuite à Djeddah et grandit autour de ce savoir-faire.</p>
-      <p data-i18n="maison.p2">Inscentia Fragrances présente à Casablanca une sélection de ses créations, des pierres de la collection Diamond aux tabacs d'origine.</p>
+      <p data-i18n="maison.p2">Inscentia Fragrances présente à Casablanca une sélection de ses créations, des pierres de la collection Diamond et des tabacs d'origine jusqu'aux muscs et au bakhoor, ainsi que plusieurs parfums de la maison Assaf.</p>
       <div class="signature">
         <span class="sig-name">Amal Chaidoub</span>
         <span class="sig-role" data-i18n="maison.sigrole">Fondatrice · Inscentia Fragrances</span>
@@ -431,7 +473,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
 <footer>
   <div class="wrap">
     <span class="f-brand">Inscentia Fragrances</span>
-    <span data-i18n="foot.line">Parfums Ibraheem Al Qurashi · Casablanca</span>
+    <span data-i18n="foot.line">Parfums Ibraheem Al Qurashi &amp; Assaf · Casablanca</span>
     <a class="f-ig" href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener"><span data-i18n="foot.ig">Instagram</span> · <bdi>@inscentia_fragrances</bdi></a>
     <a class="f-ig" href="https://wa.me/212667433678" target="_blank" rel="noopener"><span data-i18n="foot.wa">WhatsApp</span> · <bdi>+212&nbsp;667&nbsp;43&nbsp;36&nbsp;78</bdi></a>
     <span data-i18n="foot.credit">Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026</span>
@@ -479,7 +521,7 @@ const P = [
          en:"A bouquet of rose, lily and cherry blossom, resting on sandalwood.",
          ar:"باقة من الورد والزنبق وزهر الكرز، على قاعدة من خشب الصندل."},
    top:["Pivoine","Fleur d'oranger","Mandarine"], heart:["Rose","Lys","Fleur de cerisier"], base:["Santal","Musc blanc","Ambre"]},
-  {id:"cullinan-diamond", coll:"Diamond", name:"Cullinan Diamond", sub:"Iris", ml:150, price:579, color:"#D8CCB4", tags:["frais","boise"], photo:"img/cullinan-diamond.jpg", studio:true,
+  {id:"cullinan-diamond", coll:"Diamond", name:"Cullinan Diamond", sub:"Iris", ml:200, price:749, color:"#D8CCB4", tags:["frais","boise"], photo:"img/cullinan-diamond.jpg", studio:true,
    line:{fr:"Ananas et pamplemousse lumineux, puis le cèdre et l'iris pour une signature assurée.",
          en:"Bright pineapple and grapefruit, then cedar and iris for a confident signature.",
          ar:"أناناس وجريب فروت مشرقان، ثم الأرز والسوسن لبصمة واثقة."},
@@ -534,7 +576,80 @@ const P = [
    line:{fr:"Safran et caramel salé, puis un fond de café fumé, d'ambre et de patchouli.",
          en:"Saffron and salted caramel, then a base of smoked coffee, amber and patchouli.",
          ar:"زعفران وكراميل مملح، ثم قاعدة من القهوة المدخنة والعنبر والباتشولي."},
-   top:["Tabac arabe","Iris","Safran"], heart:["Caramel salé","Rose","Fève tonka"], base:["Musc","Ambre","Patchouli","Café fumé"]}
+   top:["Tabac arabe","Iris","Safran"], heart:["Caramel salé","Rose","Fève tonka"], base:["Musc","Ambre","Patchouli","Café fumé"]},
+
+  {id:"rose-tobacco", coll:"Signatures", label:"IBRAQ", name:"Rose Tobacco", sub:"Happiness Dose", ml:75, price:399, color:"#9E3B4A", art:"bottle", tags:["floral","gourmand"],
+   line:{fr:"Une dose de bonne humeur. La rose et l'encens, relevés de safran et de girofle, s'adoucissent dans le caramel, le cuir et le tabac.",
+         en:"A dose of happiness. Rose and incense, lifted by saffron and clove, soften into caramel, leather and tobacco.",
+         ar:"جرعة من السعادة. الورد والبخور، مع الزعفران والقرنفل، يلينان في الكراميل والجلد والتبغ."},
+   top:["Rose","Encens","Safran","Clou de girofle"], heart:["Santal","Caramel","Ambre","Cuir"], base:["Musc","Fève tonka","Vanille","Mousse de chêne","Tabac"]},
+  {id:"musk-luban", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Luban", ml:75, price:389, color:"#C9B79C", art:"bottle", tags:["boise"],
+   line:{fr:"L'encens et le musc, réchauffés de cannelle et de jasmin, sur un fond de vanille.",
+         en:"Frankincense and musk, warmed with cinnamon and jasmine, on a vanilla base.",
+         ar:"اللبان والمسك، تدفئهما القرفة والياسمين، على قاعدة من الفانيليا."},
+   top:["Oliban","Cannelle"], heart:["Jasmin","Musc"], base:["Patchouli","Vanille"]},
+  {id:"musk-abaq", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Abaq Al Rumman", ml:75, price:389, color:"#A3263A", art:"bottle", tags:["frais","gourmand"],
+   line:{fr:"Un musc fruité. Pomme et cassis en tête, puis le caramel, avant un fond de musc et de grenade.",
+         en:"A fruity musk. Apple and blackcurrant up top, then caramel, before a base of musk and pomegranate.",
+         ar:"مسك فاكهي. تفاح وكشمش أسود في المقدمة، ثم الكراميل، قبل قاعدة من المسك والرمان."},
+   top:["Bergamote","Cassis","Pomme"], heart:["Cèdre","Patchouli","Caramel"], base:["Musc","Ambre","Grenade"]},
+  {id:"musk-powder", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Powder", fmt:{fr:"Parfum cheveux", en:"Hair perfume", ar:"عطر الشعر"}, price:349, color:"#8FCBD0", art:"mist", tags:["floral"],
+   line:{fr:"Le musc poudré de la maison, en version pour les cheveux. Doux, propre et léger.",
+         en:"The house powdery musk, made for the hair. Soft, clean and light.",
+         ar:"مسك الدار البودري بنسخة للشعر. ناعم ونظيف وخفيف."},
+   top:["Jasmin","Ylang-ylang","Rose"], heart:["Cèdre","Lys","Ambre"], base:["Musc","Vanille","Fève tonka","Notes poudrées"]},
+
+  {id:"summer-ocean", coll:"Coffrets", label:"IBRAQ", name:"Summer Ocean", sub:"", fmt:{fr:"Coffret 3 × 100 ml", en:"Set 3 × 100 ml", ar:"طقم 3 × 100 مل"}, price:899, color:"#3E8FB0", art:"set", tags:["frais"],
+   line:{fr:"Trois eaux de parfum d'été inspirées des côtes : la fraîcheur de la mer, des fleurs et une chaleur ambrée.",
+         en:"Three summer eaux de parfum inspired by the coast: sea freshness, flowers and amber warmth.",
+         ar:"ثلاثة عطور صيفية مستوحاة من الشواطئ: انتعاش البحر والزهور ودفء العنبر."},
+   rows:[["dlg.contents", ["Ocean Whisper","Sunrise Melody","Red Coral"]]]},
+  {id:"irth", coll:"Coffrets", label:"IBRAQ", name:"Irth", sub:"Collection", fmt:{fr:"Coffret 3 × 100 ml", en:"Set 3 × 100 ml", ar:"طقم 3 × 100 مل"}, price:899, color:"#7A8B4A", art:"set", tags:["frais","boise"],
+   line:{fr:"Trois parfums inspirés du palmier : Jareed, vert et serein ; Nawa, doux et réconfortant ; Athaq, riche et chaleureux.",
+         en:"Three fragrances inspired by the palm tree: Jareed, green and serene; Nawa, soft and comforting; Athaq, rich and warm.",
+         ar:"ثلاثة عطور مستوحاة من النخلة: جريد، أخضر وهادئ؛ نوى، ناعم ومريح؛ عذق، غني ودافئ."},
+   rows:[["dlg.contents", ["Jareed","Nawa","Athaq"]]]},
+  {id:"lthr", coll:"Coffrets", label:"IBRAQ", name:"LTHR", sub:"Discovery", fmt:{fr:"Coffret 4 × 10 ml", en:"Set 4 × 10 ml", ar:"طقم 4 × 10 مل"}, price:339, color:"#6B4A33", art:"set", tags:["boise"],
+   line:{fr:"Quatre cuirs, quatre animaux : Vicuña, Masai, Malayan et Manta, en flacons de 10 ml pour tout essayer.",
+         en:"Four leathers, four animals: Vicuña, Masai, Malayan and Manta, in 10 ml bottles to try them all.",
+         ar:"أربعة عطور جلدية، أربعة حيوانات: Vicuña وMasai وMalayan وManta، في قوارير سعتها 10 مل لتجربتها كلها."},
+   rows:[["dlg.contents", ["Vicuña","Masai","Malayan","Manta"]]]},
+  {id:"cambodian-tiger", coll:"Coffrets", label:"IBRAQ", name:"Cambodian Tiger", sub:"", fmt:{fr:"Bakhoor", en:"Bakhoor", ar:"بخور"}, price:199, color:"#8A5A2B", art:"bakhoor", tags:["boise"],
+   line:{fr:"Un bakhoor boisé et profond pour parfumer la maison et les vêtements.",
+         en:"A deep, woody bakhoor to scent your home and clothes.",
+         ar:"بخور خشبي عميق لتعطير المنزل والملابس."},
+   rows:[["dlg.for", ["Maison","Vêtements"]], ["dlg.use", ["Sur charbon ou brûleur électrique"]]]},
+  {id:"oud-tabiy", coll:"Coffrets", label:"IBRAQ", name:"Oud Tabiy", sub:"Mohasan", fmt:{fr:"Oud à brûler", en:"Oud to burn", ar:"عود للتبخير"}, price:199, color:"#4A3426", art:"bakhoor", tags:["boise"],
+   line:{fr:"Des copeaux de oud naturel enrichi, à faire brûler pour une fumée ronde et chaude.",
+         en:"Enriched natural oud chips, to burn for a round, warm smoke.",
+         ar:"رقائق عود طبيعي محسّن، تُبخَّر لدخان دافئ ومستدير."},
+   rows:[["dlg.for", ["Maison","Vêtements"]], ["dlg.use", ["Sur charbon ou brûleur électrique"]]]},
+
+  {id:"pink-lady", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Pink", sub:"Lady", ml:100, price:319, color:"#E7A1B5", art:"bottle", tags:["floral","gourmand"],
+   line:{fr:"Un floral féminin. La bergamote s'ouvre sur la fleur d'oranger et les fleurs blanches, puis la vanille et le patchouli.",
+         en:"A feminine floral. Bergamot opens onto orange blossom and white flowers, then vanilla and patchouli.",
+         ar:"عطر زهري أنثوي. يتفتح البرغموت على زهر البرتقال والزهور البيضاء، ثم الفانيليا والباتشولي."},
+   top:["Bergamote"], heart:["Fleur d'oranger","Fleurs blanches"], base:["Patchouli","Vanille"]},
+  {id:"miss-sakura", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Miss", sub:"Sakura", ml:100, price:319, color:"#F0BFCD", art:"bottle", tags:["floral"],
+   line:{fr:"La fleur de cerisier en pleine floraison, sur une ouverture de cerise et de mandarine et un fond de musc blanc.",
+         en:"Cherry blossom in full bloom, over an opening of cherry and mandarin and a white musk base.",
+         ar:"زهر الكرز في أوج تفتحه، على افتتاح من الكرز واليوسفي وقاعدة من المسك الأبيض."},
+   top:["Cerise","Mandarine","Bergamote"], heart:["Fleur de cerisier","Rose","Jasmin"], base:["Musc blanc","Vanille","Santal"]},
+  {id:"lady-supreme", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Lady", sub:"Supreme", ml:100, price:319, color:"#B7889E", art:"bottle", tags:["floral"],
+   line:{fr:"Un floral féminin, vif à l'ouverture, chaud et enveloppant au fond.",
+         en:"A feminine floral, lively at first, warm and enveloping at the base.",
+         ar:"عطر زهري أنثوي، حيوي في البداية، دافئ ومحيط في القاعدة."},
+   rows:[]},
+  {id:"miss-flora", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Miss", sub:"Flora", ml:100, price:319, color:"#F0B27A", art:"bottle", tags:["floral"],
+   line:{fr:"Fleur d'oranger et amande en ouverture, puis le jasmin, la violette et l'abricot sur un fond de santal.",
+         en:"Orange blossom and almond to open, then jasmine, violet and apricot on a sandalwood base.",
+         ar:"زهر البرتقال واللوز في الافتتاح، ثم الياسمين والبنفسج والمشمش على قاعدة من خشب الصندل."},
+   top:["Fleur d'oranger","Amande"], heart:["Jasmin","Violette","Abricot"], base:["Santal","Musc"]},
+  {id:"frankel-silver", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Frankel", sub:"Silver", ml:100, price:299, color:"#AEB9C4", art:"bottle", tags:["frais"],
+   line:{fr:"Un frais masculin. Orange et citron doux, un cœur de thé vert, un fond boisé et musqué.",
+         en:"A fresh masculine. Orange and sweet lemon, a green tea heart, a woody, musky base.",
+         ar:"عطر رجالي منعش. برتقال وليمون حلو، قلب من الشاي الأخضر، وقاعدة خشبية مسكية."},
+   top:["Orange","Citron doux"], heart:["Thé vert","Notes florales"], base:["Musc","Notes boisées"]}
 ];
 const byId = Object.fromEntries(P.map(p => [p.id, p]));
 const fullName = p => [p.name, p.sub].filter(Boolean).join(" ");
@@ -561,7 +676,11 @@ const NOTES = {
   "Tabac espagnol":["Spanish tobacco","تبغ إسباني"], "Notes boisées":["Woody notes","نفحات خشبية"], "Chocolat noir":["Dark chocolate","شوكولاتة داكنة"],
   "Lilas":["Lilac","ليلك"], "Cannelle":["Cinnamon","قرفة"], "Tabac mexicain":["Mexican tobacco","تبغ مكسيكي"], "Narcisse":["Narcissus","نرجس"],
   "Litchi":["Lychee","ليتشي"], "Abricot":["Apricot","مشمش"], "Tabac grec":["Greek tobacco","تبغ يوناني"], "Tabac arabe":["Arabian tobacco","تبغ عربي"],
-  "Caramel salé":["Salted caramel","كراميل مملح"], "Café fumé":["Smoked coffee","قهوة مدخنة"]
+  "Caramel salé":["Salted caramel","كراميل مملح"], "Café fumé":["Smoked coffee","قهوة مدخنة"],
+  "Clou de girofle":["Clove","قرنفل"], "Caramel":["Caramel","كراميل"], "Tabac":["Tobacco","تبغ"], "Grenade":["Pomegranate","رمان"],
+  "Notes poudrées":["Powdery notes","نفحات بودرية"], "Fleurs blanches":["White flowers","زهور بيضاء"], "Violette":["Violet","بنفسج"],
+  "Orange":["Orange","برتقال"], "Citron doux":["Sweet lemon","ليمون حلو"], "Thé vert":["Green tea","شاي أخضر"], "Notes florales":["Floral notes","نفحات زهرية"],
+  "Maison":["Home","المنزل"], "Vêtements":["Clothes","الملابس"], "Sur charbon ou brûleur électrique":["On charcoal or an electric burner","على الفحم أو مبخرة كهربائية"]
 };
 
 /* ---------- interface text ---------- */
@@ -569,19 +688,23 @@ const T = {
   fr:{
     "lang.aria":"Langue", "mode.toDark":"Passer en mode sombre", "mode.toLight":"Passer en mode clair",
     "beta":"Bêta", "nav.maison":"La maison", "nav.sel":"Sélection",
-    "hero.eyebrow":"Parfums Ibraheem Al Qurashi · Casablanca",
-    "hero.lead":"Quinze parfums de la maison Ibraheem Al Qurashi, née à La Mecque en 1929. Neuf Diamond taillés comme des pierres précieuses, un Black Carbon, et cinq tabacs venus de cinq terres.",
+    "hero.eyebrow":"Parfums Ibraheem Al Qurashi & Assaf · Casablanca",
+    "hero.lead":"Les parfums de la maison Ibraheem Al Qurashi, née à La Mecque en 1929 : des Diamond taillés comme des pierres précieuses, cinq tabacs venus de cinq terres, des muscs, des coffrets et du bakhoor. Et une sélection de la maison saoudienne Assaf.",
     "hero.cta1":"Voir la collection", "hero.cta2":"La maison",
     "hero.alt":"Les flacons Emerald Soul, Nude Coral, Purple Heart et White Regent posés dans le sable devant un feu",
-    "spec.aria":"Les quinze parfums par couleur", "spec.default":"Quinze parfums, quinze couleurs", "spec.hint":"Touchez une couleur",
+    "spec.aria":"Les Diamond et les Tobacco par couleur", "spec.default":"Diamond et Tobacco, quinze couleurs", "spec.hint":"Touchez une couleur",
     "coll.eyebrow":"Catalogue", "coll.title":"La collection", "fam.aria":"Filtrer par famille olfactive",
     "fam.all":"Tout", "fam.frais":"Frais", "fam.floral":"Floral", "fam.boise":"Boisé & oud", "fam.gourmand":"Gourmand & ambré",
-    "coll.d.desc":"Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml.",
+    "coll.d.desc":"Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml, Cullinan en 200 ml.",
     "coll.t.desc":"Cinq tabacs, cinq origines. Des compositions chaudes et ambrées, en flacon de 100 ml.",
+    "coll.s.title":"Signatures", "coll.s.desc":"Les muscs de la maison et une Dose de rose et de tabac. Des parfums de tous les jours, et un musc poudré pour les cheveux.",
+    "coll.c.title":"Coffrets & Bakhoor", "coll.c.desc":"Des coffrets à offrir ou à partager, et le bakhoor de la maison pour parfumer l'intérieur.",
+    "coll.a.desc":"Une seconde maison saoudienne. Quatre floraux féminins et un frais masculin, en flacon de 100 ml.",
+    "dlg.contents":"Contenu", "dlg.for":"Pour", "dlg.use":"Usage", "dlg.pyrsoon":"Pyramide olfactive à venir.",
     "coll.empty":"Aucun parfum dans cette famille pour le moment.",
     "maison.city":"La Mecque", "maison.eyebrow":"La maison", "maison.title":"De La Mecque à Casablanca",
     "maison.p1":"Ibraheem Al Qurashi ouvre sa première boutique en 1929 à La Mecque, face à la Grande Mosquée. On y vend de l'oud, de l'ambre et des mélanges composés sur mesure. La maison s'installe ensuite à Djeddah et grandit autour de ce savoir-faire.",
-    "maison.p2":"Inscentia Fragrances présente à Casablanca une sélection de ses créations, des pierres de la collection Diamond aux tabacs d'origine.",
+    "maison.p2":"Inscentia Fragrances présente à Casablanca une sélection de ses créations, des pierres de la collection Diamond et des tabacs d'origine jusqu'aux muscs et au bakhoor, ainsi que plusieurs parfums de la maison Assaf.",
     "maison.sigrole":"Fondatrice · Inscentia Fragrances", "maison.cap":"La collection réunie · Diamond, Black Carbon et Tobacco",
     "maison.alt":"Les parfums Inscentia Fragrances alignés sous une arche marocaine lumineuse : les dix Diamond en une rangée, les cinq Tobacco devant",
     "order.eyebrow":"Commande", "order.title":"Votre sélection",
@@ -589,7 +712,7 @@ const T = {
     "order.todo":"à compléter", "order.ig.label":"Instagram", "order.city":"Ville", "order.cityval":"Casablanca, Maroc",
     "order.empty":"Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».",
     "order.msglabel":"Message à envoyer", "order.copy":"Copier le message", "order.ig":"Écrire sur Instagram", "order.wa":"Envoyer sur WhatsApp",
-    "foot.line":"Parfums Ibraheem Al Qurashi · Casablanca", "foot.ig":"Instagram", "foot.wa":"WhatsApp",
+    "foot.line":"Parfums Ibraheem Al Qurashi & Assaf · Casablanca", "foot.ig":"Instagram", "foot.wa":"WhatsApp",
     "foot.credit":"Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026",
     "dlg.close":"Fermer", "dlg.price":"Prix · bientôt", "dlg.add":"Ajouter à ma sélection", "dlg.remove":"Retirer de ma sélection",
     "dlg.top":"Tête", "dlg.heart":"Cœur", "dlg.base":"Fond", "dlg.origin":"Origine : ",
@@ -601,19 +724,23 @@ const T = {
   en:{
     "lang.aria":"Language", "mode.toDark":"Switch to dark mode", "mode.toLight":"Switch to light mode",
     "beta":"Beta", "nav.maison":"The house", "nav.sel":"Selection",
-    "hero.eyebrow":"Ibraheem Al Qurashi perfumes · Casablanca",
-    "hero.lead":"Fifteen fragrances from the house of Ibraheem Al Qurashi, founded in Mecca in 1929. Nine Diamonds cut like precious stones, a Black Carbon, and five tobaccos from five lands.",
+    "hero.eyebrow":"Ibraheem Al Qurashi & Assaf perfumes · Casablanca",
+    "hero.lead":"Fragrances from the house of Ibraheem Al Qurashi, founded in Mecca in 1929: Diamonds cut like precious stones, five tobaccos from five lands, musks, gift sets and bakhoor. Plus a selection from the Saudi house Assaf.",
     "hero.cta1":"View the collection", "hero.cta2":"The house",
     "hero.alt":"Emerald Soul, Nude Coral, Purple Heart and White Regent bottles standing in the sand in front of a fire",
-    "spec.aria":"The fifteen fragrances by colour", "spec.default":"Fifteen fragrances, fifteen colours", "spec.hint":"Tap a colour",
+    "spec.aria":"Diamond and Tobacco by colour", "spec.default":"Diamond and Tobacco, fifteen colours", "spec.hint":"Tap a colour",
     "coll.eyebrow":"Catalogue", "coll.title":"The collection", "fam.aria":"Filter by fragrance family",
     "fam.all":"All", "fam.frais":"Fresh", "fam.floral":"Floral", "fam.boise":"Woody & oud", "fam.gourmand":"Gourmand & amber",
-    "coll.d.desc":"Nine Diamonds and Black Carbon, the material diamonds are born from. Each fragrance bears the name of a stone and comes in a 150 ml bottle.",
+    "coll.d.desc":"Nine Diamonds and Black Carbon, the material diamonds are born from. Each fragrance bears the name of a stone and comes in a 150 ml bottle, Cullinan in 200 ml.",
     "coll.t.desc":"Five tobaccos, five origins. Warm, amber compositions in 100 ml bottles.",
+    "coll.s.title":"Signatures", "coll.s.desc":"The house musks and a Dose of rose and tobacco. Everyday fragrances, plus a powdery musk for the hair.",
+    "coll.c.title":"Sets & Bakhoor", "coll.c.desc":"Gift sets to give or share, and the house bakhoor to scent your home.",
+    "coll.a.desc":"A second Saudi house. Four feminine florals and one fresh masculine, in 100 ml bottles.",
+    "dlg.contents":"Contents", "dlg.for":"For", "dlg.use":"Use", "dlg.pyrsoon":"Fragrance notes coming soon.",
     "coll.empty":"No fragrance in this family yet.",
     "maison.city":"Mecca", "maison.eyebrow":"The house", "maison.title":"From Mecca to Casablanca",
     "maison.p1":"Ibraheem Al Qurashi opened his first shop in Mecca in 1929, facing the Grand Mosque. It sold oud, amber and made-to-measure blends. The house then moved to Jeddah and grew around this craft.",
-    "maison.p2":"Inscentia Fragrances brings a selection of its creations to Casablanca, from the stones of the Diamond collection to the origin tobaccos.",
+    "maison.p2":"Inscentia Fragrances brings a selection of its creations to Casablanca, from the stones of the Diamond collection and the origin tobaccos to musks and bakhoor, along with several fragrances from the house of Assaf.",
     "maison.sigrole":"Founder · Inscentia Fragrances", "maison.cap":"The collection together · Diamond, Black Carbon and Tobacco",
     "maison.alt":"Inscentia Fragrances perfumes lined up under a glowing Moroccan arch: the ten Diamonds in a row, the five Tobaccos in front",
     "order.eyebrow":"Order", "order.title":"Your selection",
@@ -621,7 +748,7 @@ const T = {
     "order.todo":"coming soon", "order.ig.label":"Instagram", "order.city":"City", "order.cityval":"Casablanca, Morocco",
     "order.empty":"Your selection is empty. Open a fragrance and choose “Add to my selection”.",
     "order.msglabel":"Message to send", "order.copy":"Copy the message", "order.ig":"Message us on Instagram", "order.wa":"Send on WhatsApp",
-    "foot.line":"Ibraheem Al Qurashi perfumes · Casablanca", "foot.ig":"Instagram", "foot.wa":"WhatsApp",
+    "foot.line":"Ibraheem Al Qurashi & Assaf perfumes · Casablanca", "foot.ig":"Instagram", "foot.wa":"WhatsApp",
     "foot.credit":"House founded by Amal Chaidoub · Website by Rayane Gourja · © 2026",
     "dlg.close":"Close", "dlg.price":"Price · soon", "dlg.add":"Add to my selection", "dlg.remove":"Remove from my selection",
     "dlg.top":"Top", "dlg.heart":"Heart", "dlg.base":"Base", "dlg.origin":"Origin: ",
@@ -633,19 +760,23 @@ const T = {
   ar:{
     "lang.aria":"اللغة", "mode.toDark":"التبديل إلى الوضع الداكن", "mode.toLight":"التبديل إلى الوضع الفاتح",
     "beta":"تجريبي", "nav.maison":"الدار", "nav.sel":"اختياري",
-    "hero.eyebrow":"عطور إبراهيم القرشي · الدار البيضاء",
-    "hero.lead":"خمسة عشر عطرًا من دار إبراهيم القرشي، التي تأسست في مكة سنة 1929. تسعة عطور Diamond مصقولة كالأحجار الكريمة، وعطر Black Carbon، وخمسة أنواع من التبغ من خمس أراضٍ.",
+    "hero.eyebrow":"عطور إبراهيم القرشي وعساف · الدار البيضاء",
+    "hero.lead":"عطور دار إبراهيم القرشي، التي تأسست في مكة سنة 1929: عطور Diamond مصقولة كالأحجار الكريمة، وخمسة أنواع من التبغ من خمس أراضٍ، ومسك وأطقم هدايا وبخور. ومختارات من دار عساف السعودية.",
     "hero.cta1":"اكتشف المجموعة", "hero.cta2":"الدار",
     "hero.alt":"قوارير Emerald Soul وNude Coral وPurple Heart وWhite Regent على الرمال أمام نار",
-    "spec.aria":"العطور الخمسة عشر حسب اللون", "spec.default":"خمسة عشر عطرًا، خمسة عشر لونًا", "spec.hint":"المس لونًا",
+    "spec.aria":"عطور Diamond وTobacco حسب اللون", "spec.default":"Diamond وTobacco، خمسة عشر لونًا", "spec.hint":"المس لونًا",
     "coll.eyebrow":"الكتالوج", "coll.title":"المجموعة", "fam.aria":"التصفية حسب العائلة العطرية",
     "fam.all":"الكل", "fam.frais":"منعش", "fam.floral":"زهري", "fam.boise":"خشبي وعود", "fam.gourmand":"حلو وعنبري",
-    "coll.d.desc":"تسعة عطور Diamond وعطر Black Carbon، المادة التي يولد منها الألماس. يحمل كل عطر اسم حجر كريم ويأتي في قارورة سعتها 150 مل.",
+    "coll.d.desc":"تسعة عطور Diamond وعطر Black Carbon، المادة التي يولد منها الألماس. يحمل كل عطر اسم حجر كريم ويأتي في قارورة سعتها 150 مل، وCullinan في 200 مل.",
     "coll.t.desc":"خمسة أنواع من التبغ، خمسة أصول. تركيبات دافئة وعنبرية في قوارير سعتها 100 مل.",
+    "coll.s.title":"توقيعات الدار", "coll.s.desc":"مسك الدار وجرعة من الورد والتبغ. عطور لكل يوم، ومسك بودري للشعر.",
+    "coll.c.title":"أطقم وبخور", "coll.c.desc":"أطقم للإهداء أو المشاركة، وبخور الدار لتعطير المنزل.",
+    "coll.a.desc":"دار سعودية ثانية. أربعة عطور زهرية نسائية وعطر رجالي منعش، في قوارير سعتها 100 مل.",
+    "dlg.contents":"المحتوى", "dlg.for":"لـ", "dlg.use":"الاستخدام", "dlg.pyrsoon":"الهرم العطري قريبًا.",
     "coll.empty":"لا يوجد عطر في هذه العائلة حاليًا.",
     "maison.city":"مكة المكرمة", "maison.eyebrow":"الدار", "maison.title":"من مكة إلى الدار البيضاء",
     "maison.p1":"افتتح إبراهيم القرشي أول متجر له في مكة سنة 1929، مقابل المسجد الحرام. كان يبيع العود والعنبر وخلطات تُركَّب حسب الطلب. ثم انتقلت الدار إلى جدة ونمت حول هذه الحرفة.",
-    "maison.p2":"تقدّم Inscentia Fragrances في الدار البيضاء مختارات من إبداعاتها، من أحجار مجموعة Diamond إلى أنواع التبغ الأصيلة.",
+    "maison.p2":"تقدّم Inscentia Fragrances في الدار البيضاء مختارات من إبداعاتها، من أحجار مجموعة Diamond وأنواع التبغ الأصيلة إلى المسك والبخور، إلى جانب عدة عطور من دار عساف.",
     "maison.sigrole":"المؤسِّسة · Inscentia Fragrances", "maison.cap":"المجموعة كاملة · Diamond وBlack Carbon وTobacco",
     "maison.alt":"عطور Inscentia Fragrances مصطفة تحت قوس مغربي مضيء: عطور Diamond العشرة في صف واحد، وعطور Tobacco الخمسة في الأمام",
     "order.eyebrow":"الطلب", "order.title":"اختيارك",
@@ -653,7 +784,7 @@ const T = {
     "order.todo":"قريبًا", "order.ig.label":"إنستغرام", "order.city":"المدينة", "order.cityval":"الدار البيضاء، المغرب",
     "order.empty":"اختيارك فارغ. افتح عطرًا واختر «أضف إلى اختياري».",
     "order.msglabel":"الرسالة المراد إرسالها", "order.copy":"انسخ الرسالة", "order.ig":"راسلنا على إنستغرام", "order.wa":"أرسل عبر واتساب",
-    "foot.line":"عطور إبراهيم القرشي · الدار البيضاء", "foot.ig":"إنستغرام", "foot.wa":"واتساب",
+    "foot.line":"عطور إبراهيم القرشي وعساف · الدار البيضاء", "foot.ig":"إنستغرام", "foot.wa":"واتساب",
     "foot.credit":"دار أسستها Amal Chaidoub · الموقع من إنشاء Rayane Gourja · © 2026",
     "dlg.close":"إغلاق", "dlg.price":"السعر · قريبًا", "dlg.add":"أضف إلى اختياري", "dlg.remove":"أزل من اختياري",
     "dlg.top":"المقدمة", "dlg.heart":"القلب", "dlg.base":"القاعدة", "dlg.origin":"الأصل: ",
@@ -672,7 +803,9 @@ let LANG = ["fr","en","ar"].includes(load(KEY_LANG)) ? load(KEY_LANG) : "fr";
 let MODE = load(KEY_MODE) === "dark" ? "dark" : "light";
 const t = k => (T[LANG] && T[LANG][k] != null) ? T[LANG][k] : (T.fr[k] != null ? T.fr[k] : k);
 const note = n => LANG === "fr" ? n : ((NOTES[n] || [n, n])[LANG === "en" ? 0 : 1]);
-const ml = p => `${p.ml} ${t("ml")}`;
+const ml = p => p.fmt ? p.fmt[LANG] : `${p.ml} ${t("ml")}`;
+const orderName = p => (p.brand ? p.brand + " " : "") + fullName(p);
+const cardNotes = p => p.top ? [p.top[0], p.heart[0], p.base[0]] : (p.rows && p.rows.length ? p.rows[0][1].slice(0, 3) : []);
 const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202F");
 const money = n => LANG === "ar" ? `${fmt(n)} درهم` : `${fmt(n)} DH`;
 function count(n){
@@ -682,19 +815,28 @@ function count(n){
 }
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
+/* ---------- drawn placeholder until the real photo arrives ---------- */
+const ART = {
+  bottle:`<rect x="40" y="10" width="20" height="14" rx="2" class="a-cap"/><rect x="45" y="24" width="10" height="8" class="a-neck"/><rect x="22" y="32" width="56" height="80" rx="10" class="a-body"/><rect x="34" y="62" width="32" height="20" rx="1" class="a-label"/><path d="M31 44v54" class="a-hi"/>`,
+  mist:`<rect x="45" y="5" width="10" height="7" rx="2" class="a-cap"/><rect x="40" y="12" width="20" height="18" rx="3" class="a-cap"/><rect x="32" y="30" width="36" height="86" rx="8" class="a-body"/><rect x="38" y="64" width="24" height="18" rx="1" class="a-label"/><path d="M39 40v62" class="a-hi"/>`,
+  set:`<path d="M50 34c-9-13-22-8-13 0M50 34c9-13 22-8 13 0" class="a-bow"/><rect x="12" y="46" width="76" height="62" rx="2" class="a-body"/><rect x="8" y="34" width="84" height="16" rx="2" class="a-lid"/><rect x="46" y="34" width="8" height="74" class="a-band"/>`,
+  bakhoor:`<path d="M46 30c-9-8 7-13-1-22M56 32c-6-6 6-11 0-18" class="a-smoke"/><ellipse cx="50" cy="42" rx="20" ry="4" class="a-neck"/><path d="M24 42h52l-7 20H31z" class="a-lid"/><rect x="45" y="62" width="10" height="14" class="a-neck"/><rect x="31" y="76" width="38" height="24" rx="2" class="a-body"/><rect x="36" y="81" width="28" height="14" rx="1" class="a-label"/><rect x="26" y="100" width="48" height="5" rx="1.5" class="a-cap"/>`
+};
+const artSVG = k => `<svg class="art" viewBox="0 0 100 125" aria-hidden="true">${ART[k] || ART.bottle}</svg>`;
+
 /* ---------- collection ---------- */
 const dGrid = document.getElementById("dGrid");
 const tRows = document.getElementById("tRows");
 const chips = document.getElementById("chips");
 let current = "all";
 function cardHTML(p){
-  const pic = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}" width="640" height="800" loading="lazy">` : `<span class="soon">${esc(t("card.soon"))}</span>`;
+  const pic = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}" width="640" height="800" loading="lazy">` : `${artSVG(p.art)}<span class="soon">${esc(t("card.soon"))}</span>`;
   return `<button class="card" type="button" data-id="${p.id}" style="--c:${p.color}">
     <span class="stage${p.studio ? " studio" : ""}">${pic}</span>
     <span class="c-body">
-      <span class="c-meta"><bdi>${p.coll}</bdi> · <bdi>${esc(ml(p))}</bdi></span>
+      <span class="c-meta"><bdi>${esc(p.label || p.coll)}</bdi> · <bdi>${esc(ml(p))}</bdi></span>
       <span class="c-name">${esc(p.name)}${p.sub ? `<i>${esc(p.sub)}</i>` : ""}</span>
-      <span class="c-notes">${[p.top[0], p.heart[0], p.base[0]].map(n => esc(note(n))).join(" · ")}</span>
+      <span class="c-notes">${cardNotes(p).map(n => esc(note(n))).join(" · ")}</span>
       <span class="c-price"><b>${esc(money(p.price))}</b></span>
     </span>
   </button>`;
@@ -714,22 +856,33 @@ function renderChips(){
     return `<button class="chip" type="button" data-f="${f}" aria-pressed="${f === current}">${esc(t("fam." + f))} <span>${n}</span></button>`;
   }).join("");
 }
+const inColl = c => P.filter(p => p.coll === c).map(p => p.id);
+const GROUPS = [
+  {sec:"diamond", list:"dGrid", cnt:"dCount", kind:"card", ids:DIAMOND_ORDER},
+  {sec:"tobacco", list:"tRows", cnt:"tCount", kind:"row", ids:inColl("Tobacco")},
+  {sec:"signatures", list:"sGrid", cnt:"sCount", kind:"card", ids:inColl("Signatures")},
+  {sec:"coffrets", list:"cGrid", cnt:"cCount", kind:"card", ids:inColl("Coffrets")},
+  {sec:"assaf", list:"aGrid", cnt:"aCount", kind:"card", ids:inColl("Assaf")}
+];
 function renderCollection(){
-  dGrid.innerHTML = DIAMOND_ORDER.map(id => cardHTML(byId[id])).join("");
-  tRows.innerHTML = P.filter(p => p.coll === "Tobacco").map(rowHTML).join("");
+  GROUPS.forEach(g => { document.getElementById(g.list).innerHTML = g.ids.map(id => g.kind === "row" ? rowHTML(byId[id]) : cardHTML(byId[id])).join(""); });
   applyFilter(current);
 }
 function applyFilter(f){
   current = f;
   chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.f === f ? "true" : "false"));
-  let dn = 0, tn = 0;
-  dGrid.querySelectorAll(".card").forEach(el => { const ok = f === "all" || byId[el.dataset.id].tags.includes(f); el.hidden = !ok; if (ok) dn++; });
-  tRows.querySelectorAll("li").forEach(li => { const ok = f === "all" || byId[li.querySelector(".row").dataset.id].tags.includes(f); li.hidden = !ok; if (ok) tn++; });
-  document.getElementById("diamond").hidden = dn === 0;
-  document.getElementById("tobacco").hidden = tn === 0;
-  document.getElementById("dCount").textContent = count(dn);
-  document.getElementById("tCount").textContent = count(tn);
-  document.getElementById("empty").hidden = dn + tn > 0;
+  let total = 0;
+  GROUPS.forEach(g => {
+    let n = 0;
+    document.getElementById(g.list).querySelectorAll("[data-id]").forEach(el => {
+      const ok = f === "all" || byId[el.dataset.id].tags.includes(f);
+      (g.kind === "row" ? el.closest("li") : el).hidden = !ok; if (ok) n++;
+    });
+    document.getElementById(g.sec).hidden = n === 0;
+    document.getElementById(g.cnt).textContent = count(n);
+    total += n;
+  });
+  document.getElementById("empty").hidden = total > 0;
 }
 chips.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) applyFilter(c.dataset.f); });
 
@@ -763,7 +916,7 @@ function renderSel(){
     const p = byId[id];
     const li = document.createElement("li");
     li.style.setProperty("--c", p.color);
-    li.innerHTML = `<span class="dot"></span><span class="nm">${esc(fullName(p))}<small>${esc(ml(p))} · ${esc(money(p.price))}</small></span><button class="rm" type="button">${esc(t("sel.remove"))}</button>`;
+    li.innerHTML = `<span class="dot"></span><span class="nm">${esc(orderName(p))}<small>${esc(ml(p))} · ${esc(money(p.price))}</small></span><button class="rm" type="button">${esc(t("sel.remove"))}</button>`;
     li.querySelector(".rm").addEventListener("click", () => toggleSel(id));
     list.appendChild(li);
   });
@@ -771,7 +924,7 @@ function renderSel(){
   const total = sel.reduce((a, id) => a + byId[id].price, 0);
   const tot = document.getElementById("selTotal"); tot.hidden = !sel.length;
   tot.innerHTML = `<span>${esc(t("sel.total"))}</span><b>${esc(money(total))}</b>`;
-  const lines = sel.length ? sel.map(id => `• ${fullName(byId[id])} (${ml(byId[id])}) · ${money(byId[id].price)}`).join("\n") + `\n${t("sel.total")} : ${money(total)}` : `• ${t("msg.empty")}`;
+  const lines = sel.length ? sel.map(id => `• ${orderName(byId[id])} (${ml(byId[id])}) · ${money(byId[id].price)}`).join("\n") + `\n${t("sel.total")} : ${money(total)}` : `• ${t("msg.empty")}`;
   msg.value = `${t("msg.hello")}\n${t("msg.ask")}\n${lines}\n${t("msg.thanks")}`;
   msg.dir = LANG === "ar" ? "rtl" : "ltr";
   document.getElementById("wa").href = "https://wa.me/212667433678?text=" + encodeURIComponent(msg.value);
@@ -798,15 +951,17 @@ function fillSheet(id){
   const st = document.getElementById("dStage");
   st.classList.toggle("photo", !!p.photo);
   st.classList.toggle("studio", !!p.studio);
-  st.innerHTML = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}">` : "";
-  document.getElementById("dMeta").innerHTML = `<bdi>${p.coll}</bdi> · <bdi>${esc(ml(p))}</bdi>`;
+  st.innerHTML = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}">` : artSVG(p.art);
+  document.getElementById("dMeta").innerHTML = `<bdi>${esc(p.label || p.coll)}</bdi> · <bdi>${esc(ml(p))}</bdi>`;
   document.getElementById("dName").innerHTML = p.coll === "Tobacco" ? esc(fullName(p)) : `${esc(p.name)}${p.sub ? `<i>${esc(p.sub)}</i>` : ""}`;
   const o = document.getElementById("dOrigin");
   if (p.where){ o.hidden = false; o.textContent = t("dlg.origin") + p.where[LANG]; } else { o.hidden = true; }
   document.getElementById("dLine").textContent = p.line[LANG];
   document.getElementById("dPrice").textContent = money(p.price);
-  document.getElementById("dPyr").innerHTML = [["dlg.top", p.top], ["dlg.heart", p.heart], ["dlg.base", p.base]].map(([lab, notes], i) =>
-    `<div class="tier">${tierIcon(i)}<span class="t-lab">${esc(t(lab))}</span><span class="t-notes">${notes.map(n => esc(note(n))).join(LANG === "ar" ? "، " : ", ")}</span></div>`).join("");
+  const tiers = p.top ? [["dlg.top", p.top], ["dlg.heart", p.heart], ["dlg.base", p.base]] : (p.rows || []);
+  document.getElementById("dPyr").innerHTML = tiers.length ? tiers.map(([lab, notes], i) =>
+    `<div class="tier">${tierIcon(i % 3)}<span class="t-lab">${esc(t(lab))}</span><span class="t-notes">${notes.map(n => esc(note(n))).join(LANG === "ar" ? "، " : ", ")}</span></div>`).join("")
+    : `<p class="pyr-soon">${esc(t("dlg.pyrsoon"))}</p>`;
   syncAdd();
 }
 function openSheet(id){
