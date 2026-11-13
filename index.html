@@ -399,7 +399,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     <div class="group" id="signatures">
       <div class="group-head">
         <h3 data-i18n="coll.s.title">Signatures</h3>
-        <p class="desc" data-i18n="coll.s.desc">Les muscs de la maison et une Dose de rose et de tabac. Des parfums de tous les jours, et un musc poudré pour les cheveux.</p>
+        <p class="desc" data-i18n="coll.s.desc">Les muscs de la maison et une Dose de rose et de tabac. Des parfums de tous les jours, et un musc poudré en spray pour le corps et les cheveux.</p>
         <span class="count" id="sCount"></span>
       </div>
       <div class="grid" id="sGrid"></div>
@@ -598,11 +598,11 @@ const P = [
          en:"A fruity musk. Apple and blackcurrant up top, then caramel, before a base of musk and pomegranate.",
          ar:"مسك فاكهي. تفاح وكشمش أسود في المقدمة، ثم الكراميل، قبل قاعدة من المسك والرمان."},
    top:["Bergamote","Cassis","Pomme"], heart:["Cèdre","Patchouli","Caramel"], base:["Musc","Ambre","Grenade"]},
-  {id:"musk-powder", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Powder", fmt:{fr:"Parfum cheveux", en:"Hair perfume", ar:"عطر الشعر"}, price:349, color:"#8FCBD0", art:"mist", tags:["floral"],
-   line:{fr:"Le musc poudré de la maison, en version pour les cheveux. Doux, propre et léger.",
-         en:"The house powdery musk, made for the hair. Soft, clean and light.",
-         ar:"مسك الدار البودري بنسخة للشعر. ناعم ونظيف وخفيف."},
-   top:["Jasmin","Ylang-ylang","Rose"], heart:["Cèdre","Lys","Ambre"], base:["Musc","Vanille","Fève tonka","Notes poudrées"]},
+  {id:"musk-powder", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Powder", ml:125, fmt:{fr:"Spray 125 ml", en:"Spray 125 ml", ar:"بخاخ 125 مل"}, price:329, color:"#8FCBD0", art:"mist", tags:["floral"], photo:"img/musk-powder.jpg", studio:true,
+   line:{fr:"Le musc poudré de la maison en spray léger, pour le corps, les cheveux et les vêtements. Doux, propre et frais.",
+         en:"The house powdery musk as a light all-over spray for body, hair and clothes. Soft, clean and fresh.",
+         ar:"مسك الدار البودري ببخاخ خفيف للجسم والشعر والملابس. ناعم ونظيف ومنعش."},
+   top:["Jasmin","Ylang-ylang","Rose"], heart:["Cèdre","Iris","Ambre"], base:["Musc","Vanille","Fève tonka","Notes poudrées"]},
 
   {id:"summer-ocean", coll:"Coffrets", label:"IBRAQ", name:"Summer Ocean", sub:"", fmt:{fr:"Coffret 3 × 100 ml", en:"Set 3 × 100 ml", ar:"طقم 3 × 100 مل"}, price:899, color:"#3E8FB0", art:"set", ext:"https://usaibrahimalqurashi.com/cdn/shop/files/Summer_Ocean_23d7b82e-ba51-49a0-86da-36d24451f89b.jpg?v=1789630234&width=1000", tags:["frais"],
    line:{fr:"Trois eaux de parfum d'été inspirées des côtes : la fraîcheur de la mer, des fleurs et une chaleur ambrée.",
@@ -697,7 +697,7 @@ const T = {
     "fam.all":"Tout", "fam.frais":"Frais", "fam.floral":"Floral", "fam.boise":"Boisé & oud", "fam.gourmand":"Gourmand & ambré",
     "coll.d.desc":"Neuf Diamond et Black Carbon, la matière dont naissent les diamants. Chaque parfum porte le nom d'une pierre et se présente en flacon de 150 ml, Cullinan en 200 ml.",
     "coll.t.desc":"Cinq tabacs, cinq origines. Des compositions chaudes et ambrées, en flacon de 100 ml.",
-    "coll.s.title":"Signatures", "coll.s.desc":"Les muscs de la maison et une Dose de rose et de tabac. Des parfums de tous les jours, et un musc poudré pour les cheveux.",
+    "coll.s.title":"Signatures", "coll.s.desc":"Les muscs de la maison et une Dose de rose et de tabac. Des parfums de tous les jours, et un musc poudré en spray pour le corps et les cheveux.",
     "coll.c.title":"Coffrets & Bakhoor", "coll.c.desc":"Des coffrets à offrir ou à partager, et le bakhoor de la maison pour parfumer l'intérieur.",
     "coll.a.desc":"Une seconde maison saoudienne. Quatre floraux féminins et un frais masculin, en flacon de 100 ml.",
     "dlg.contents":"Contenu", "dlg.for":"Pour", "dlg.use":"Usage", "dlg.pyrsoon":"Pyramide olfactive à venir.",
@@ -733,7 +733,7 @@ const T = {
     "fam.all":"All", "fam.frais":"Fresh", "fam.floral":"Floral", "fam.boise":"Woody & oud", "fam.gourmand":"Gourmand & amber",
     "coll.d.desc":"Nine Diamonds and Black Carbon, the material diamonds are born from. Each fragrance bears the name of a stone and comes in a 150 ml bottle, Cullinan in 200 ml.",
     "coll.t.desc":"Five tobaccos, five origins. Warm, amber compositions in 100 ml bottles.",
-    "coll.s.title":"Signatures", "coll.s.desc":"The house musks and a Dose of rose and tobacco. Everyday fragrances, plus a powdery musk for the hair.",
+    "coll.s.title":"Signatures", "coll.s.desc":"The house musks and a Dose of rose and tobacco. Everyday fragrances, plus a powdery musk all-over spray for body and hair.",
     "coll.c.title":"Sets & Bakhoor", "coll.c.desc":"Gift sets to give or share, and the house bakhoor to scent your home.",
     "coll.a.desc":"A second Saudi house. Four feminine florals and one fresh masculine, in 100 ml bottles.",
     "dlg.contents":"Contents", "dlg.for":"For", "dlg.use":"Use", "dlg.pyrsoon":"Fragrance notes coming soon.",
@@ -769,7 +769,7 @@ const T = {
     "fam.all":"الكل", "fam.frais":"منعش", "fam.floral":"زهري", "fam.boise":"خشبي وعود", "fam.gourmand":"حلو وعنبري",
     "coll.d.desc":"تسعة عطور Diamond وعطر Black Carbon، المادة التي يولد منها الألماس. يحمل كل عطر اسم حجر كريم ويأتي في قارورة سعتها 150 مل، وCullinan في 200 مل.",
     "coll.t.desc":"خمسة أنواع من التبغ، خمسة أصول. تركيبات دافئة وعنبرية في قوارير سعتها 100 مل.",
-    "coll.s.title":"توقيعات الدار", "coll.s.desc":"مسك الدار وجرعة من الورد والتبغ. عطور لكل يوم، ومسك بودري للشعر.",
+    "coll.s.title":"توقيعات الدار", "coll.s.desc":"مسك الدار وجرعة من الورد والتبغ. عطور لكل يوم، ومسك بودري ببخاخ للجسم والشعر.",
     "coll.c.title":"أطقم وبخور", "coll.c.desc":"أطقم للإهداء أو المشاركة، وبخور الدار لتعطير المنزل.",
     "coll.a.desc":"دار سعودية ثانية. أربعة عطور زهرية نسائية وعطر رجالي منعش، في قوارير سعتها 100 مل.",
     "dlg.contents":"المحتوى", "dlg.for":"لـ", "dlg.use":"الاستخدام", "dlg.pyrsoon":"الهرم العطري قريبًا.",
