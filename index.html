@@ -176,6 +176,11 @@ p{margin:0}
 .card:hover .art{transform:translateY(-3px)}
 .c-meta bdi{white-space:nowrap}
 html[lang="ar"] .group-head h3[data-i18n]{font-style:normal}
+.ext .art{display:none}
+.ext.noimg .art{display:block}
+.stage.ext img{object-fit:contain;padding:8%}
+.d-stage.ext{position:relative;min-height:320px}
+.d-stage.ext img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:28px;mix-blend-mode:multiply}
 .pyr-soon{margin:0;padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted);font-style:italic}
 .soon{position:absolute;inset-inline-start:12px;bottom:10px;font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .c-body{display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px;flex:1}
@@ -578,17 +583,17 @@ const P = [
          ar:"زعفران وكراميل مملح، ثم قاعدة من القهوة المدخنة والعنبر والباتشولي."},
    top:["Tabac arabe","Iris","Safran"], heart:["Caramel salé","Rose","Fève tonka"], base:["Musc","Ambre","Patchouli","Café fumé"]},
 
-  {id:"rose-tobacco", coll:"Signatures", label:"IBRAQ", name:"Rose Tobacco", sub:"Happiness Dose", ml:75, price:399, color:"#9E3B4A", art:"bottle", tags:["floral","gourmand"],
+  {id:"rose-tobacco", coll:"Signatures", label:"IBRAQ", name:"Rose Tobacco", sub:"Happiness Dose", ml:75, price:399, color:"#9E3B4A", art:"bottle", ext:"https://fathyibrahim.com/cdn/shop/files/39fa4a93-986d-4c97-bcdb-2b73f91abd37-1000x1000-0xJQqZSbW8FEG5faJ11Vmu8aPmz4EgO1cMvPvhM3.webp?v=1775475787&width=1000", tags:["floral","gourmand"],
    line:{fr:"Une dose de bonne humeur. La rose et l'encens, relevés de safran et de girofle, s'adoucissent dans le caramel, le cuir et le tabac.",
          en:"A dose of happiness. Rose and incense, lifted by saffron and clove, soften into caramel, leather and tobacco.",
          ar:"جرعة من السعادة. الورد والبخور، مع الزعفران والقرنفل، يلينان في الكراميل والجلد والتبغ."},
    top:["Rose","Encens","Safran","Clou de girofle"], heart:["Santal","Caramel","Ambre","Cuir"], base:["Musc","Fève tonka","Vanille","Mousse de chêne","Tabac"]},
-  {id:"musk-luban", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Luban", ml:75, price:389, color:"#C9B79C", art:"bottle", tags:["boise"],
+  {id:"musk-luban", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Luban", ml:75, price:389, color:"#C9B79C", art:"bottle", ext:"https://cdn.shopify.com/s/files/1/0288/5228/9622/files/74B21B08-7A5B-4E21-B10C-EBE872FACACA.jpg?v=1767313302&width=1000", tags:["boise"],
    line:{fr:"L'encens et le musc, réchauffés de cannelle et de jasmin, sur un fond de vanille.",
          en:"Frankincense and musk, warmed with cinnamon and jasmine, on a vanilla base.",
          ar:"اللبان والمسك، تدفئهما القرفة والياسمين، على قاعدة من الفانيليا."},
    top:["Oliban","Cannelle"], heart:["Jasmin","Musc"], base:["Patchouli","Vanille"]},
-  {id:"musk-abaq", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Abaq Al Rumman", ml:75, price:389, color:"#A3263A", art:"bottle", tags:["frais","gourmand"],
+  {id:"musk-abaq", coll:"Signatures", label:"IBRAQ", name:"Musk", sub:"Abaq Al Rumman", ml:75, price:389, color:"#A3263A", art:"bottle", ext:"https://cdn.shopify.com/s/files/1/0668/2837/0083/files/6._b84f0805-dc38-4053-8c25-0e25f7e8b577.jpg?v=1784550918&width=1000", tags:["frais","gourmand"],
    line:{fr:"Un musc fruité. Pomme et cassis en tête, puis le caramel, avant un fond de musc et de grenade.",
          en:"A fruity musk. Apple and blackcurrant up top, then caramel, before a base of musk and pomegranate.",
          ar:"مسك فاكهي. تفاح وكشمش أسود في المقدمة، ثم الكراميل، قبل قاعدة من المسك والرمان."},
@@ -599,43 +604,43 @@ const P = [
          ar:"مسك الدار البودري بنسخة للشعر. ناعم ونظيف وخفيف."},
    top:["Jasmin","Ylang-ylang","Rose"], heart:["Cèdre","Lys","Ambre"], base:["Musc","Vanille","Fève tonka","Notes poudrées"]},
 
-  {id:"summer-ocean", coll:"Coffrets", label:"IBRAQ", name:"Summer Ocean", sub:"", fmt:{fr:"Coffret 3 × 100 ml", en:"Set 3 × 100 ml", ar:"طقم 3 × 100 مل"}, price:899, color:"#3E8FB0", art:"set", tags:["frais"],
+  {id:"summer-ocean", coll:"Coffrets", label:"IBRAQ", name:"Summer Ocean", sub:"", fmt:{fr:"Coffret 3 × 100 ml", en:"Set 3 × 100 ml", ar:"طقم 3 × 100 مل"}, price:899, color:"#3E8FB0", art:"set", ext:"https://usaibrahimalqurashi.com/cdn/shop/files/Summer_Ocean_23d7b82e-ba51-49a0-86da-36d24451f89b.jpg?v=1789630234&width=1000", tags:["frais"],
    line:{fr:"Trois eaux de parfum d'été inspirées des côtes : la fraîcheur de la mer, des fleurs et une chaleur ambrée.",
          en:"Three summer eaux de parfum inspired by the coast: sea freshness, flowers and amber warmth.",
          ar:"ثلاثة عطور صيفية مستوحاة من الشواطئ: انتعاش البحر والزهور ودفء العنبر."},
    rows:[["dlg.contents", ["Ocean Whisper","Sunrise Melody","Red Coral"]]]},
-  {id:"irth", coll:"Coffrets", label:"IBRAQ", name:"Irth", sub:"Collection", fmt:{fr:"Coffret 3 × 100 ml", en:"Set 3 × 100 ml", ar:"طقم 3 × 100 مل"}, price:899, color:"#7A8B4A", art:"set", tags:["frais","boise"],
+  {id:"irth", coll:"Coffrets", label:"IBRAQ", name:"Irth", sub:"Collection", fmt:{fr:"Coffret 3 × 100 ml", en:"Set 3 × 100 ml", ar:"طقم 3 × 100 مل"}, price:899, color:"#7A8B4A", art:"set", ext:"https://cdn.files.salla.network/products/190040130/e142af09-9d9b-4e7e-860f-22197e69b065-original.webp", tags:["frais","boise"],
    line:{fr:"Trois parfums inspirés du palmier : Jareed, vert et serein ; Nawa, doux et réconfortant ; Athaq, riche et chaleureux.",
          en:"Three fragrances inspired by the palm tree: Jareed, green and serene; Nawa, soft and comforting; Athaq, rich and warm.",
          ar:"ثلاثة عطور مستوحاة من النخلة: جريد، أخضر وهادئ؛ نوى، ناعم ومريح؛ عذق، غني ودافئ."},
    rows:[["dlg.contents", ["Jareed","Nawa","Athaq"]]]},
-  {id:"lthr", coll:"Coffrets", label:"IBRAQ", name:"LTHR", sub:"Discovery", fmt:{fr:"Coffret 4 × 10 ml", en:"Set 4 × 10 ml", ar:"طقم 4 × 10 مل"}, price:339, color:"#6B4A33", art:"set", tags:["boise"],
+  {id:"lthr", coll:"Coffrets", label:"IBRAQ", name:"LTHR", sub:"Discovery", fmt:{fr:"Coffret 4 × 10 ml", en:"Set 4 × 10 ml", ar:"طقم 4 × 10 مل"}, price:339, color:"#6B4A33", art:"set", ext:"https://rozalinda.net/cdn/shop/files/Mini-LTHR-Collection2.webp?v=1776648581&width=1000", tags:["boise"],
    line:{fr:"Quatre cuirs, quatre animaux : Vicuña, Masai, Malayan et Manta, en flacons de 10 ml pour tout essayer.",
          en:"Four leathers, four animals: Vicuña, Masai, Malayan and Manta, in 10 ml bottles to try them all.",
          ar:"أربعة عطور جلدية، أربعة حيوانات: Vicuña وMasai وMalayan وManta، في قوارير سعتها 10 مل لتجربتها كلها."},
    rows:[["dlg.contents", ["Vicuña","Masai","Malayan","Manta"]]]},
-  {id:"cambodian-tiger", coll:"Coffrets", label:"IBRAQ", name:"Cambodian Tiger", sub:"Oud Tabiy Mohasan", fmt:{fr:"Bakhoor 30 g", en:"Bakhoor 30 g", ar:"بخور 30 غ"}, price:199, color:"#8A5A2B", art:"bakhoor", tags:["boise"],
+  {id:"cambodian-tiger", coll:"Coffrets", label:"IBRAQ", name:"Cambodian Tiger", sub:"Oud Tabiy Mohasan", fmt:{fr:"Bakhoor 30 g", en:"Bakhoor 30 g", ar:"بخور 30 غ"}, price:199, color:"#8A5A2B", art:"bakhoor", ext:"https://usaibrahimalqurashi.com/cdn/shop/files/BAKHOORCAMBODIANTIGER-OUDTABI_YMOHASAN30gm.webp?v=1751367503&width=1000", tags:["boise"],
    line:{fr:"Un bakhoor au oud naturel enrichi, boisé et profond, pour parfumer la maison et les vêtements.",
          en:"A bakhoor of enriched natural oud, deep and woody, to scent your home and clothes.",
          ar:"بخور من العود الطبيعي المحسّن، خشبي وعميق، لتعطير المنزل والملابس."},
    rows:[["dlg.for", ["Maison","Vêtements"]], ["dlg.use", ["Sur charbon ou brûleur électrique"]]]},
 
-  {id:"pink-lady", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Pink", sub:"Lady", ml:100, price:319, color:"#E7A1B5", art:"bottle", tags:["floral","gourmand"],
+  {id:"pink-lady", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Pink", sub:"Lady", ml:100, price:319, color:"#E7A1B5", art:"bottle", ext:"https://fathyibrahim.com/cdn/shop/files/PINKLADY_ae5ca433-cbe5-4699-a883-80e2750850ba.webp?v=1781062759&width=1000", tags:["floral","gourmand"],
    line:{fr:"Un floral féminin. La bergamote s'ouvre sur la fleur d'oranger et les fleurs blanches, puis la vanille et le patchouli.",
          en:"A feminine floral. Bergamot opens onto orange blossom and white flowers, then vanilla and patchouli.",
          ar:"عطر زهري أنثوي. يتفتح البرغموت على زهر البرتقال والزهور البيضاء، ثم الفانيليا والباتشولي."},
    top:["Bergamote"], heart:["Fleur d'oranger","Fleurs blanches"], base:["Patchouli","Vanille"]},
-  {id:"miss-sakura", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Miss", sub:"Sakura", ml:100, price:319, color:"#F0BFCD", art:"bottle", tags:["floral"],
+  {id:"miss-sakura", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Miss", sub:"Sakura", ml:100, price:319, color:"#F0BFCD", art:"bottle", ext:"https://fathyibrahim.com/cdn/shop/files/ec5de55f-b592-487f-85ec-6402bdb9eb0a-1000x1000-OLIyazZVHNuRK7xDAaRp8QM7IGwflSXnaaTVEric.webp?v=1760018189&width=1000", tags:["floral"],
    line:{fr:"La fleur de cerisier en pleine floraison, sur une ouverture de cerise et de mandarine et un fond de musc blanc.",
          en:"Cherry blossom in full bloom, over an opening of cherry and mandarin and a white musk base.",
          ar:"زهر الكرز في أوج تفتحه، على افتتاح من الكرز واليوسفي وقاعدة من المسك الأبيض."},
    top:["Cerise","Mandarine","Bergamote"], heart:["Fleur de cerisier","Rose","Jasmin"], base:["Musc blanc","Vanille","Santal"]},
-  {id:"lady-supreme", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Lady", sub:"Supreme", ml:100, price:299, color:"#B7889E", art:"bottle", tags:["floral"],
+  {id:"lady-supreme", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Lady", sub:"Supreme", ml:100, price:299, color:"#B7889E", art:"bottle", ext:"https://www.xmart.jo/cdn/shop/files/5_c5783f51-05f9-4754-a893-481c6f34c847.webp?v=1784487287&width=1000", tags:["floral"],
    line:{fr:"Un floral féminin, vif à l'ouverture, chaud et enveloppant au fond.",
          en:"A feminine floral, lively at first, warm and enveloping at the base.",
          ar:"عطر زهري أنثوي، حيوي في البداية، دافئ ومحيط في القاعدة."},
    rows:[]},
-  {id:"miss-flora", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Miss", sub:"Flora", ml:100, price:319, color:"#F0B27A", art:"bottle", tags:["floral"],
+  {id:"miss-flora", coll:"Assaf", brand:"Assaf", label:"Assaf", name:"Miss", sub:"Flora", ml:100, price:319, color:"#F0B27A", art:"bottle", ext:"https://cdn.shopify.com/s/files/1/0668/2837/0083/files/1_e535fe69-5ebf-46c7-8d28-62b79e4948c5.webp?v=1784487294&width=1000", tags:["floral"],
    line:{fr:"Fleur d'oranger et amande en ouverture, puis le jasmin, la violette et l'abricot sur un fond de santal.",
          en:"Orange blossom and almond to open, then jasmine, violet and apricot on a sandalwood base.",
          ar:"زهر البرتقال واللوز في الافتتاح، ثم الياسمين والبنفسج والمشمش على قاعدة من خشب الصندل."},
@@ -818,6 +823,14 @@ const ART = {
   bakhoor:`<path d="M46 30c-9-8 7-13-1-22M56 32c-6-6 6-11 0-18" class="a-smoke"/><ellipse cx="50" cy="42" rx="20" ry="4" class="a-neck"/><path d="M24 42h52l-7 20H31z" class="a-lid"/><rect x="45" y="62" width="10" height="14" class="a-neck"/><rect x="31" y="76" width="38" height="24" rx="2" class="a-body"/><rect x="36" y="81" width="28" height="14" rx="1" class="a-label"/><rect x="26" y="100" width="48" height="5" rx="1.5" class="a-cap"/>`
 };
 const artSVG = k => `<svg class="art" viewBox="0 0 100 125" aria-hidden="true">${ART[k] || ART.bottle}</svg>`;
+/* Photos shown from the brand / retailer page until our own files replace them; the drawing comes back if one fails to load */
+const extImg = (p, lazy) => `${artSVG(p.art)}<img class="x" src="${p.ext}" alt="${esc(fullName(p))}"${lazy ? ' loading="lazy"' : ""} decoding="async" referrerpolicy="no-referrer">`;
+function wireExt(root){
+  root.querySelectorAll("img.x").forEach(img => {
+    const fail = () => { if (img.parentNode) img.parentNode.classList.add("noimg"); img.remove(); };
+    if (img.complete && !img.naturalWidth) fail(); else img.addEventListener("error", fail, {once:true});
+  });
+}
 
 /* ---------- collection ---------- */
 const dGrid = document.getElementById("dGrid");
@@ -825,9 +838,9 @@ const tRows = document.getElementById("tRows");
 const chips = document.getElementById("chips");
 let current = "all";
 function cardHTML(p){
-  const pic = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}" width="640" height="800" loading="lazy">` : `${artSVG(p.art)}<span class="soon">${esc(t("card.soon"))}</span>`;
+  const pic = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}" width="640" height="800" loading="lazy">` : p.ext ? extImg(p, true) : `${artSVG(p.art)}<span class="soon">${esc(t("card.soon"))}</span>`;
   return `<button class="card" type="button" data-id="${p.id}" style="--c:${p.color}">
-    <span class="stage${p.studio ? " studio" : ""}">${pic}</span>
+    <span class="stage${p.studio || p.ext ? " studio" : ""}${p.ext ? " ext" : ""}">${pic}</span>
     <span class="c-body">
       <span class="c-meta"><bdi>${esc(p.label || p.coll)}</bdi> · <bdi>${esc(ml(p))}</bdi></span>
       <span class="c-name">${esc(p.name)}${p.sub ? `<i>${esc(p.sub)}</i>` : ""}</span>
@@ -860,7 +873,7 @@ const GROUPS = [
   {sec:"assaf", list:"aGrid", cnt:"aCount", kind:"card", ids:inColl("Assaf")}
 ];
 function renderCollection(){
-  GROUPS.forEach(g => { document.getElementById(g.list).innerHTML = g.ids.map(id => g.kind === "row" ? rowHTML(byId[id]) : cardHTML(byId[id])).join(""); });
+  GROUPS.forEach(g => { const el = document.getElementById(g.list); el.innerHTML = g.ids.map(id => g.kind === "row" ? rowHTML(byId[id]) : cardHTML(byId[id])).join(""); wireExt(el); });
   applyFilter(current);
 }
 function applyFilter(f){
@@ -945,8 +958,11 @@ function fillSheet(id){
   dlg.style.setProperty("--c", p.color);
   const st = document.getElementById("dStage");
   st.classList.toggle("photo", !!p.photo);
-  st.classList.toggle("studio", !!p.studio);
-  st.innerHTML = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}">` : artSVG(p.art);
+  st.classList.toggle("studio", !!(p.studio || p.ext));
+  st.classList.toggle("ext", !!p.ext);
+  st.classList.remove("noimg");
+  st.innerHTML = p.photo ? `<img src="${p.photo}" alt="${esc(fullName(p))}">` : p.ext ? extImg(p, false) : artSVG(p.art);
+  wireExt(st);
   document.getElementById("dMeta").innerHTML = `<bdi>${esc(p.label || p.coll)}</bdi> · <bdi>${esc(ml(p))}</bdi>`;
   document.getElementById("dName").innerHTML = p.coll === "Tobacco" ? esc(fullName(p)) : `${esc(p.name)}${p.sub ? `<i>${esc(p.sub)}</i>` : ""}`;
   const o = document.getElementById("dOrigin");
