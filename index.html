@@ -230,7 +230,7 @@ p{margin:0}
 .sel-list li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
 .sel-list .dot{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(127,127,127,.25)}
 .sel-list .nm{font-family:var(--f-brand);font-size:1.1rem}
-.sel-list .nm small{font-family:var(--f-body);font-size:.75rem;color:var(--muted);margin-inline-start:8px}
+.sel-list .nm small{font-family:var(--f-body);font-size:.75rem;color:var(--muted);margin-inline-start:8px;unicode-bidi:isolate}
 .rm{border:0;background:none;cursor:pointer;color:var(--muted);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:6px}
 .rm:hover{color:var(--ink)}
 .sel-empty{color:var(--muted);font-style:italic}
@@ -405,9 +405,9 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     <div class="order-txt">
       <p class="eyebrow" data-i18n="order.eyebrow">Commande</p>
       <h2 data-i18n="order.title">Votre sélection</h2>
-      <p data-i18n="order.text">Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram. Nous vous confirmons la disponibilité et la livraison.</p>
+      <p data-i18n="order.text">Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur WhatsApp ou Instagram. Nous vous confirmons la disponibilité et la livraison.</p>
       <dl class="contact">
-        <div><dt>WhatsApp</dt><dd class="todo ltr" data-todo="à compléter" data-i18n-todo="order.todo">+212</dd></div>
+        <div><dt data-i18n="foot.wa">WhatsApp</dt><dd class="ltr"><a href="https://wa.me/212667433678" target="_blank" rel="noopener">+212&nbsp;667&nbsp;43&nbsp;36&nbsp;78</a></dd></div>
         <div><dt data-i18n="order.ig.label">Instagram</dt><dd class="ltr"><a href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener">@inscentia_fragrances</a></dd></div>
         <div><dt data-i18n="order.city">Ville</dt><dd data-i18n="order.cityval">Casablanca, Maroc</dd></div>
       </dl>
@@ -419,7 +419,8 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
       <label for="msg" data-i18n="order.msglabel">Message à envoyer</label>
       <textarea id="msg" readonly></textarea>
       <div class="copy-row">
-        <button class="btn" id="copy" type="button" data-i18n="order.copy">Copier le message</button>
+        <a class="btn" id="wa" href="https://wa.me/212667433678" target="_blank" rel="noopener" data-i18n="order.wa">Envoyer sur WhatsApp</a>
+        <button class="btn ghost" id="copy" type="button" data-i18n="order.copy">Copier le message</button>
         <a class="btn ghost" href="https://ig.me/m/inscentia_fragrances" target="_blank" rel="noopener" data-i18n="order.ig">Écrire sur Instagram</a>
         <span id="copyNote" role="status"></span>
       </div>
@@ -432,6 +433,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     <span class="f-brand">Inscentia Fragrances</span>
     <span data-i18n="foot.line">Parfums Ibraheem Al Qurashi · Casablanca</span>
     <a class="f-ig" href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener"><span data-i18n="foot.ig">Instagram</span> · <bdi>@inscentia_fragrances</bdi></a>
+    <a class="f-ig" href="https://wa.me/212667433678" target="_blank" rel="noopener"><span data-i18n="foot.wa">WhatsApp</span> · <bdi>+212&nbsp;667&nbsp;43&nbsp;36&nbsp;78</bdi></a>
     <span data-i18n="foot.credit">Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026</span>
   </div>
 </footer>
@@ -583,11 +585,11 @@ const T = {
     "maison.sigrole":"Fondatrice · Inscentia Fragrances", "maison.cap":"La collection réunie · Diamond, Black Carbon et Tobacco",
     "maison.alt":"Les parfums Inscentia Fragrances alignés sous une arche marocaine lumineuse : les dix Diamond en une rangée, les cinq Tobacco devant",
     "order.eyebrow":"Commande", "order.title":"Votre sélection",
-    "order.text":"Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur Instagram. Nous vous confirmons la disponibilité et la livraison.",
+    "order.text":"Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur WhatsApp ou Instagram. Nous vous confirmons la disponibilité et la livraison.",
     "order.todo":"à compléter", "order.ig.label":"Instagram", "order.city":"Ville", "order.cityval":"Casablanca, Maroc",
     "order.empty":"Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».",
-    "order.msglabel":"Message à envoyer", "order.copy":"Copier le message", "order.ig":"Écrire sur Instagram",
-    "foot.line":"Parfums Ibraheem Al Qurashi · Casablanca", "foot.ig":"Instagram",
+    "order.msglabel":"Message à envoyer", "order.copy":"Copier le message", "order.ig":"Écrire sur Instagram", "order.wa":"Envoyer sur WhatsApp",
+    "foot.line":"Parfums Ibraheem Al Qurashi · Casablanca", "foot.ig":"Instagram", "foot.wa":"WhatsApp",
     "foot.credit":"Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026",
     "dlg.close":"Fermer", "dlg.price":"Prix · bientôt", "dlg.add":"Ajouter à ma sélection", "dlg.remove":"Retirer de ma sélection",
     "dlg.top":"Tête", "dlg.heart":"Cœur", "dlg.base":"Fond", "dlg.origin":"Origine : ",
@@ -615,11 +617,11 @@ const T = {
     "maison.sigrole":"Founder · Inscentia Fragrances", "maison.cap":"The collection together · Diamond, Black Carbon and Tobacco",
     "maison.alt":"Inscentia Fragrances perfumes lined up under a glowing Moroccan arch: the ten Diamonds in a row, the five Tobaccos in front",
     "order.eyebrow":"Order", "order.title":"Your selection",
-    "order.text":"Open a fragrance, add it to your selection, then send us the message on Instagram. We'll confirm availability and delivery.",
+    "order.text":"Open a fragrance, add it to your selection, then send us the message on WhatsApp or Instagram. We'll confirm availability and delivery.",
     "order.todo":"coming soon", "order.ig.label":"Instagram", "order.city":"City", "order.cityval":"Casablanca, Morocco",
     "order.empty":"Your selection is empty. Open a fragrance and choose “Add to my selection”.",
-    "order.msglabel":"Message to send", "order.copy":"Copy the message", "order.ig":"Message us on Instagram",
-    "foot.line":"Ibraheem Al Qurashi perfumes · Casablanca", "foot.ig":"Instagram",
+    "order.msglabel":"Message to send", "order.copy":"Copy the message", "order.ig":"Message us on Instagram", "order.wa":"Send on WhatsApp",
+    "foot.line":"Ibraheem Al Qurashi perfumes · Casablanca", "foot.ig":"Instagram", "foot.wa":"WhatsApp",
     "foot.credit":"House founded by Amal Chaidoub · Website by Rayane Gourja · © 2026",
     "dlg.close":"Close", "dlg.price":"Price · soon", "dlg.add":"Add to my selection", "dlg.remove":"Remove from my selection",
     "dlg.top":"Top", "dlg.heart":"Heart", "dlg.base":"Base", "dlg.origin":"Origin: ",
@@ -647,11 +649,11 @@ const T = {
     "maison.sigrole":"المؤسِّسة · Inscentia Fragrances", "maison.cap":"المجموعة كاملة · Diamond وBlack Carbon وTobacco",
     "maison.alt":"عطور Inscentia Fragrances مصطفة تحت قوس مغربي مضيء: عطور Diamond العشرة في صف واحد، وعطور Tobacco الخمسة في الأمام",
     "order.eyebrow":"الطلب", "order.title":"اختيارك",
-    "order.text":"افتح عطرًا وأضفه إلى اختيارك، ثم أرسل إلينا الرسالة عبر إنستغرام. سنؤكد لك التوفّر والتوصيل.",
+    "order.text":"افتح عطرًا وأضفه إلى اختيارك، ثم أرسل إلينا الرسالة عبر واتساب أو إنستغرام. سنؤكد لك التوفّر والتوصيل.",
     "order.todo":"قريبًا", "order.ig.label":"إنستغرام", "order.city":"المدينة", "order.cityval":"الدار البيضاء، المغرب",
     "order.empty":"اختيارك فارغ. افتح عطرًا واختر «أضف إلى اختياري».",
-    "order.msglabel":"الرسالة المراد إرسالها", "order.copy":"انسخ الرسالة", "order.ig":"راسلنا على إنستغرام",
-    "foot.line":"عطور إبراهيم القرشي · الدار البيضاء", "foot.ig":"إنستغرام",
+    "order.msglabel":"الرسالة المراد إرسالها", "order.copy":"انسخ الرسالة", "order.ig":"راسلنا على إنستغرام", "order.wa":"أرسل عبر واتساب",
+    "foot.line":"عطور إبراهيم القرشي · الدار البيضاء", "foot.ig":"إنستغرام", "foot.wa":"واتساب",
     "foot.credit":"دار أسستها Amal Chaidoub · الموقع من إنشاء Rayane Gourja · © 2026",
     "dlg.close":"إغلاق", "dlg.price":"السعر · قريبًا", "dlg.add":"أضف إلى اختياري", "dlg.remove":"أزل من اختياري",
     "dlg.top":"المقدمة", "dlg.heart":"القلب", "dlg.base":"القاعدة", "dlg.origin":"الأصل: ",
@@ -772,6 +774,7 @@ function renderSel(){
   const lines = sel.length ? sel.map(id => `• ${fullName(byId[id])} (${ml(byId[id])}) · ${money(byId[id].price)}`).join("\n") + `\n${t("sel.total")} : ${money(total)}` : `• ${t("msg.empty")}`;
   msg.value = `${t("msg.hello")}\n${t("msg.ask")}\n${lines}\n${t("msg.thanks")}`;
   msg.dir = LANG === "ar" ? "rtl" : "ltr";
+  document.getElementById("wa").href = "https://wa.me/212667433678?text=" + encodeURIComponent(msg.value);
   if (dlg.open && openId) syncAdd();
 }
 
