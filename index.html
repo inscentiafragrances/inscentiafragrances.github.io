@@ -181,6 +181,17 @@ html[lang="ar"] .group-head h3[data-i18n]{font-style:normal}
 .stage.ext img{object-fit:contain;padding:8%}
 .d-stage.ext{position:relative;min-height:320px}
 .d-stage.ext img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:28px;mix-blend-mode:multiply}
+.wa-fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:40;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#1E8A57;color:#fff;box-shadow:0 10px 28px -10px rgba(20,60,40,.55),0 2px 6px rgba(0,0,0,.12);transition:transform .25s ease,box-shadow .25s ease}
+html[dir="rtl"] .wa-fab{right:auto;left:18px}
+.wa-fab:hover{transform:translateY(-2px) scale(1.04)}
+.wa-fab:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wa-fab svg{width:30px;height:30px;display:block}
+.wa-fab .b{fill:none;stroke:#fff;stroke-width:1.8;stroke-linejoin:round}
+.wa-fab .h{fill:#fff}
+.wa-count{position:absolute;top:-3px;right:-3px;min-width:21px;height:21px;padding:0 6px;border-radius:11px;display:grid;place-items:center;background:var(--ink);color:var(--on-ink);font:600 .72rem/1 var(--f-body);box-shadow:0 0 0 2px var(--bg)}
+html[dir="rtl"] .wa-count{right:auto;left:-3px}
+@media (prefers-reduced-motion:reduce){.wa-fab{transition:none}}
+footer{padding-bottom:72px}
 .pyr-soon{margin:0;padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted);font-style:italic}
 .soon{position:absolute;inset-inline-start:12px;bottom:10px;font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .c-body{display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px;flex:1}
@@ -452,7 +463,7 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     <div class="order-txt">
       <p class="eyebrow" data-i18n="order.eyebrow">Commande</p>
       <h2 data-i18n="order.title">Votre sélection</h2>
-      <p data-i18n="order.text">Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur WhatsApp ou Instagram. Nous vous confirmons la disponibilité et la livraison.</p>
+      <p data-i18n="order.text">Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur WhatsApp ou Instagram. Livraison, paiement, questions : tout se règle directement avec nous sur WhatsApp.</p>
       <dl class="contact">
         <div><dt data-i18n="foot.wa">WhatsApp</dt><dd class="ltr"><a href="https://wa.me/212667433678" target="_blank" rel="noopener">+212&nbsp;667&nbsp;43&nbsp;36&nbsp;78</a></dd></div>
         <div><dt data-i18n="order.ig.label">Instagram</dt><dd class="ltr"><a href="https://www.instagram.com/inscentia_fragrances/" target="_blank" rel="noopener">@inscentia_fragrances</a></dd></div>
@@ -484,6 +495,11 @@ html[lang="ar"] .maison-txt h2, html[lang="ar"] .coll-head h2, html[lang="ar"] .
     <span data-i18n="foot.credit">Maison fondée par Amal Chaidoub · Site créé par Rayane Gourja · © 2026</span>
   </div>
 </footer>
+
+<a class="wa-fab" id="waFab" href="https://wa.me/212667433678" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp" data-i18n-aria="fab.wa">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path class="b" d="M16 4.5A11.5 11.5 0 0 0 6 21.7L4.6 27.4l5.9-1.5A11.5 11.5 0 1 0 16 4.5z"/><path class="h" d="M12.1 10.4c.3-.5.6-.6.9-.6h.7c.2 0 .5.1.7.5l1 2.3c.1.3.1.6-.2.8l-.7.8c-.2.2-.2.4-.1.6.6 1.1 1.5 2 2.6 2.7.2.1.5.1.6-.1l.8-.9c.2-.2.5-.3.8-.2l2.2 1c.3.2.5.4.5.7 0 .9-.5 1.8-1.4 2.1-1 .4-2.4.3-4.6-.9-2.5-1.4-4.1-3.9-4.6-5-.6-1.4-.3-2.4.1-3.2z"/></svg>
+  <span class="wa-count" id="waCount" hidden></span>
+</a>
 
 <dialog id="dlg" aria-labelledby="dName">
   <div class="dlg-in">
@@ -708,7 +724,7 @@ const T = {
     "maison.sigrole":"Fondatrice · Inscentia Fragrances", "maison.cap":"La collection réunie · Diamond, Black Carbon et Tobacco",
     "maison.alt":"Les parfums Inscentia Fragrances alignés sous une arche marocaine lumineuse : les dix Diamond en une rangée, les cinq Tobacco devant",
     "order.eyebrow":"Commande", "order.title":"Votre sélection",
-    "order.text":"Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur WhatsApp ou Instagram. Nous vous confirmons la disponibilité et la livraison.",
+    "order.text":"Ouvrez un parfum, ajoutez-le à votre sélection, puis envoyez-nous le message ci-contre sur WhatsApp ou Instagram. Livraison, paiement, questions : tout se règle directement avec nous sur WhatsApp.",
     "order.todo":"à compléter", "order.ig.label":"Instagram", "order.city":"Ville", "order.cityval":"Casablanca, Maroc",
     "order.empty":"Votre sélection est vide. Ouvrez un parfum et choisissez « Ajouter à ma sélection ».",
     "order.msglabel":"Message à envoyer", "order.copy":"Copier le message", "order.ig":"Écrire sur Instagram", "order.wa":"Envoyer sur WhatsApp",
@@ -718,7 +734,7 @@ const T = {
     "dlg.top":"Tête", "dlg.heart":"Cœur", "dlg.base":"Fond", "dlg.origin":"Origine : ",
     "card.price":"Prix à venir", "card.soon":"Photo à venir", "row.go":"Découvrir", "sel.remove":"Retirer", "ml":"ml",
     "msg.hello":"Bonjour Inscentia Fragrances,", "msg.ask":"Je souhaiterais commander les parfums suivants :", "sel.total":"Total",
-    "msg.empty":"(ajoutez un parfum à votre sélection)", "msg.thanks":"Merci !",
+    "msg.empty":"(ajoutez un parfum à votre sélection)", "msg.thanks":"Merci !", "fab.wa":"Écrire sur WhatsApp", "fab.q":"J'ai une question sur vos parfums.",
     "copy.ok":"Message copié. Collez-le sur WhatsApp ou Instagram.", "copy.fb":"Texte sélectionné, copiez-le avec Ctrl+C ou un appui long."
   },
   en:{
@@ -744,7 +760,7 @@ const T = {
     "maison.sigrole":"Founder · Inscentia Fragrances", "maison.cap":"The collection together · Diamond, Black Carbon and Tobacco",
     "maison.alt":"Inscentia Fragrances perfumes lined up under a glowing Moroccan arch: the ten Diamonds in a row, the five Tobaccos in front",
     "order.eyebrow":"Order", "order.title":"Your selection",
-    "order.text":"Open a fragrance, add it to your selection, then send us the message on WhatsApp or Instagram. We'll confirm availability and delivery.",
+    "order.text":"Open a fragrance, add it to your selection, then send us the message on WhatsApp or Instagram. Delivery, payment, questions: we sort everything out with you directly on WhatsApp.",
     "order.todo":"coming soon", "order.ig.label":"Instagram", "order.city":"City", "order.cityval":"Casablanca, Morocco",
     "order.empty":"Your selection is empty. Open a fragrance and choose “Add to my selection”.",
     "order.msglabel":"Message to send", "order.copy":"Copy the message", "order.ig":"Message us on Instagram", "order.wa":"Send on WhatsApp",
@@ -754,7 +770,7 @@ const T = {
     "dlg.top":"Top", "dlg.heart":"Heart", "dlg.base":"Base", "dlg.origin":"Origin: ",
     "card.price":"Price coming soon", "card.soon":"Photo coming soon", "row.go":"Discover", "sel.remove":"Remove", "ml":"ml",
     "msg.hello":"Hello Inscentia Fragrances,", "msg.ask":"I would like to order the following fragrances:", "sel.total":"Total",
-    "msg.empty":"(add a fragrance to your selection)", "msg.thanks":"Thank you!",
+    "msg.empty":"(add a fragrance to your selection)", "msg.thanks":"Thank you!", "fab.wa":"Message us on WhatsApp", "fab.q":"I have a question about your fragrances.",
     "copy.ok":"Message copied. Paste it into WhatsApp or Instagram.", "copy.fb":"Text selected. Copy it with Ctrl+C or a long press."
   },
   ar:{
@@ -780,7 +796,7 @@ const T = {
     "maison.sigrole":"المؤسِّسة · Inscentia Fragrances", "maison.cap":"المجموعة كاملة · Diamond وBlack Carbon وTobacco",
     "maison.alt":"عطور Inscentia Fragrances مصطفة تحت قوس مغربي مضيء: عطور Diamond العشرة في صف واحد، وعطور Tobacco الخمسة في الأمام",
     "order.eyebrow":"الطلب", "order.title":"اختيارك",
-    "order.text":"افتح عطرًا وأضفه إلى اختيارك، ثم أرسل إلينا الرسالة عبر واتساب أو إنستغرام. سنؤكد لك التوفّر والتوصيل.",
+    "order.text":"افتح عطرًا وأضفه إلى اختيارك، ثم أرسل إلينا الرسالة عبر واتساب أو إنستغرام. التوصيل والدفع وأي سؤال: نتفق على كل شيء معك مباشرة عبر واتساب.",
     "order.todo":"قريبًا", "order.ig.label":"إنستغرام", "order.city":"المدينة", "order.cityval":"الدار البيضاء، المغرب",
     "order.empty":"اختيارك فارغ. افتح عطرًا واختر «أضف إلى اختياري».",
     "order.msglabel":"الرسالة المراد إرسالها", "order.copy":"انسخ الرسالة", "order.ig":"راسلنا على إنستغرام", "order.wa":"أرسل عبر واتساب",
@@ -790,7 +806,7 @@ const T = {
     "dlg.top":"المقدمة", "dlg.heart":"القلب", "dlg.base":"القاعدة", "dlg.origin":"الأصل: ",
     "card.price":"السعر قريبًا", "card.soon":"الصورة قريبًا", "row.go":"اكتشف", "sel.remove":"إزالة", "ml":"مل",
     "msg.hello":"مرحبًا Inscentia Fragrances،", "msg.ask":"أود طلب العطور التالية:", "sel.total":"المجموع",
-    "msg.empty":"(أضف عطرًا إلى اختيارك)", "msg.thanks":"شكرًا!",
+    "msg.empty":"(أضف عطرًا إلى اختيارك)", "msg.thanks":"شكرًا!", "fab.wa":"راسلنا على واتساب", "fab.q":"لدي سؤال عن عطوركم.",
     "copy.ok":"تم نسخ الرسالة. الصقها في واتساب أو إنستغرام.", "copy.fb":"تم تحديد النص. انسخه بـ Ctrl+C أو بضغطة مطولة."
   }
 };
@@ -936,6 +952,8 @@ function renderSel(){
   msg.value = `${t("msg.hello")}\n${t("msg.ask")}\n${lines}\n${t("msg.thanks")}`;
   msg.dir = LANG === "ar" ? "rtl" : "ltr";
   document.getElementById("wa").href = "https://wa.me/212667433678?text=" + encodeURIComponent(msg.value);
+  document.getElementById("waFab").href = "https://wa.me/212667433678?text=" + encodeURIComponent(sel.length ? msg.value : `${t("msg.hello")}\n${t("fab.q")}`);
+  const wc = document.getElementById("waCount"); wc.hidden = !sel.length; wc.textContent = sel.length;
   if (dlg.open && openId) syncAdd();
 }
 
